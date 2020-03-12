@@ -1,0 +1,124 @@
+@import './common.less' ;
+// 字体大小 12px - 36px
+.font-size(18, 6);
+// 行高 12px - 36px
+.line-height(18, 6);
+// 距离 1px - 100px
+.distance(100, 1);
+// 封装字体大小
+.font-size(@n, @i, @size: @i * 2) when (@i <= @n) {
+  .font-@{size} {
+    font-size: @i * 2px;
+  }
+  .font-size(@n, (@i + 1))
+}
+// 边距封装
+.distance(@n, @i, @dis: @i+1) when (@i <= @n) {
+  // 设置margin
+  .margin-@{dis} {
+    margin: @dis * 1px;
+  }
+  .margin-l-@{dis} {
+    margin-left: @dis * 1px;
+  }
+  .margin-r-@{dis} {
+    margin-right: @dis * 1px;
+  }
+  .margin-t-@{dis} {
+    margin-top: @dis * 1px;
+  }
+  .margin-b-@{dis} {
+    margin-bottom: @dis * 1px;
+  }
+  .margin-lr-@{dis} {
+    margin:0 @dis * 1px;
+  }
+  .margin-tb-@{dis} {
+    margin: @dis * 1px 0;
+  }
+  // 设置padding
+  .padding-@{dis} {
+    padding: @dis * 1px;
+  }
+  .padding-l-@{dis} {
+    padding-left: @dis * 1px;
+  }
+  .padding-r-@{dis} {
+    padding-right: @dis * 1px;
+  }
+  .padding-t-@{dis} {
+    padding-top: @dis * 1px;
+  }
+  .padding-b-@{dis} {
+    padding-bottom: @dis * 1px;
+  }
+  .padding-lr-@{dis} {
+    padding:0 @dis * 1px;
+  }
+  .padding-tb-@{dis} {
+    padding: @dis * 1px 0;
+  }
+  .distance(@n, (@i + 1))
+}
+// 行高封装
+.line-height(@n, @i, @size: @i * 2) when (@i <= @n) {
+  .line-@{size} {
+    line-height: @i * 2px;
+  }
+  .line-height(@n, (@i + 1))
+}
+// 关于浮动
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+// 文字对齐
+.text-l {
+  text-align: left;
+}
+.text-r {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+// 字体颜色
+.text-green{
+  color: @main;
+}
+.text-topyellow {
+  color: rgb(239, 163, 43);
+}
+.text-gray{
+  color: @grey;
+}
+.text-black {
+  color: @black;
+}
+.text-red{
+  color: @textColor;
+}
+.content {
+	width:1200px;
+	margin: 0 auto;
+}
+input,button,a {
+  outline:0 none !important; 
+}
+
+// 公共鼠标移入阴影效果
+.nps-remove-button:hover {
+  cursor: pointer;
+  box-shadow: 0 6px 3px 0 rgba(0,0,0,.3);
+}
+// border
+.border-main {
+    border: @border @main;
+}
