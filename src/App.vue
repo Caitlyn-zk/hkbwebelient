@@ -1,24 +1,29 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <!-- 内容部分 -->
+    <Top></Top>
+    <!-- <div class="content">
+    </div> -->
+    <project></project>
     <router-view/>
-    <el-button type="">常规样式</el-button>
+    <!-- <el-button type="">常规样式</el-button> -->
   </div>
 </template>
 
 <script>
+import Top from './components/top/index.vue'
+import Project from './views/project/content.vue'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Top,
+    Project
+  }
 }
 </script>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #f6f6f8;
 }
 </style>

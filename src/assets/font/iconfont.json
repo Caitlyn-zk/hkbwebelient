@@ -1,0 +1,16 @@
+{
+  "id": "1689122",
+  "name": "hkbwebelient",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5317094",
+      "name": "cart",
+      "font_class": "cart",
+      "unicode": "e74b",
+      "unicode_decimal": 59211
+    }
+  ]
+}

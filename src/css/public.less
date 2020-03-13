@@ -2,7 +2,7 @@
 // 字体大小 12px - 36px
 .font-size(18, 6);
 // 行高 12px - 36px
-.line-height(18, 6);
+.line-height(26, 6);
 // 距离 1px - 100px
 .distance(100, 1);
 // 封装字体大小
@@ -96,7 +96,7 @@
 .text-topyellow {
   color: rgb(239, 163, 43);
 }
-.text-gray{
+.text-gray {
   color: @grey;
 }
 .text-black {
@@ -105,9 +105,12 @@
 .text-red{
   color: @textColor;
 }
-.content {
-	width:1200px;
-	margin: 0 auto;
+.text-white {
+  color: @white;
+}
+// 背景颜色
+.bg-lightgreen {
+  background: @lightgreen;
 }
 input,button,a {
   outline:0 none !important; 
@@ -121,4 +124,10 @@ input,button,a {
 // border
 .border-main {
     border: @border @main;
+}
+// 内容宽度
+.content {
+  width: 1240px;
+  margin: 0 auto;
+  // border: 1px solid #ccc;
 }
