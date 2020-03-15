@@ -7,11 +7,11 @@
           height="160px"
           arrow="never"
           :interval="interval">
-          <el-carousel-item v-for="item in 3" :key="item">
+          <el-carousel-item v-for="item in dataimage" :key="item">
             <div>
               <!-- <img :src="item"/> -->
               <!-- <div>{{item}}</div> -->
-              <img style="width=100%" src="../../assets/image/banner02.jpg"/>
+              <img style="width=100%" :src="item"/>
               <!-- <img :src="'/static/img/banner0'+item+'.6d9b0a6.jpg'"/> -->
             </div>
           </el-carousel-item>
@@ -45,7 +45,7 @@ export default {
       interval: 10000,
       searchinput: '',
       select: '',
-      dataimage: ['../../assets/image/banner01.jpg', '../../assets/image/banner02.jpg', '../../assets/image/banner03.jpg']
+      dataimage: ['/static/img/banner01.jpg', '/static/img/banner02.jpg', '/static/img/banner03.jpg']
     }
   }
   // components: {
