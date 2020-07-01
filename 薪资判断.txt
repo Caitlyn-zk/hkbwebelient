@@ -1,0 +1,21 @@
+onMaxSalary: function (e){
+    let that = this 
+    let maxSalary = parseInt(e.detail.value) + 1
+    let maxString = String(that.data.min_salary)
+    let str = ''
+    if (that.data.min_salary < 10000) {
+      str = maxString.substr(0,1)
+    } else {
+      str = maxString.substr(0,2)
+    }
+    let minSalary = parseInt(str)
+   if (that.data.min_salary === null || that.data.min_salary === '' || that.data.min_salary === undefined) {
+    Util.Tips({ title: '请先选择最低期望薪资'});
+   } else if ( minSalary < maxSalary && maxSalary <= minSalary + 10) {
+      
+    } else {
+      let min = minSalary + 1
+      let max = minSalary + 10
+      Util.Tips({ title: '请选择【'+ min + 'k,' + max +'k】范围内的薪资'});
+    }
+  },

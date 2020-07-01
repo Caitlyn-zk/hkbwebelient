@@ -1,0 +1,284 @@
+// 项目页的中间内容样式 首页基本样式
+// 轮播
+@deep: ~'>>>';
+.hk-el-carousel {
+    min-width: 1200px;
+    max-width: 100%;
+    @{deep}.el-carousel__indicators {
+        .el-carousel__button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    }
+}
+
+// 内容部分样式
+.hk-content-title{
+    height: 86px;
+    padding: 20px 150px;
+    position: relative;
+    .ht-search-box {
+        width: 100%;
+        height: 50px;
+    }
+    .input-with-select {
+        height: 50px;
+        @{deep}.el-input {
+            height: 50px;
+        }
+        @{deep}.el-input__inner {
+            height: 50px !important;
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            color: #333;
+            &::placeholder {
+                font-size: 15px;
+                letter-spacing: 1.5px;
+                color: #ADB3C1;
+            }
+        }
+    }
+    
+    @{deep}.el-input-group__prepend{
+        width: 100px !important;
+        background: #fff;
+    }
+    @{deep}.el-input-group__append {
+        background: #0BD094;
+        color: #fff;
+        height: 50px !important;
+        &:focus {
+            background: #0fc781;
+        }
+        &:hover {
+            background: #0cc77f;
+        }
+    }
+}
+.el-input-group{
+    height: 50px;
+}
+.el-input__inner {
+    height: 50px;
+}
+.hk-search-but {
+    width: 140px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+.el-input {
+    .el-input--suffix {
+        width: 100px;
+    }
+}
+.el-input-group--prepend {
+    .el-input__inner {
+        border-left: 0;
+    }
+}
+.el-input__inner:focus, .el-input__inner:hover {
+    border-color: #e2e2e2;
+}
+// 商品内容
+// 右边地址
+.hk-list-add {
+    width: 1046px;
+    height: 327px;
+    // border: 1px solid red;
+    // overflow: hidden;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content:space-between;
+    .hk-right-list {
+        display: inline-block;
+        width: 33%;
+        margin-bottom: 10px;
+        width:342px;
+        display: inline-block;
+        height:101px;
+        background:rgba(255,255,255,1);
+        border-radius:4px;
+        margin-right: 10px;
+        padding: 0 20px;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+        .hk-title-bar {
+            width:310px;
+            height: 50px;
+            line-height: 60px;
+            cursor: pointer;
+        }
+        .hk-list-location {
+            display: flex;
+            font-size:14px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            line-height: 45px;
+            color:rgba(102,102,102,1);
+            // line-height:70px;
+        }
+    }
+}
+// 换一批
+.hk-more {
+    text-align: center;
+    .el-button {
+        margin-left: 150px;
+        margin-top: 11px;
+        margin-bottom: 10px;
+        width:338px;
+        height:36px;
+        border:1px solid rgba(18,198,143,1);
+        font-size:14px;
+        font-family:Microsoft YaHei;
+        font-weight:400;
+        color:rgba(18,198,143,1);
+    }
+}
+// 商城
+.hk-right-mall-list {
+    display: inline-block;
+    width:342px;
+    height:327px;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    font-size:16px;
+    font-family:Microsoft YaHei;
+    margin-right: 10px;
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
+    img {
+        width: 100%;
+    }
+}
+.hk-mall-completed {
+    width: 195px;
+}
+// 问答环节
+.hk-questions {
+    width:1046px;
+    height:327px;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    padding: 20px 24px;
+    position: relative;
+    overflow: hidden;
+    .hk-button-querst {
+        position: absolute;
+        right: 40px;
+        top: 50px;
+        .hk-but-questions {
+            display: block;
+            width:110px;
+            height:43px;
+            border:1px solid rgba(13,199,142,1);
+            border-radius:4px;
+            font-size:16px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            margin: 20px 0;
+            color:rgba(13,199,142,1);
+            &.hk-write {
+                border:1px solid rgba(255,162,0,1);
+                color:rgba(255,162,0,1);
+            }
+            &.hk-waiting {
+                border:1px solid rgba(43,161,255,1);
+                color:rgba(43,161,255,1);
+            }
+        }
+    }
+}
+// 换行问题
+.hk-whit-wasp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+.hk-right-protection {
+    width:338px;
+    height:156px;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    &:nth-child(3n) {
+        margin-right: 0;
+    }
+    .hk-requirement{
+        font-size:14px;
+        font-family:Microsoft YaHei;
+        font-weight:400;
+        color:rgba(102,102,102,1);
+        line-height:40px;
+    }
+    .hk-company {
+        border-top: 1px solid rgba(229,229,229,1);
+        p {
+            font-size:14px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height:50px;
+        }
+    }
+}
+.post-muster{
+    width: 1200px;
+    display: flex;
+}
+.post-list{
+    width: 1046px;
+    height: 327px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    ::v-deep .el-row {
+        margin-left: 0px !important;
+        margin-right: 0 !important;
+    }
+    .hk-list-recruit-bar {
+        margin-right: 15px;
+        &:nth-child(3n) {
+            margin-right: 0;
+        }
+    }
+}
+.post-list-content{
+    width:338px;
+    height:156px;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    padding: 0px 20px;
+    margin-bottom: 15px;
+    .hk-requirement{
+        font-size:14px;
+        font-family:Microsoft YaHei;
+        font-weight:400;
+        color:rgba(102,102,102,1);
+        line-height:40px;
+    }
+    .hk-company {
+        border-top: 1px solid rgba(229,229,229,1);
+        p {
+            font-size:14px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            line-height:50px;
+        }
+    }
+}
+.post-buton{
+    width: 100%;
+    // border: 1px solid red;
+    text-align: center;
+}
+.text-center{
+    cursor: pointer;
+}

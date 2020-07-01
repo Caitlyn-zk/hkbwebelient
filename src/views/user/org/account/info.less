@@ -1,0 +1,95 @@
+.org-info{
+    padding: 29px 79px;
+    background-color: #ffffff;
+    margin-left: 8px;
+    .title{
+        font-size: 14px;
+        color: #000;
+        font-weight: bold;
+        span{
+            margin-left: 10px;
+        }
+        margin-bottom: 30px;
+    }
+    .content{
+        width: 100%;
+        .company-info-muster{
+            display: flex;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eeeeee;
+            .company-info{
+                width: 50%;
+                font-size: 14px;
+                color: #000;
+                img{
+                    height: 88px;
+                    width: 88px;
+                    border-radius: 50%;
+                    margin-bottom: 20px;
+                    overflow: hidden;
+                }
+            }
+            .company-state{
+                margin-left: 0;
+                margin-right: auto;
+                .tips{
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 35px;
+                    color: #000;
+                    font-size: 14px;
+                    .auth-icon{
+                        margin-right: 30px;
+                        width: 76px;
+                        height: 56px;
+                    }
+                }
+            }
+        }
+        .form-title{
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        /deep/.el-input{
+            width: 622px;
+            height: 30px;
+            .el-input__inner{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        /deep/ .el-form-item {
+            line-height: 30px;
+            margin-bottom:20px;
+            .el-input__icon {
+                line-height: 30px;
+            }
+        }
+        /deep/ .el-form-item__label{
+            line-height: 30px;
+        }
+        /deep/ .el-form-item__content{
+            line-height: 30px;
+        }
+        /deep/.el-textarea{
+            width: 280px;
+        }
+        /deep/.el-button{
+            padding: 10px 10px;
+        }
+        .submit-button{
+            padding: 7px 25px;
+            font-size: 14px;
+        }
+    }
+}
+.attestation {
+    display: none;
+}
+/deep/.quill-editor {
+    width: 624px;
+    .ql-editor {
+        min-height: 60px;
+    }
+}

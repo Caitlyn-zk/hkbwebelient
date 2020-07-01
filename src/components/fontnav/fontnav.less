@@ -1,0 +1,182 @@
+// 顶部导航的样式
+// @font-face {
+//     font-family: 'MicrosoftYaHei';
+//     src: url('../../assets/fonts/MicrosoftYaHei.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+.hk-top-main {
+    height: 50px;
+    background: #202329;
+    color: #fff;
+    // position: relative;
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    width: 100%;
+    .my-resume-nav{
+        width: 100%;
+        height: 50px;
+        z-index: 100;
+        position: absolute;
+        z-index: 901;
+        .nav-content{
+            width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            img{
+                width: 57px;
+                height: 36px;
+                // border: 1px solid red;
+                margin: 6px 0;
+            }
+            .nav-select{
+                display: flex;
+                margin-left: auto;
+                margin-right: 0;
+                color: #ffffff;
+                div{
+                    margin-left: 30px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .el-menu--horizontal > .el-submenu .el-submenu__icon-arrow {
+        color: #fff;
+        display: none;
+    }
+    .el-menu-demo {
+        height: 50px;
+        z-index: 100;
+    }
+    .el-menu.el-menu--horizontal {
+        border-bottom: none;
+        height: 100%;
+    }
+    .hk-left-title {
+        display: inline-block;
+        line-height: 50px;
+        height: 50px;
+        outline: none;
+    }
+    .hk-titele-postion {
+        position: absolute;
+        left: -300px;
+    }
+    .el-menu--horizontal>.el-submenu:focus .el-submenu__title, .el-menu--horizontal>.el-submenu:hover .el-submenu__title {
+        color: #fff !important;
+    }
+}
+.hk-el-menu-right-main {
+    .hk-top-nav-r {
+        float: right;
+        height: 50px;
+        outline: none;
+    }
+}
+.el-menu--horizontal {
+    // position: relative;
+    // padding-right: 300px;
+    .el-menu-item {
+        line-height: 50px;
+        height: 50px;
+        color: #fff;
+        padding-left: 12px;
+        padding-right: 12px;
+        font-family: Microsoft YaHei;
+        &.hk-text-green {
+            font-size: 14px;
+            color: #05D797;
+        }
+        .hk-top-logo {
+            max-height: 36px;
+        }
+    }
+    .el-menu-item:not(.is-disabled):hover {
+        color: #05D797;
+    }
+    .el-menu-item:not(.is-disabled):focus {
+        color: #05D797;
+    }
+    .el-menu {
+        .el-menu-item {
+            color: #fff;
+        }
+        .el-submenu__title {
+            color: #fff;
+        }
+    }
+    .el-submenu {
+        padding-left: 12px;
+        padding-right: 12px;
+        .el-submenu__title {
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+        }
+    }
+    .el-submenu:hover {
+        .el-submenu__title {
+            color: #05D797;
+        }
+    }
+}
+.hk-rout-link-fb {
+    color: #fff;
+    &.hk-rout-link-fb:hover {
+        color: #05D797;
+    }
+}
+// 定位图标
+.el-menu-item {
+    padding: 0 10px;
+    i {
+        color: #05D797;
+    }
+}
+.el-menu-item [class^="el-icon-"] {
+    margin-right: 0;
+}
+// 导航二级菜单
+.el-menu--popup-bottom-start {
+    margin-top: 0;
+}
+.el-menu--popup {
+    min-width: 119px;
+    // max-width: 130px;
+}
+.el-menu--popup .el-menu-item{
+    min-width: 119px;
+    // max-width: 130px;
+}
+.el-submenu__title {
+    padding: 0 5px;
+}
+.hk-top-nav-r {
+    line-height: 50px;
+}
+.hkk-nav-mbar {
+    font-size:16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    outline: none;
+    font-family: 'MFLiHei_Noncommercial-Regular';
+    color:#05D797;
+    background: #202329;
+    // line-height:70px;
+    &:focus {
+        // border: 2px solid red;
+        vertical-align: middle;
+    }
+}
+.hk-nav-a {
+    display: inline-block;
+    line-height: 50px;
+}
+.hk-white {
+    color:white;
+}

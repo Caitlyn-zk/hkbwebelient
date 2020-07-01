@@ -1,0 +1,409 @@
+// .talent-pool{
+//     width: 100%;
+//     height: 100%;
+//     background-color: #ffffff;
+// }
+.talent-pool{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family:Microsoft YaHei;
+    // background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    .hk-addproject-title-mbar {
+        border: none;
+        font-size:14px;
+        font-weight:400;
+        color:rgba(102,102,102,1);
+        line-height: 54px;
+    }
+    /deep/.el-tabs__nav-wrap::after{
+        // background: #ffffff;
+        background-color: #EEEEEE;
+        height: 1px;
+    }
+    /deep/ .el-tabs__item:hover{
+        color: #0BD094;
+        cursor: pointer;
+    }
+    /deep/ .el-tabs__item{
+        font-size:16px;
+        line-height: 31px;
+        color:#666;
+        letter-spacing: 2px;
+    }
+    /deep/ .el-tabs__item.is-active{
+        color: #0BD094;
+        font-weight:bold;
+    }
+    /deep/ .el-tabs__header{
+        margin: 0;
+    }
+    /deep/ .el-tabs__active-bar{
+        // left: 0px;
+        height: 3px;
+        background: #0BD094;
+        border-radius: 20%;
+    }
+    .tabs{
+        width: 1200px;
+        // border: 1px solid red;
+        padding-top: 20px;
+        background-color: #f6f6f8;
+    }
+    .tab-pane {
+        padding: 20px;
+        background-color: #ffffff;
+        // margin-top: 20px;
+        .filter{
+            .classify-filter{
+                display: flex;
+                // margin-top: 20px;
+                // margin-bottom: 20px;
+                border-bottom: 1px solid #eee;
+                .classify-name{ 
+                    margin-right: 20px;
+                    cursor: pointer;
+                    font-size:14px;
+                    font-weight:400;
+                    color:rgba(102,102,102,1);
+                    line-height: 58px;
+                    letter-spacing: 2px;
+                }
+                .classify-select{
+                    color: #0DC78E;
+                    font-weight:bold;
+                }
+                .classify-no-select{
+                    color: #999999;
+                }
+            }
+            .condition-filter{
+                // display: flex;
+                // flex-wrap: wrap;
+                padding: 10px 0;
+            }
+        }
+    }
+    .condition-muster{
+        width: 1200px;
+        height: auto;
+        border-bottom: 1px solid #EEEEEE;
+        margin-bottom: 20px;
+    }
+    .condition-list{
+        width: 100%;
+        height: 66px;
+        display: flex;
+        border-top: 1px solid #EEEEEE;
+    }
+    .condition-title{
+        width: 91px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        background-color: #EEEEEE;
+        font-size:14px;
+
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+    }
+
+    .condition-select{
+        cursor: pointer;
+        min-width: 100px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size:14px;
+
+        font-weight:400;
+        color:rgba(51,51,51,1);
+    }
+    .personnel-rec{
+        // padding-bottom: 20px;
+        .post-list {
+            width: 100%;
+            // padding: 0 20px;
+            .post-content{
+                border: 1px solid #EEEEEE;
+                display: flex;
+                margin-top: 19px;
+                padding: 24px 14px 27px 10px;
+                cursor: pointer;
+                .post-info{
+                    width: 40%;
+                    .post-name{
+                        font-size: 14px;
+                        line-height: 14px;
+                        color: #333333;
+                        margin-bottom: 19px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    }
+                    .post-working-location{
+                        font-size: 12px;
+                        line-height: 12px;
+                        color: #999999;
+                    }
+                }
+                .post-resurm-number{
+                    width: 20%;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    color: #333333;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                .post-release{
+                    width: auto;
+                    margin-left: auto;
+                    margin-right: 0;
+                    .post-release-time{
+                        font-size: 12px;
+                        color: #999999;
+                        margin-bottom: 13pxpx;
+                    }
+                    .post-release-state{
+                        text-align: center;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+        .block{
+            margin-top: 15px;
+            text-align: right;
+            margin-right: 20px;
+            .el-button {
+                height: 30px;
+                line-height: 30px;
+                padding: 0 23px;
+            }
+        }
+        
+    }
+    .no-data{
+        width: 100%;
+        text-align: center;
+        margin-top: 100px;
+        img{
+            width: 320px;
+            height: 200px;
+        }
+    }
+    .personnel-list{
+        padding: 33px 0 27px 0;
+        display: flex;
+        border-bottom: 1px solid rgba(238,238,238,1);
+    }
+    .info-muster{
+        margin-left: 20px;
+        width: 350px;
+        height: 77px;
+    }
+    .user-img{
+        width: 77px;
+        height: 77px;
+        margin-left: 20px;
+        // border: 1px solid red;
+    }
+    .personnel-name{
+        height:auto;
+        font-size:16px;
+        line-height: 16px;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+        // border: 1px solid red;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .personnel-state{
+        height: auto;
+        margin-left: 12px;
+        font-size:12px;
+        line-height: 12px;
+        font-weight:400;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:rgba(51,51,51,1);
+        // border: 1px solid red;
+        margin-bottom: 15px;
+    }
+    .body-info{
+        margin-bottom: 10px;
+    }
+    .main-info{
+        font-size:14px;
+        line-height: 14px;
+        color:rgba(51,51,51,1)
+    }
+    .data{
+        width: 250px;
+        height:14px;
+        line-height: 14px;
+        margin-top: auto;
+        margin-bottom: auto;
+        font-size:14px;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+    }
+    .button-muster{
+        width: 218px;
+        // width: 460px;
+        height: 77px;
+        margin-left: auto;
+        margin-right: 20px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .personnel-button{
+        width:99px;
+        height:37px;
+        border-radius:19px;
+        display: flex;
+        padding: 10px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    .contact{
+        color: #ffffff;
+        background:rgba(11,208,148,1);
+        border: 1px solid rgba(11,208,148,1);
+    }
+    .see{
+        color: rgba(11,208,148,1);
+        background:#ffffff;
+    }
+
+    //我的 
+    .my-talent-pool{
+        background: #ffffff;
+        padding: 10px;
+    }
+    .time{
+        display: flex;
+        margin-right: 50px;
+        margin-bottom: 10px;
+    }
+    .separate{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        margin: 0 15px;
+    }
+    .label{
+        height: auto;
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+    .time /deep/ .el-input__inner{
+        height: 36px;
+        background: rgba(242,242,242,1);;
+        color: #333333;
+        border-radius: 20px;
+    }
+    .time /deep/ .el-input__prefix{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .scr-cond{
+        display: flex;
+        margin-top: 20px;
+    }
+    .searchInput{
+        width: auto;
+        height: 36px;
+        display: flex;
+    }
+    .searchInput /deep/ .el-input{
+        width: 200px;
+    }
+    .searchInput /deep/ .el-input__inner{
+        width: 200px;
+        height: 36px;
+        background: rgba(242,242,242,1);;
+        color: #333333;
+        border-radius: 20px;
+    }
+    .searchInput .search{
+        width: auto;
+        border: 1px solid #999999;
+        border-radius: 20px;
+        padding: 0 30px;
+        margin-left: 10px;
+        font-size:14px;
+        color: #999999;
+        font-weight:bold;
+        // color:rgba(11,208,148,1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover{
+            color:rgba(11,208,148,1);
+            border: 1px solid rgba(11,208,148,1);
+        }
+    }
+    .release-button{
+        width:130px;
+        height: 36px;
+        margin-left: 20px;
+        background:rgba(11,208,148,1);
+        box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.06);
+        border-radius:18px;
+        font-size:14px;
+
+        font-weight:bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:rgba(255,255,255,1);
+    }
+    // 切换列表
+    .switch{
+        display: flex;
+        margin-top: 20px;
+    }
+    .font{
+        font-size:18px;
+
+        // font-weight:bold;
+        padding: 0 20px;
+        color:rgba(34,34,34,1);
+        cursor: pointer;
+    }
+    .collection{
+        border-right: 1px solid rgba(34,34,34,1);
+    }
+    .purchase{
+        border-right: 1px solid rgba(34,34,34,1);
+    }
+    .selection{
+        border: 1px solid #0BD094;
+        color: #0BD094;
+    }
+    .tips-icon{
+        width: 99px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .clickIcon{
+        color: red;
+    }
+}
+// 搜索职位
+// .hk-selectPost {
+//     padding: 0 20px;
+// }

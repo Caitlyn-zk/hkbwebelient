@@ -1,0 +1,63 @@
+.privacy{
+    width: 1023px;
+    min-height: 673px;
+    background-color: #ffffff;
+    margin-left: 13px;
+    padding: 60px 50px;
+    font-family:Microsoft YaHei;
+    .privacy-list{
+        width: 100%;
+        .privacy-info{
+            margin-bottom: 41px;
+            width: 100%;
+            .privacy-info-title{
+                width: 110px;
+                text-align: left;
+                font-size:16px;
+                color:rgba(51,51,51,1);
+                margin-right: 60px;
+            }
+            .privacy-info-text{
+                font-size:14px;
+                font-family:Microsoft YaHei;
+                color:rgba(51,51,51,1);
+                margin-right: 20px;
+            }
+            .privacy-info-checkbox{
+                margin-left: auto;
+                margin-right: 0;
+                /deep/ .el-checkbox__inner{
+                    border-radius: 100%;
+                    width: 22px;
+                    height: 22px;
+                    border: 1px solid #666666;
+                }
+                /deep/ .el-checkbox__label{
+                    font-size: 16px;
+                }
+                /deep/ .el-checkbox__inner::after{
+                    width: 10.9px;
+                    height: 10.9px;
+                    background-color: #0BD094;
+                    border-radius: 100%;
+                    top: 5px;
+                    left: 4.5px;
+                    webkit-transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+                    transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46),background-color .25s cubic-bezier(.71,-.46,.29,1.46);
+                    box-sizing: border-box;
+
+                }
+                /deep/ .el-checkbox{
+                    color: #666666;
+                    .el-checkbox__label {
+                        font-size: 16px;
+                    }
+                }
+                /deep/.el-checkbox__input.is-checked .el-checkbox__inner{
+                    background-color: #ffffff;
+                    border-color: #0BD094;
+                }
+            }
+        }
+    }
+}

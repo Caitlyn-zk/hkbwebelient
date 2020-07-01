@@ -1,0 +1,114 @@
+// 学院的样式
+.hk-mycllege {
+    font-family:Microsoft YaHei;
+    position: relative;
+    letter-spacing: 1px;
+    .el-tabs.el-tabs--top {
+        z-index: 1;
+    }
+    .hk-college-tab-main {
+        .el-tabs__nav {
+            .el-tabs__item {
+                font-size: 16px;
+            }
+        }
+    }
+}
+.hk-collega-main {
+    // border: 1px solid #ff23ff;
+    // background: #000;
+    position: relative;
+    .hk-collega-input {
+        position: absolute;
+        left: 220px;
+        top: 20px;
+        width: 825px !important;
+        z-index: 1;
+    } 
+    .el-tabs__nav-wrap::after {
+        background-color: transparent;
+    }
+    .el-tabs__header {
+        padding-top: 20px;
+        width: 232px;
+    }
+    .el-tabs__item.is-active {
+        color: #0BD094;
+    }
+    .el-tabs__active-bar {
+        height: 4px;
+        border-radius: 30%;
+        background-color: #0BD094;
+    }
+    .el-tabs__item:hover {
+        color: #0BD094;
+    }
+    .hk-collega-round {
+        width:120px;
+        height:50px;
+        letter-spacing: 2px;
+        background:#FFB448;
+        border-color: #FFB448;
+        border-radius: 30px;
+        color: #fff;
+        font-size: 16px;
+        z-index: 10;
+        &.el-button:hover {
+            color: #fff;
+            background-color: rgb(243, 155, 32);
+            border-color: rgb(240, 154, 34);
+        }
+    }
+    // 学院首页
+    .hk-college-index {
+        // 标题栏
+        .hk-collega-title {
+            text-align: center;
+            width: 100%;
+        }
+    }
+    .hk-collega-title.el-menu {
+        background: transparent;
+        padding-left: 40%;
+    }
+    .hk-collega-title.el-menu--horizontal > .el-menu-item:not(.is-disabled):hover,
+    .hk-collega-title.el-menu--horizontal > .el-menu-item:not(.is-disabled):focus {
+        background: transparent;
+    }
+    .el-menu-item.is-active .hk-coleage-bar {
+        color: #0BD094;
+        border-color: #0BD094;
+        text-align: center;
+    }
+    .el-menu.el-menu--horizontal {
+        border: none;
+    }
+    .hk-coll-agree.el-button.is-round {
+        height: 34px;
+        width: 87px;
+        padding: 9px 21px;
+        background: #F3F3F3;
+    }
+    .hk-coll-agree.el-button.is-round:hover {
+        color:rgba(11,208,148,1);
+    }
+    .hk-coleage-bar {
+        display: inline-block;
+        width:38px;
+        font-size:18px;
+        font-family:Microsoft YaHei;
+        font-weight:bold;
+        color:rgba(102,102,102,1);
+        line-height: 50px;
+        // margin-right: 20px;
+        cursor: pointer;
+    }
+    // 内容样式
+    .hk-college-content {
+        width: 862px;
+        // margin-right: 10px;
+    }
+
+    
+}
+

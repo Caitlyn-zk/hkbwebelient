@@ -1,0 +1,312 @@
+@deep: ~'>>>';
+.hk-login-left {
+    width: 495px;
+    .hk-login-list-bar {
+        margin-bottom: 26px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        .hk-login-title-p {
+            font-size:20px;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            padding-bottom: 19px;
+        }
+        .hk-login-min-cont {
+            font-size:16px;
+            font-weight:400;
+            color:rgba(153,153,153,1);
+        }
+    }
+}
+// 二维码图片的样式设置
+.hk-QRcode-img-bar {
+    width: 189px;
+    height: 189px;
+    border: 8px solid #48CEAD;
+    margin: 10px auto;
+    margin-top: 80px;
+    img {
+        width: 185px;
+        height: 185px;
+    }
+}
+.hk-QRcode-text-bar {
+    font-size:16px;
+    font-family: Microsoft YaHei;
+    font-weight:400;
+    color:rgba(153,153,153,1);
+}
+// 找回密码
+.code{
+    color: #0BD094;
+}
+.form {
+    width: 495px;
+    padding: 30px 56px;
+    font-size: 18px;
+    background-color: #ffffff;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    @{deep} .el-button, .el-checkbox, .el-image-viewer__btn{
+        height: 56px;
+    }
+    @{deep} .el-input::-webkit-scrollbar-thumb{
+        border-radius: 6px;
+    }
+    @{deep} .el-input__inner{
+        background:rgba(245,245,245,1);
+        height:52px;
+        border: none;
+        color: #999;
+        letter-spacing: 1px;
+        font-size: 16px;
+        &::placeholder {
+            letter-spacing: 1px;
+            font-size: 16px;
+            color: #999;
+        }
+    }
+    .return-login{
+        width: 100%;
+        font-size: 18px;
+        margin-bottom: 34px;
+        color: #999999;
+        cursor: pointer;
+        text-align: right;
+    }
+    .confirm-button{
+        width: 100%;
+        font-size:18px;
+        letter-spacing: 2px;
+        color: #ffffff;
+    }
+    .icon-return{
+        width: 18px;
+        height: 18px;
+        margin-left: 10px;
+        margin-right: -30px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    @{deep} .el-input-group__append{
+        border: none;
+        background:rgba(245,245,245,1);
+        font-size:18px;
+        color:#00BB8D;
+        cursor: pointer;
+        .el-button {
+            padding: 0 8px;
+            color: #00BB8D;
+            font-size:18px;
+            font-weight:400;
+            padding: 0;
+            text-align: center;
+            line-height: 1;
+            width: 115px;
+            &.hk-disabled {
+                color: #999;
+                width: 132px;
+            }
+        }
+    }
+}
+
+// 登录注册页公共样式
+.hk-login-main {
+    display: block;
+    margin-top: -50px;
+    padding-top: 75px;
+    height: 100%;
+    font-family: Microsoft YaHei;
+    letter-spacing: 1px;
+    .hk-login-form {
+        display: block;
+        width: 1070px;
+        height: 591px;
+        margin: 0 auto;
+        padding: 21px 0;
+        .hk-login-right {
+            margin-left: 40px;
+            width: 495px;
+        }
+        .hk-login-title-right {
+            letter-spacing: 3px;
+            height: 95px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .hk-login-title-left {
+            height: 95px;
+            letter-spacing: 1px;
+            .hk-login-hkb {
+                cursor: pointer;
+                letter-spacing: 3px;
+                font-size:30px;
+                font-weight:bold;
+            }
+        }
+        .hk-login-box {
+            padding: 35px 0 0 24px;
+            width: 495px;
+            height: 495px;
+            background:rgba(255,255,255,1);
+            border:1px solid rgba(242, 242, 242, 1);
+            &.hk-form {
+                padding: 56px;
+                position: relative;
+                .hk-QRcode {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    overflow: hidden;
+                }
+                .hk-login-box-switch {
+                    font-size: 0;
+                    text-align: center;
+                    .hk-el-button {
+                        font-size: 16px;
+                        border-radius: 1px solid #d9d9d9 !important;
+                        background-color: #f4f4f4;
+                        border-radius: 0;
+                        margin: 0;
+                        height: 40px;
+                        width: 120px;
+                        color: #888;
+                        &:first-child {
+                            border-top-left-radius: 20px;
+                            border-bottom-left-radius: 20px;
+                            margin-right: -1px;
+                        }
+                        &:last-child {
+                            border-top-right-radius: 20px;
+                            border-bottom-right-radius: 20px;
+                        }
+                        @{deep} &.el-button {
+                            border-radius: 1px solid #d9d9d9 !important;
+                            background-color: #d9d9d9 !important;
+                        }
+                        &:hover {
+                            border-color: #d9d9d9;
+                            color: #333;
+                            background-color: #d9d9d9;
+                        }
+                        &.is-focuse {
+                            color: #333;
+                            border-radius: 1px solid #d9d9d9 !important;
+                            background-color: #d9d9d9;
+                            border-color: #d9d9d9;
+                        }
+                        &.el-button:focus, &.el-button:hover {
+                            color: #333;
+                            border-radius: 1px solid #d9d9d9 !important;
+                            background-color: #d9d9d9;
+                            border-color: #d9d9d9;
+                        }
+                    }
+                }
+                @{deep} .el-form-item {
+                    margin-bottom: 40px;
+                    &.hk-form-item-bar {
+                        margin-bottom: 0;
+                    }
+                    &.hk-code {
+                        .hk-code-input {
+                            width: 250px !important;
+                        }
+                        .el-input__inner {
+                            width: 100% !important;
+                            border: none;
+                            padding: 0 27px;
+                        }
+                        .el-button {
+                            height: 52px;
+                            width: 125px;
+                            border:1px solid rgba(11,208,148,1);
+                            border-radius:6px;
+                            background: #fff;
+                            color: #0BD094;
+                            font-size:16px;
+                            font-weight:400;
+                            padding: 0;
+                            text-align: center;
+                            line-height: 1;
+                            &.hk-disabled {
+                                background: #E0E0E0;
+                                color: #fff;
+                                border-color: #e2e2e2;
+                                &:hover {
+                                    background: #E0E0E0;
+                                    color: #fff;
+                                }
+                            }
+                            &:hover {
+                                background: #0BD094;
+                                color: #fff;
+                            }
+                            &:focus {
+                                background: #0BD094;
+                                color: #fff;
+                            }
+                        }
+                    }
+                    .el-form-item__content {
+                        margin-left: 0 !important;
+                        .el-input {
+                            .el-input__inner {
+                                width:383px;
+                                height:52px;
+                                background:rgba(245,245,245,1) !important;
+                                border-radius:6px;
+                                font-size:16px;
+                                font-weight:400;
+                                padding: 0 27px;
+                                color:rgba(153,153,153,1);
+                                border: none;
+                                &:focus {
+                                    border-color: rgba(245,245,245,1);
+                                }
+                            }
+                            .el-input__suffix {
+                                z-index: 5;
+                                cursor: pointer;
+                                display: none;
+                            }
+                        }
+                    }
+                    &.hk-button-zoom {
+                        margin-top: 7px;
+                         .el-button {
+                            width:383px;
+                            height:52px;
+                            font-size: 18px;
+                            border-radius: 6px;
+                            background: #0BD094;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .hk-mypassword {
+        @{deep}.el-checkbox__label {
+            font-size: 16px;
+        }
+    }
+}
+// 介绍
+.platform-introduce {
+    font-size:16px;
+    font-weight:400;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+// 登录底部
+.login-footer-info {
+    font-size:16px;
+    font-weight:400;
+    font-family: Microsoft YaHei;
+}

@@ -1,0 +1,239 @@
+// 这里是个人页样式
+.hk-person {
+    font-family: Microsoft YaHei;
+    clear: both;
+    .hk-addproject-title {
+      font-size:18px;
+      font-family:Microsoft YaHei;
+      font-weight:bold ;
+      color:rgba(51,51,51,1) ;
+      line-height:60px ;
+    }
+    .hk-person-title {
+      color: #333;
+      padding: 29px 0 27px 161px;
+      width: 825px;
+      .el-input-group {
+        width: 825px;
+        box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.06);
+      }
+      .el-input__inner {
+          height: 50px !important;
+          border-color: transparent;
+          width: 582px;
+      }
+      .el-input.el-input--suffix {
+          // margin-left: 30px;
+          .el-input__inner {
+            padding-left: 10px;
+            width: 125px;
+            text-align: center;
+            &::placeholder {
+              color: #333;
+            }
+          }
+      }
+      .el-input-group__prepend{
+        width: 100px !important;
+        background: #fff;
+        border-color: transparent;
+      }
+      .el-input-group__append {
+          background: #0BD094;
+          color: #fff;
+          border-color: transparent;
+          width: 140px;
+          &:focus {
+              background: #0fc781;
+          }
+          &:hover {
+              background: #0cc77f;
+          }
+      }
+      .search-input {
+        width: 600px;
+        .hk-search-button {
+          width: 80px;
+        }
+      }
+    }
+  
+    .text-person-size {
+      width:33px;
+      height:17px;
+      font-size:16px;
+      font-family: Microsoft YaHei;
+      font-weight:bold;
+      color:rgba(51,51,51,1);
+    }
+    .hk-person-content {
+      height: 100%;
+      padding-bottom: 20px;
+      margin-bottom: 50px;
+      display: flex;
+      .hk-person-left-nav {
+        width: 161px;
+        // min-height: 673px;
+        height: auto;
+        background: #E9E9E9;
+        font-family: Microsoft YaHei;
+        // 左侧大的导航
+        .hk-person-nav-bar {
+          width: 100%;
+          color: #333;
+          overflow-y: scroll;
+          &::-webkit-scrollbar{
+            display: none;
+          }
+          // 这里是设置大导航样式的鼠标移入时显示的颜色
+          .el-menu-item:focus,
+          .el-menu-item:hover {
+            background-color: #F2F2F2;
+            color: #333333;
+            font-weight: bold;
+          }
+          .el-menu-item {
+            &.is-active {
+              color: #333333;
+              font-weight: bold;
+              background-color: #F2F2F2;
+              .text-person-size {
+                color: #333333;
+                font-weight: bold;
+              }
+            }
+          }
+          .el-submenu__title:hover {
+            background-color: #F2F2F2;
+          }
+          .el-menu {
+            background: #E9E9E9 !important;
+            border-right: none !important;
+          }
+          .el-submenu__icon-arrow {
+            display: none;
+          }
+          .el-submenu {
+            &.is-active {
+              color: #333333 !important;
+              font-weight: bold !important;
+            }
+            .el-submenu__title {
+              padding-left: 45px !important;
+            }
+            .el-menu-item-group {
+              .el-menu-item {
+                font-size:14px;
+                font-family: Microsoft YaHei;
+                font-weight:400;
+                color:rgba(51,51,51,1);
+                letter-spacing: 2px;
+                i {
+                  color: #C5C5C5;
+                }
+                &.is-active {
+                  color: #333333;
+                  font-weight: bold;
+                  a {
+                    color: #333333;
+                    font-weight: bold;
+                  }
+                  i {
+                    color: #333333;
+                    font-weight: bold;
+                  }
+                }
+              }
+              .el-submenu {
+                .el-menu-item {
+                  padding: 0;
+                }
+              }
+            }
+          }
+          .el-menu-item-group__title {
+            display: none;
+          }
+          .el-menu-item {
+            padding-left: 45px !important;
+            letter-spacing: 2px;
+            a {
+              color: #333;
+              font-size: 14px;
+              &:hover {
+                color: #333333;
+                font-weight: bold;
+              }
+            }
+          }
+          .el-submenu .el-menu-item {
+            min-width: 154px !important;
+            padding:0px;
+            .el-submenu__icon-arrow {
+              display: none;
+            }
+          }
+        }
+      }
+      .hk-person-content-main {
+        width: 1039px;
+        position: relative;
+        .hk-org-step-title {
+          // margin: 55px auto;
+          margin-left: 8px;
+          width:100%;
+          // height:762px;
+          padding: 60px 0 0 78px;
+          padding-right: 20px;
+          background:rgba(255,255,255,1);
+          // border:1px solid rgba(242, 242, 242, 1);
+          .el-step__head {
+            margin-left: 30px;
+          }
+          /deep/ .el-step__icon {
+            border: none;
+            width: 89px;
+            text-align: right;
+            height:38px;
+            font-size:48px;
+            font-family: Microsoft YaHei;
+            font-weight:400;
+          }
+          /deep/ .el-step__icon-inner{
+            font-weight: 400;
+          }
+          .el-step__line {
+            width: 230px;
+            height: 1px;
+            top: 19px;
+            margin-left: 80px;
+            margin-right: 20px;
+          }
+        }
+        .el-steps {
+          width: 50%;
+          // border: 1px solid red;
+          // margin-left: 50px;
+          margin-left: 0;
+          margin-right: auto;
+          .el-step__title {
+            margin-left: 20px;
+          }
+          .el-step__title {
+            line-height: 60px;
+          }
+          .el-step__description {
+            width: 10px;
+            width: 22px;
+            font-size: 48px;
+            z-index: 20;
+            left: 30px;
+            font-family: Microsoft YaHei;
+            position: absolute;
+            top: 14px;
+          }
+        }
+      }
+    }
+  }
+  

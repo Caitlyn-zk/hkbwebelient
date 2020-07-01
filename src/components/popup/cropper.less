@@ -1,0 +1,100 @@
+.cropper-component {
+  width: 500px;
+  margin: 0 auto;
+  position: relative;
+  .btn-box {
+      // margin: 20px 0;
+      margin-top: 20px;
+      .operation-btn {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          background-color: #fff;
+          border: 1px solid #eaeaea;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 20px;
+          color: #333;
+          padding: 0;
+          margin: 0 10px;
+      }
+  }
+  .select-btn {
+    padding: 4px 40px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #387EF6;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 20px;
+  }
+  .info-item {
+      .title{
+        margin-top: -35px;
+        
+      }
+      .btn {
+        width: 100%;
+        // border-top: 1px solid red;
+        display: flex;
+        margin-top: 20px;
+        .confirm-btn{
+          padding: 5px 40px;
+          background-color: #05D797;
+          color: #fff;
+          margin-left: auto;
+          margin-right: 20px;
+          cursor: pointer;
+        }
+        .close-btn{
+          padding: 5px 40px;
+          border: 1px solid #05D797;
+          color: #05D797;
+          margin-right: auto;
+          margin-left: 0;
+          cursor: pointer;
+        }
+        // cursor: pointer;
+        // display: inline-block;
+      }
+      .operation-box {
+          display: inline-block;
+          .cropper {
+              width: 260px;
+              height: 260px;
+          }	
+      }
+      .preview-box {
+          top: 60px;
+          // right: 10px;
+          .preview {
+              width: 150px;
+              height: 150px;
+              border-radius: 50%;
+              border: 1px solid #ccc;
+              background-color: #ccc;
+              margin: 5px;
+              overflow: hidden;
+          }
+          .license{
+            width:150px;
+            height:150px;
+            border: 1px solid #ccc;
+            background-color: #ccc;
+            margin: 5px;
+            overflow: hidden;
+          }
+      }
+  }
+  .content{
+    width: 100%;
+    display: flex;
+    .preview-box{
+      margin-left: 40px;
+    }
+  }
+}

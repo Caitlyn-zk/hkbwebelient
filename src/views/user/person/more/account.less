@@ -1,0 +1,144 @@
+// 个人账户页样式
+.hk-single-account {
+  margin-left: 13px;
+  background: #fff;
+  padding: 38px 50px;
+  min-height: 674px;
+  .hk-single-account-title {
+    position: relative;
+    font-size:16px;
+    font-family:Microsoft YaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    letter-spacing: 2px;
+    border-bottom: 1px solid #F0F0F0;
+    .hk-single-account-pohp {
+      cursor: pointer;
+      font-size:16px;
+      font-family:Microsoft YaHei;
+      font-weight:400;
+      color:rgba(0,207,144,1);
+      margin-left: 131px;
+    }
+    .hk-single-account-notes {
+      font-size:12px;
+      font-family:Microsoft YaHei;
+      font-weight:400;
+      color:rgba(102,102,102,1);
+      line-height: 50px;
+    }
+    .hk-single-account-thirdparty {
+      line-height: 37px;
+      font-size:16px;
+      font-family:Microsoft YaHei;
+      font-weight:400;
+      &.weixin {
+        color:rgba(4,184,21,1);
+        cursor: pointer;
+        .icon-weixin {
+          font-size: 22px;
+        }
+        &:hover {
+          color:rgb(35, 224, 54);
+        }
+      }
+      &.zhifubao {
+        color:rgba(49,131,255,1);
+        cursor: pointer;
+        .icon-zhifubao {
+          font-size: 22px;
+        }
+        &:hover {
+          color:rgb(71, 173, 241);
+        }
+      }
+    }
+  }
+  // 修改密码
+  .hk-single-account-modify {
+    padding-top: 29px;
+    letter-spacing: 2px;
+    .hk-modify-title {
+      line-height: 38px;
+      font-size:16px;
+      font-family:Microsoft YaHei;
+      font-weight:400;
+      color:rgba(0,0,0,1);
+      .code{
+        margin-left: 30px;
+        background-color: #0BD094;
+        color: #ffffff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+    }
+    .demo-personForm {
+      width: 245px;
+      padding-top: 20px;
+      /deep/.el-form-item {
+        height: 70px;
+        margin: 0;
+        // padding-top: 20px;
+        .el-form-item__content {
+          .el-input__inner {
+            border: none;
+            border-bottom: 1px solid #F0F0F0;
+            padding: 0;
+            &::placeholder {
+              font-size:14px;
+              font-family:Microsoft YaHei;
+              font-weight:400;
+              color:rgba(153,153,153,1);
+            }
+          }
+        }
+        &.hk-Preservation-btn {
+          margin-top: 8px;
+          height: 50px;
+          .el-button {
+            width:101px;
+            height:36px;
+            background:#0BD094;
+            box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.06);
+            border-radius:18px;
+            color: #fff;
+            padding: 6px 21px;
+            font-size: 16px;
+            letter-spacing: 3px;
+            border-color: #0BD094;
+          }
+        }
+      }
+    }
+  }
+  .form{
+    text-align: center;
+    /deep/ .el-button, .el-checkbox, .el-image-viewer__btn{
+      height: 56px;
+    }
+    /deep/ .el-input::-webkit-scrollbar-thumb{
+        border-radius: 6px;
+    }
+    /deep/ .el-input__inner{
+        background:rgba(245,245,245,1);
+        height:52px;
+        border: none;
+        color: #999;
+    }
+    /deep/ .el-input-group__append{
+        border: none;
+        background:rgba(245,245,245,1);
+        font-size:18px;
+        color:#0bd094;
+        cursor: pointer;
+    }
+    /deep/ .el-form-item{
+        margin-bottom: 44px;
+    }
+    .el-button{
+      font-size: 18px;
+      width: 100%;
+    }
+  }
+}

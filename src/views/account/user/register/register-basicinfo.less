@@ -1,0 +1,236 @@
+// @font-face {
+//     font-family: Microsoft YaHei;
+//     src: url('../../../../assets/fonts/MicrosoftYaHei.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+//   }
+.basic-info{
+    width: 100%;
+    // height: 937px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+    font-family: Microsoft YaHei;
+    .basic-info-title{
+        line-height: 30px;
+        margin-bottom: 31px;
+        font-size:30px;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+    }
+    .form{
+        margin-left: auto;
+        margin-right: auto;
+        width:719px;
+        height:976px;
+        padding: 50px 56px 61px 51px;
+        background:rgba(255,255,255,1);
+        box-shadow:0px 0px 43px 0px rgba(0, 0, 0, 0.07);
+        .gender{
+            // border: 1px solid red;
+            margin-top: 20px;
+        }
+        /deep/  .el-input__inner{
+            width:612px;
+            height:54px;
+            font-size: 18px;
+            background:rgba(245,245,245,1);
+            border-radius: 6px;
+            color:rgba(153,153,153,1);
+            font-weight:400;
+            letter-spacing: 1px;
+            padding-left: 38px !important;
+            border: 1px solid rgba(245,245,245,1);
+            &::placeholder {
+                color: #999999;
+                font-size: 18px;
+            }
+        }
+        /deep/.el-form-item__error {
+            font-size: 16px;
+            left: 20px;
+        }
+        .el-form-item {
+            margin-bottom: 42px;
+            &.hk-button-bar {
+                margin-bottom: 0;
+                margin-top: 66px;
+            }
+        }
+        /deep/.el-form-item__error {
+            font-size: 16px;
+        }
+        /deep/ .el-input__prefix {
+            display: none;
+        }
+        .work-life /deep/  .el-input__inner{
+            width:400px;
+            height:54px;
+            background:rgba(245,245,245,1);
+            color:rgba(153,153,153,1);
+            border-radius: 6px;
+        }
+        /deep/ .el-select /deep/ .el-input__inner{
+            width:399px;
+            height:54px;
+            background:rgba(245,245,245,1);
+            border-radius:27px;
+            // padding-left: 20px;
+        }
+        /deep/  .el-input__count-inner{
+            background:rgba(245,245,245,1);
+        }
+        .work-experience{
+            font-size:18px;
+            color:rgba(153,153,153,1);
+        }
+        .next-step{
+            width: 612px;
+            height: 56px;
+            background:rgba(11,208,148,1);
+            border-radius: 6px;
+            color: #FFFFFF;
+        }
+        .avatar-uploader{
+            text-align: center;
+            padding-bottom: 55px;
+            /deep/ .el-upload {
+                border-radius: 50%;
+                height: 94px;
+                width: 94px;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+                background:rgba(202,249,235,1);
+                border-radius:50%;
+            }
+            /deep/ .el-upload:hover {
+                border-color: rgb(60, 271, 169);
+            }
+
+            .avatar {
+                width: 94px;
+                height: 94px;
+                display: block;
+            }
+        }
+        .avatar-uploader-icon {
+            font-size: 28px;
+            color: #8c939d;
+            height: 94px;
+            width: 94px;
+            border-radius: 50%;
+            background:rgba(202,249,235,1);
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .image-url{
+            height: 94px;
+            width: 94px;
+            border-radius: 50%;
+            background:rgba(202,249,235,1);
+            margin-left: 259px;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        // 邮箱选框
+        .hk-email-bar {
+            position: relative;
+            .hk-right-email {
+                position: absolute;
+                right: 30px;
+                line-height: 54px;
+                font-size:18px;
+                font-weight:400;
+                color:rgba(205,205,205,1);
+            }
+        }
+        // 男女选框
+        .el-radio-group {
+            width: 612px;
+            height: 54px;
+            .el-radio {
+                width: 290px;
+                height: 100%;
+                line-height: 54px;
+                padding-left: 38px;
+                font-size: 18px;
+                border-radius: 6px;
+                background-color: #F5F5F5;
+                /deep/ .el-radio__input {
+                    // width: 28.9px;
+                    // height: 28.9px;
+                    .el-radio__inner {
+                        width: 28.9px;
+                        height: 28.9px;
+                        background-color: #F5F5F5;
+                        border:1px solid rgba(153,153,153,1);
+                    }
+                    &.is-checked {
+                        .el-radio__inner {
+                            background: #F5F5F5;
+                            border-color: #C2C2C2;
+                            &::after {
+                                width: 9px;
+                                height: 9px;
+                                background-color: #A3A3A3;
+                            }
+                        }
+                    }
+                }
+                /deep/ .el-radio__label {
+                    font-size: 18px;
+                    padding-left: 23px;
+                    color: #C2C2C2;
+                }
+            }
+        }
+        .work-life {
+            /deep/ .el-checkbox {
+                .el-checkbox__inner {
+                    width: 28.9px;
+                    height: 28.9px;
+                    border-radius: 50%;
+                    &::after {
+                        width: 9px !important;
+                        height: 9px;
+                        border-radius: 50%;
+                        background-color: #C2C2C2;
+                        content: "";
+                        left: 50%;
+                        top: 50%;
+                        margin-top: -6.5px;
+                        margin-left: -5.5px;
+                        border-left: 1px solid #C2C2C2 !important;
+                        border-top: 1px solid #C2C2C2 !important;
+                        border-color: #C2C2C2;
+                    }
+                }
+            }
+            /deep/ .el-checkbox__input {
+                &.is-focus {
+                    .el-checkbox__inner {
+                        border-color: #C2C2C2;
+                    }
+                }
+                &.is-checked {
+                    .el-checkbox__inner {
+                        background-color: #F5F5F5;
+                        border-color: #C2C2C2;
+                    }
+                }
+            }
+            /deep/ .el-checkbox__label {
+                color: #999999;
+                font-size: 18px;
+            }
+        }
+        
+    }
+    .el-dialog__wrapper /deep/ .el-dialog__header{
+        border-bottom: 1px solid #999999 !important;
+    }
+}

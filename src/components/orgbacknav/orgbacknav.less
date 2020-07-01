@@ -1,0 +1,144 @@
+
+.el-menu--horizontal>.el-submenu .el-submenu__icon-arrow {
+    display: none !important;
+  }
+.hk-backstagenv {
+    width: 100%;
+    height: 50px;
+    background: #202329;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    .el-menu-demo {
+        height: 50px;
+        // right: 0;
+    }
+    .el-menu.el-menu--horizontal {
+        border: none;
+        padding-right: 0;
+    }
+    .el-button--small {
+        padding-top: 0;
+        font-weight: 600;
+    }
+    .hk-nav-mbar {
+        width: 200px;
+        height: 50px;
+        outline: none;
+        .el-badge__content {
+        background: #0DC78E;
+        width: 36px;
+        height: 18px;
+        // padding-top: 1px;
+        padding: 0 3px;
+        line-height: 17px;
+        color: #f7f7f7;
+        text-align: center;
+        border: 1px solid #0DC78E;
+        }
+        .el-submenu__title i {
+        display: none !important;
+        }
+        .el-button--text {
+        color: #0DC78E;
+        letter-spacing: 3px;
+        font-weight: 400;
+        font-family: 'MFLiHei_Noncommercial-Regular';
+        }
+        .el-badge__content.is-fixed {
+            right: -2px;
+            top: -2px;
+            font-size: 10px;
+        }
+    }
+    .el-menu--horizontal>.el-submenu:focus .el-submenu__title,
+    .el-menu--horizontal>.el-submenu:hover .el-submenu__title {
+        color: #fff !important;
+    }
+    .hk-backnav-right {
+        outline: none;
+        color: #fff;
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        .el-button {
+        height:31px;
+        padding-top: 7px;
+        background: #0DC78E;
+        color: #fff;
+        border: 1px solid #0DC78E;
+        &:hover {
+            background: rgb(9, 158, 114);
+            border: 1px solid rgb(9, 158, 114);
+        }
+        }
+        .hk-jianxiquchu {
+            font-size: 0;
+        }
+        .hk-backnav-header{
+        display: inline-block;
+        outline: none;
+        width: 37px;
+        height: 37px;
+        margin-top: 4px;
+        border: 1px solid #000;
+        overflow: hidden;
+        border-radius: 50%;
+        }
+    }
+    .hk-top-r-text {
+        padding: 0 12px;
+        border-right: 1px solid #fff;
+    }
+    
+    .el-badge__content {
+        border-color: #F56C6C;
+        &.is-fixed {
+            top: 11px;
+            right: 25px;
+        }
+    }
+}
+.el-dropdown-link {
+    .el-badge__content {
+        height: 14px !important;
+        line-height: 12px;
+    }
+}
+.el-menu--horizontal>.el-menu-item {
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+}
+.el-menu--horizontal>.el-submenu .el-submenu__title {
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+}
+.el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover {
+    color: #fff;
+}
+.hk-org-name {
+    display:block;
+    min-width: 55px;
+    max-width: 180px;
+    height: 50px;
+    overflow:hidden;
+    color: #00E49E;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+// 导航二级菜单
+.el-menu--popup-bottom-start {
+    margin-top: 0;
+    width: auto;
+    &.el-menu--popup {
+        min-width: 120px;
+        padding-bottom: 15px;
+    }
+}
+  .hk-nav-a {
+      color: #fff;
+      display: inline-block;
+      line-height: 50px;
+  }

@@ -1,0 +1,298 @@
+.hk-details-list-title {
+  line-height: 36px;
+  color: #333;
+  margin-bottom: 60px;
+  .hk-person-title-bar {
+    font-size:18px;
+    font-family: Microsoft YaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+  }
+  .hk-resume-school-name {
+    width: 100%;
+    position: relative;
+    font-size:14px;
+    font-family: Microsoft YaHei;
+    font-weight:bold;
+    min-height: 20px;
+    color:rgba(51,51,51,1);
+    .hk-resume-cont-jw {
+      font-size:14px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+    }
+    .hk-resume-school-time {
+      height: 36px;
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      font-size:16px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      cursor: pointer;
+      width: 120px;
+      text-align: center;
+      .hk-resume-school-time-bar {
+        display: block;
+      }
+
+      .hk-resume-shool-btn {
+        font-family: Microsoft YaHei;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+        cursor: pointer;
+        width: 120px;
+        text-align: center;
+        display: none;
+      }
+
+      &:hover {
+        .hk-resume-school-time-bar {
+          display: none;
+        }
+
+        .hk-resume-shool-btn {
+          display: block;
+        }
+      }
+    }
+  }
+  .hk-resume-company-name {
+    font-size:14px;
+    font-family: Microsoft YaHei;
+    font-weight:bold;
+    color:rgba(51,51,51,1);
+    .hk-resume-post-name {
+      font-size:14px;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+    }
+  }
+  .hk-resume-skill {
+    font-family: Microsoft YaHei;
+    .ql-editor {
+      padding: 0 !important;
+      font-size:14px;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      line-height:27px;
+    }
+    .hk-el-button-bar {
+      display: flex;
+      flex-wrap: wrap;
+      .el-button {
+        height: 27px;
+        line-height: 27px;
+        text-align: center;
+        padding: 0 23px;
+        border:1px solid rgba(11,208,148,1);
+        box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.06);
+        border-radius:14px;
+        font-size:14px;
+        font-weight:400;
+        color:rgba(11,208,148,1);
+      }
+    }
+    .hk-ql-editor-font {
+      font-size:14px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      line-height:27px;
+    }
+    .hk-resume-main {
+      display: block;
+    }
+  }  
+  &.org-resume-details {
+    .hk-resume-main {
+      display: none;
+    }
+    .hk-resume-school-time {
+      height: 36px;
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      font-size:16px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      cursor: pointer;
+      width: 120px;
+      text-align: center;
+      .hk-resume-school-time-bar {
+        display: block;
+      }
+
+      .hk-resume-shool-btn {
+        font-family: Microsoft YaHei;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+        cursor: pointer;
+        width: 120px;
+        text-align: center;
+        display: none;
+      }
+      &:hover {
+        .hk-resume-school-time-bar {
+          display: block;
+        }
+
+        .hk-resume-shool-btn {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.hk-resume-main-bar {
+  .hk-person-portrait {
+    background: #fff;
+    height: 140px;
+    width: 100%;
+    .hk-person-button {
+      height: 140px;
+      width: 83px;
+      text-align: center;
+      line-height: 120px;
+      display: block;
+      .hk-person-el-button {
+        height: 27px;
+        line-height: 27px;
+        padding: 0 23px;
+        text-align: center;
+        color: #0BD094;
+        border-color: #0BD094;
+      }
+    }
+    .el-avatar {
+      width: 80px !important;
+      height: 80px !important;
+    }
+
+    .hk-author-name {
+      line-height: 35px;
+      font-size:18px;
+      font-family: Microsoft YaHei;
+      font-weight:bold;
+      color:rgba(51,51,51,1);
+    }
+
+    .hk-major {
+      margin-left: 20px;
+      line-height: 35px;
+      font-size:14px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+
+      .hk-work-bar {
+        font-size:14px;
+        font-family: Microsoft YaHei;
+        font-weight:400;
+        color:rgba(51,51,51,1);
+      }
+    }
+  }
+  &.org-resume-details {
+    .hk-person-portrait {
+      .hk-person-button {
+        display: none;
+      }
+    }
+  }
+}
+
+// 头像
+.avatar-uploader .el-upload {
+  // border: 1px dashed #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  width: 77px;
+  height: 77px;
+  overflow: hidden;
+}
+.avatar-uploader-icon {
+  font-size: 28px;
+  color: #8c939d;
+  width: 77px;
+  height: 77px;
+  line-height: 178px;
+  background-color: rgba(202,249,235,1);
+  border-radius: 50%;
+  text-align: center;
+}
+.form-avatar-uploader .el-upload {
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  width: 77px;
+  height: 77px;
+  overflow: hidden;
+}
+.form-avatar{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
+}
+.avatar {
+  // border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  // display: block;
+}
+.user-image{
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  .avatar{
+    border-radius: 50%;
+    width: 77px;
+    height: 77px;
+  }
+}
+.cert-img-list{
+  // border: 1px solid red;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  .el-image{
+    width: 147px;
+    height: 147px;
+    margin-right: 20px;
+  }
+}
+.cropper{
+  z-index: 3000 !important;
+}
+.skill-list{
+  display: flex;
+  flex-wrap: wrap;
+  .skill-tag{
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+}
+.resume-info-content{
+  display: flex;
+  .head-sculpture{
+    margin-left: auto;
+    margin-right: 30px;
+  }
+  .resume-info-form{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 0;
+    margin-right: auto;
+    // border: 1px solid red;
+  }
+}
+

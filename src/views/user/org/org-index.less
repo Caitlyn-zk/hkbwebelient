@@ -1,0 +1,286 @@
+// 个人简历首页
+
+.hk-person-main {
+  background-color: #F6F6F8;
+  letter-spacing: 1px;
+  .hk-person-title-bar {
+    padding-top: 30px;
+    height: 148px;
+    width: 100%;
+    font-size: 14px;
+    position: relative;
+    font-size:16px;
+    font-family: Microsoft YaHei;
+    font-weight:400;
+    color:rgba(51,51,51,1);
+    .hk-person-portrait {
+      width: 100%;
+      .el-avatar{
+        margin-top: 9px;
+        margin-bottom: auto;
+      }
+      .hk-person-button {
+        margin-right: 410px;
+        width: 83px;
+        text-align: center;
+        line-height: 100px;
+        .hk-person-el-button {
+          width:109px;
+          height:39px;
+          border:1px solid rgba(153,153,153,1);
+          border-radius:20px;
+          text-align: center;
+          color: #333;
+          .el-button {
+            background-color: transparent;
+            &::hover {
+              color: #0BD094;
+              border-color: #0BD094;
+            }
+          }
+        }
+      }
+
+      /deep/ .el-avatar {
+        width: 77px;
+        height: 77px;
+        img {
+          width: 77px;
+          height: 77px;
+        }
+      }
+
+      .hk-author-name {
+        line-height: 35px;
+        font-family: Microsoft YaHei;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+        font-size:20px;
+      }
+    }
+    .avatar{
+      width: 77px;
+      height: 77px;
+      border-radius: 50%;
+      margin-top: 9px;
+    }
+    .user-img-replace{
+      width: 77px;
+      height: 77px;
+      border-radius: 50%;
+      background-color: rgba(202,249,235,1);
+    }
+    // 绑定邮箱手机
+    .hk-binding {
+      line-height: 36px;
+      .el-button {
+        margin-right: 39px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        font-family: Microsoft YaHei;
+        font-weight:400;
+        color: #222;
+        &:hover {
+          color: #0BD094;
+        }
+      }
+    }
+  }
+  .hk-cont-main {
+    // 学院数据
+    .hk-theme-main {
+      font-family: Microsoft YaHei;
+      .hk-theme-list {
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 818px;
+        margin-bottom: 13px;
+        margin-right: 14px;
+        background:rgba(255,255,255,1);
+        &:last-child {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+        .hk-theme-titel {
+          font-size:18px;
+          font-weight:bold;
+          color:rgba(51,51,51,1);
+          line-height:70px;
+        }
+        .hk-browse-bar {
+          display: inline-block;
+          width: 24.5%;
+          letter-spacing: 2px;
+          font-size:16px;
+          font-weight:400;
+          text-align: center;
+          color:rgba(51,51,51,1);
+          padding-bottom: 32px;
+          &:hover {
+            .hk-borwse-title {
+              color: #0BD094;
+            }
+            .hk-brouse-number {
+              color: #0BD094;
+            }
+          }
+          .hk-borwse-title {
+            font-size:16px;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+          }
+          .hk-brouse-number {
+            font-size:24px;
+            font-weight:bold;
+            color:rgba(51,51,51,1);
+            line-height: 50px;
+          }
+        }
+      }
+    }
+    // 右边主要内容
+    .hk-cont-right-person {
+      width: 368px;
+      // padding-top: 12px;
+      font-family: Microsoft YaHei;
+      .hk-cont-right-box {
+        height: 462px;
+        background: #fff;
+        overflow: hidden;
+        padding: 0 25px 25px 25px;
+        .hk-cont-right-box-bar {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+        }
+        .hk-like-bar {
+          line-height:70px;
+          height: 70px;
+          .hk-like-title {
+            font-size:16px;
+            font-weight:bold;
+            color:rgba(51,51,51,1);
+          }
+          .hk-more-bar {
+            line-height:40px;
+            font-size:14px;
+            font-weight:400;
+            letter-spacing: 1px;
+            color:rgba(6,207,146,1);
+          }
+        }
+        .hk-topic-word-bar {
+          padding-bottom: 18px;
+          .hk-text-title-bar {
+            font-size:14px;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+          }
+          .hk-text-title-data {
+            color: #999;
+          }
+          &:hover {
+            .hk-text-title-bar {
+              color: #0BD094;
+            }
+            .hk-text-title-data {
+              color: #0BD094;
+            }
+          }
+        }
+      }
+    }
+    .hk-box-buttom {
+      margin-top: 13px;
+      padding: 0 29px;
+      width: 368px;
+      height:275px;
+      background:rgba(255,255,255,1);
+      .hk-convenient-nav {
+        font-size:16px;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+        line-height:70px;
+      }
+      .hk-convenient-item {
+        .hk-convenient-item-bar {
+          display: inline-block;
+          width: 99px;
+          height: 90px;
+          text-align: center;
+          &:hover {
+            .hk-nav-icon-bar {
+              color: #0BD094;
+            }
+            .hk-item-text-bar {
+              color: #0BD094;
+            }
+          }
+          .hk-nav-icon-bar {
+            font-size: 30px;
+            color: #999;
+            &.hk-nav-el-icon-bar {
+              font-size: 38px;
+            }
+          }
+          .hk-item-text-bar {
+            font-size:16px;
+            font-weight:400;
+            color:rgba(51,51,51,1);
+            padding-top: 15px;
+          }
+        }
+      }
+    }
+  }
+  .hk-recommend {
+    margin: 12px 0 20px 0;
+    padding: 0 30px 0 19px;
+    // width:1025px;
+    height:339px;
+    font-family: Microsoft YaHei;
+    background:rgba(255,255,255,1);
+    border-radius:4px;
+    .hk-recommend-title {
+      .hk-recommen-title-bar {
+        font-size:18px;
+        font-weight:bold;
+        color:rgba(51,51,51,1);
+        line-height:70px;
+        letter-spacing: 2px;
+      }
+    }
+    .hk-recommend-list {
+      .hk-recommend-list-bar {
+        // padding: ;
+        padding-left: 25px;
+        padding-right: 20px;
+        display: inline-block;
+        // width:316px;
+        width: 32.5%;
+        height:105px;
+        border:1px solid rgba(240,240,240,1);
+        border-radius:8px;
+        margin-right: 14px;
+        margin-bottom: 18px;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+        .hk-recommend-title-name {
+          letter-spacing: 2px;
+          height: 60px;
+          line-height:60px;
+          .hk-recommend-title-bar {
+            display: inline-block;
+            width: 226px;
+          }
+        }
+        .hk-recommend-company {
+          font-size:14px;
+          font-weight:400;
+          color:rgba(102,102,102,1);
+        }
+      }
+    }
+  }
+}

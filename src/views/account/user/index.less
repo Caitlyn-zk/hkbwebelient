@@ -1,0 +1,56 @@
+// 登录页面样式
+body {
+    background: #FFF;
+}
+.hk-login-main {
+    background-color: #fff;
+    .hk-login-form {
+        background:rgba(255,255,255,1);
+        .hk-login-title-right {
+            color: #333;
+        }
+        .hk-login-title-left {
+            color: #333;
+            letter-spacing: 1px;
+            .hk-login-hkb {
+                color: #4a504e;
+                letter-spacing: 3px;
+                a {
+                    color: #0bd094;
+                }
+            }
+        }
+        .hk-login-box {
+            &.hk-form {
+                .hk-QRcode {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+.hk-form {
+    &.hk-form-register {
+      padding: 0 56px !important;
+      /deep/ .el-form-item {
+          margin-bottom: 20px !important;
+      }
+      .hk-agreement {
+        font-size:14px;
+        font-weight:400;
+        color:rgba(153,153,153,1);
+        padding-bottom: 10px;
+        letter-spacing: 2px;
+      }
+    }
+  }
+  .hk-register-title {
+    font-size:22px;
+    font-weight:bold;
+    color:rgba(0,0,0,1);
+    text-align: center;
+    line-height: 60px;
+  }

@@ -1,0 +1,259 @@
+// 这里是个人简历样式
+// 右侧主要信息资料卡等样式
+// .hk-person-content-main {
+//   // background: #fff;
+//   letter-spacing: 2px;
+  .hk-person-resume {
+    // margin-left: 150px;
+    // background-color: #fff;
+    width: 1200px;
+    margin:   20px auto 20px auto ;
+    position: relative;
+    .hk-resume-title {
+      width: 100%;
+      height: 65px;
+      padding-left: 22px;
+      font-size: 14px;
+      line-height: 65px;
+      border-bottom: 1px solid #F0F0F0;
+      font-size:16px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      line-height:70px;
+      background: #fff;
+    }
+    .hk-resume-main {
+      width: 120px;
+      text-align: center;
+      display: block;
+      position: absolute;
+      right: 222px;
+      .el-button {
+        height: 27px;
+        line-height: 27px;
+        padding: 0 23px;
+        color: #0BD094;
+        border-color: #0BD094;
+        text-align: center;
+      }
+    }
+    .last-del {
+      display: none;
+    }
+    .text-user-red:hover{
+      color: red;
+    }
+    .hk-resume-school-time-bar{
+      font-size:16px;
+      color:rgba(51,51,51,1);
+    }
+    // 滚动信息以及详细内容样式
+    .hk-details-bar {
+      // background: #fff;
+      padding-top: 10px;
+      width: 100%;
+      display: flex;
+      // 左侧 nav
+      .btnbox{
+        padding-top: 0;
+      }
+      .is_fixed{
+        position: fixed;
+        top: 50px;
+        z-index: 999;
+      }
+      .nav{
+        width: 210px;
+        height: 523px;
+        // background-color: #fff;
+        background-color: #fafafa;
+        border-top: 2px solid #0BD094;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+        .top-wrap{
+          width: 100%;
+          // border: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          border-top: none;
+          .nav_top{
+            font-size: 18px;
+            color: #000;
+            padding: 20px 15px 10px;
+          }
+          .cup-box{
+            margin: 0 15px 0;
+            .cup{
+              position: relative;
+              height: 22px;
+              line-height: 22px;
+              font-size: 12px;
+              color: #999;
+              .el-rate__icon{
+                margin-right: 0;
+              }
+            }
+          }
+          .btnbox{
+            width: 100%;
+            text-align: center;
+            // padding: 15px 0;
+            padding-bottom: 15px;
+            .p-but{
+              display: inline-block;
+              min-width: 80px;
+              height: 28px;
+              line-height: 28px;
+              font-size: 14px;
+              font-family: "Microsoft YaHei";
+              color: #fff;
+              text-align: center;
+              cursor: pointer;
+              margin: 0 10px;
+              background-color: #0BD094;
+              border: 1px solid #0BD094;
+              -webkit-border-radius: 2px;
+              -moz-border-radius: 2px;
+              -ms-border-radius: 2px;
+              border-radius: 2px;
+            }
+            .geige{
+              color: #0BD094;
+              background-color: #ffffff;
+              border: 1px solid #0BD094;
+            }
+          }
+        }
+        // 小导航
+        .nav_body{
+          .nav-list{
+            display: flex;
+            font-size: 14px;
+            color: #333;
+            height: 51px;
+            align-items: center;
+            padding-left: 20px;
+            border-left: 2px solid #fff;
+            border-bottom: 1px solid #e4eaee;
+            cursor: pointer;
+            img{
+              width: 30px;
+              height: 30px;
+            }
+            .nav-name{
+              margin-left: 10px;
+              font-size: 14px;
+            }
+            .nav-icon{
+              font-size: 30px;
+            }
+            .judge-icon{
+              font-size: 20px;
+              margin-left: auto;
+              margin-right: 20px;
+            }
+          }
+          .nav-list:hover{
+            // color: #0BD094;
+          }
+          .select-nav{
+            border-left: 2px solid #0BD094;
+            color: #0BD094;
+          }
+          .select-nav-icon{
+            color: #0BD094;
+          }
+          .hk-person-item {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            z-index: 11;
+            // top: 212px;
+            background: transparent;
+            // transition: ;
+            color: rgb(151, 140, 140);
+            width: 100%;
+            // animation: heart 3s ease-in-out 2s infinite alternate;
+            // 动画
+            // @keyframes heart{
+            //   from{transform:translate(0,0)}
+            //   to{transform:translate(0,10px)}
+            // }
+            &.el-menu {
+              border: none;
+              // position: fixed;
+              // position: absolute;
+              // left: 40px;
+              .el-menu-item {
+                // text-align: center;
+                width:100%;
+                height:36px;
+                line-height: 36px;
+                // margin-bottom: 10px;
+                // border-radius: 18px;
+                padding-left: 15px !important;
+                padding-right: 0 !important;
+                border-bottom: 1px solid #e4eaee !important;
+                color: #333 ;
+                &.is-active {
+                  // border-radius: 18px;
+                  background-color: #F2F2F2;
+                  color: #0BD094 !important;
+                  // border-bottom: transparent;
+                  margin-left:0 !important;
+                  border-left: 2px solid #0BD094;
+                }
+                &.active {
+                  background-color: #F2F2F2;
+                }
+                &.el-menu-item:focus, &.el-menu-item:hover {
+                  background-color: #F2F2F2;
+                  color: #333;
+                }
+              }
+            }
+            .hk-person-menu-bar {
+              width: 100%;
+              height: 45px;
+              display: inline-block;
+              line-height: 45px;
+              color: #333;
+              padding-left: 20px;
+              cursor: pointer;
+              &.is-active-bar {
+                background: #e7faf4;
+                color: #0BD094;
+              }
+              
+              &:hover {
+                background: #e7faf4;
+                color: #0BD094;
+              }
+            }
+          }
+        }
+      }
+      .hk-details-title {
+        // padding-right: 20px;
+        padding: 10px 222px 20px 120px;
+        background: #fff;
+        width: 973px;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: 0;
+        
+      }
+    }
+    .hk-resume-project-name {
+      line-height: 46px;
+    }
+    .hk-resume-font-stlye {
+      font-size:14px;
+      font-family: Microsoft YaHei;
+      font-weight:400;
+      color:rgba(51,51,51,1);
+      line-height:27px;
+    }
+  }
+
+// }
+

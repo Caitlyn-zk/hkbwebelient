@@ -1,0 +1,219 @@
+// 工程项目样式
+.addproject {
+    .hk-addproject-bar {
+        .el-tabs /deep/ .el-tabs__nav-wrap::after {
+            background-color: transparent;
+        }
+        .hk-addproject-title {
+            padding-top: 20px;
+        }
+        .el-tabs /deep/  .el-tabs__item {
+            font-size:16px;
+            font-family:Microsoft YaHei;
+            font-weight:bold;
+        }
+        .el-tabs /deep/  .el-tabs__item.is-active {
+            color: #0BD094;
+        }
+        .el-tabs /deep/ .el-tabs__active-bar {
+            left: 3px;
+            height: 3px;
+            background: #0BD094;
+            border-radius: 20%;
+        }
+        .el-tabs /deep/ .el-tabs__item:hover {
+            color: #0BD094;
+        }
+        .hk-addproject-tips {
+            width:auto;
+            font-size:12px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(102,102,102,1);
+            background-color: #fff;
+            padding: 20px 0 20px 20px;
+            border-bottom: 1px solid #EEEEEE;
+        }
+        .hk-addproject-warning {
+            width:757px;
+            font-size:12px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:#EC1616;
+            line-height: 40px;
+        }
+        .hk-addproject-warning-bottm {
+            font-size:12px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:#EC1616;
+            line-height: 40px;
+        }
+        // 表单内容样式
+        .hk-addproject-content {
+            background:rgba(255,255,255,1);
+            padding: 19px 28px;
+            /deep/ .el-form--label-left {
+                .el-form-item__label {
+                    padding-left: 32px;
+                }
+            }
+            /deep/ .el-input__inner {
+                background: #F2F2F2;
+                border-radius: 19px;
+                width: 166px;
+                height: 36px;
+                &:focus {
+                    // color: 0BD094;
+                    border-color: #0BD094;
+                }
+            }
+            /deep/ .el-input__suffix {
+                // display: none;
+            }
+            .hk-content-towitem {
+                /deep/ .el-form-item__content {
+                    margin-left: 0 !important;
+                }
+            }
+            /deep/ .el-date-editor.el-input,
+            /deep/ .el-date-editor.el-input__inner {
+                width: 166px;
+            }
+            .hk-add-cont-title {
+                .hk-cont-serialnumber {
+                    width: 23px;
+                    height: 23px;
+                    border-radius: 50%;
+                    text-align: center;
+                    background: #DEDEDE;
+                    border: 1px solid #DEDEDE;
+                }
+                .hk-add-cont-info {
+                    width:68px;
+                    font-size:16px;
+                    font-family:Microsoft YaHei;
+                    font-weight:bold;
+                    color:rgba(51,51,51,1);
+                }
+            }
+            .hk-textarec-cheadbox {
+                display: flex;
+                color: #05D797;
+                cursor: pointer;
+            }
+            .hk-cont-main {
+                padding-left: 34px;
+                .hk-cont-main-bar {
+                    height: 60px;
+                    line-height: 59px;
+                    .hk-cont-main-title {
+                        width: 100px;
+                        display: inline-block;
+                        margin-right: 10px; 
+                    }
+                    ::placeholder {
+                        color: #000;
+                    }
+                    .hk-content-input-bar {
+                        width:166px;
+                        height:36px;
+                    }
+                    
+                    /deep/ .el-input__inner {
+                        width:166px;
+                        height:36px;
+                        background:rgba(242,242,242,1);
+                        box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.02);
+                        border-radius:18px;
+                        border-color: rgba(0, 0, 0, 0.02);
+                    }
+                }
+            }
+            .hk-addcont-address {
+                /deep/ .el-input__inner {
+                    width: 311px;
+                }
+            }
+            
+            .hk-textarea-cont {
+                /deep/ .el-textarea__inner {
+                    background: transparent;
+                    border: none;
+                }
+            }
+            /deep/ .el-checkbox__input {
+                font-size:14px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(102,102,102,1);
+            }
+            /deep/ .el-checkbox__label {
+                width:auto;
+                font-size:14px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(102,102,102,1);
+            }
+            /deep/ .el-checkbox__input.is-checked .el-checkbox__inner {
+                background-color: #0BD094;
+                border-color: #0BD094;
+            }
+            /deep/ .el-checkbox__inner {
+                width: 16px;
+                height:16px;
+                font-size: 30px;
+                border:1px solid rgba(226,226,226,1);
+            }
+            /deep/ .el-checkbox__inner:hover {
+                border-color: #0BD094;
+            }
+            /deep/ .el-checkbox__inner::after {
+                height: 10px;
+                width: 5px;
+                // width: 9px;
+                top: -1px;
+            }
+        }
+        .hk-addpaject-btn {
+            /deep/ .el-form-item__content {
+                margin-left: 0 !important;
+            }
+            /deep/ .el-button {
+                &.el-button--default {
+                    color: #fff;
+                    width:109px;
+                    height:44px;
+                    background:rgba(11,208,148,1);
+                    box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.02);
+                    border-radius:22px;
+                }
+            }
+            /deep/ .el-button:hover, /deep/ .el-button:focus {
+                border-color: rgb(80, 129, 114);
+            }
+        }
+    }
+    .examples{
+        height: 500px;
+        overflow-y: auto;
+        >div{
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .file-list{
+            // display: flex;
+            // align-items: center;
+            padding-left: 100px;
+            img{
+                width: 150px;
+                height: 150px;
+                margin-right: 20px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

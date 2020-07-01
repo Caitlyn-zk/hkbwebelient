@@ -1,33 +1,387 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+// 后台管理页公用的title
+// 组件公共样式
+// 后台管理顶部标题
+@deep: ~'>>>';
+.hk-addproject-title-mbar {
+    font-size:18px !important;
+    font-family:Microsoft YaHei;
+    font-weight:bold !important;
+    color:rgba(51,51,51,1) !important;
+    line-height:60px !important;
+    border-bottom: 1px solid #EEEEEE !important;
+}
+// 前端页面左侧公共模块
+.hk-list-left {
+    width:140px;
+    height:327px;
+    background:rgba(234,248,244,1);
+    border:1px solid rgba(181, 235, 218, 1);
+    border-radius:4px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-right: 14px;
+    text-align: center;
+    .hk-list-title {
+        display: inline-block;
+        text-align: center;
+        width: 100%;
+        font-size:20px;
+        font-family:Microsoft YaHei;
+        font-weight:bold;
+        color:rgba(8,182,129,1);
+        line-height: 45px;
+    }
+    .hk-list-newbar {
+        display: inline-block;
+        width:98px;
+        // height:12px;
+        font-size:12px;
+        font-family:Microsoft YaHei;
+        font-weight:400;
+        color:#0DC78E;
+        line-height: 24px;
+        text-align: center;
+    }
+    .el-button {
+        margin-top: 26px;
+        height:32px;
+        padding: 8px 12px;
+        background:rgba(234,248,244,1);
+        border:1px solid rgba(181, 235, 218, 1);
+        border-radius:4px;
+        color:#0DC78E;
+        &:hover {
+            border-color: #0DC78E;
+            background: #0DC78E;
+            color: #fff;
+        }
+        &.hk-proje-button-bar {
+            background:rgba(13,199,142,1);
+            font-size:14px;
+            margin-top: 10px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+        }
+    }
+}
+// .hk-search-tips {
+//     width:140px;
+//     height:50px;
+//     // font-weight:bold;
+//     font-size:16px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     color: #000;
+//     color:rgba(255,255,255,1);
+//     background:rgba(11,208,148,1);
+//     box-shadow:0px 0px 7px 0px rgba(0, 0, 0, 0.06);
+//     border-radius:25px;
+// }
+// 项目搜索框
+.search-input {
+    width:820px;
+    height: 50px;
+    background:rgba(255,255,255,1);
+    box-shadow:none;
+    @{deep}.hk-search-button {
+        width:138px;
+        height: 50px;
+        color:#FFFFFF;
+        font-size:16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border:1px solid #0BD094;
+        background:#0BD094;
+        cursor: pointer;
+        &:hover {
+            border-color: #00BB8D;
+            background:#00BB8D;
+        }
+    }
+    .el-input__inner {
+        font-size: 15px;
+        height: 50px;
+        color: #333;
+        border-color: #05D797;
+        &::placeholder {
+            font-size: 15px;
+            letter-spacing: 1.5px;
+            color: #ADB3C1;
+        }
+    }
+    .el-input-group__append,
+    .el-input-group__prepend{
+        // display: inline-block;
+        padding: 0 !important;
+        border-radius: 0px !important;
+        width: 138px;
+        height: 50px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        letter-spacing: 2px;
+        background-color: #0BD094;
+        cursor: pointer;
+    }
+    .el-input-group__append {
+        height: 50px;
+        cursor: pointer;
+        border: 1px solid #0BD094;
+        /deep/.el-button {
+            width: 138px;
+            height: 50px;
+            letter-spacing: 2px;
+        }
+    }
+}
+// 薪资样式
+.public-post-salary {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f83737;
+    letter-spacing: 1px;
+}
+// 职位名称
+.public-title-bar {
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #333333;
+}
+// 文字不换行超出点显示
+.title-nowrap {
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+// 超出两行
+.title-nowrap-tow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
-  a {
-    text-decoration: none;
-    cursor: pointer;
+// 公司图片
+.company-pictures {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 15px;
+    .company-img{
+        margin-bottom: 10px;
+        width: 390px;
+        height: 139px;
+    }
+}
+// 富文本框样式
+.hk-content-textarea {
+    width:1078px;
+    height:510px;
+    overflow: hidden;
+    background:rgba(242,242,242,1);
+    border-radius:18px;
+    margin-left: 30px;
+    padding: 6px;
+    .el-form-item__content {
+        margin-left: 0px;
+    }
+    /deep/.el-form-item__content {
+        margin-left: 0px !important;
+    }
+    /deep/.ql-container.ql-snow {
+        border: none;
+        height: 410px;
+    }
+    /deep/.ql-toolbar.ql-snow {
+        border: none;
+    }
+    /deep/.ql-snow .ql-tooltip {
+        left: 0 !important;
+    }
+    .ql-editor .ql-video {
+        width: 100% !important;
+    }
+}
+
+// 下拉框样式
+.select-style{
+    .el-input{
+        height: 36px;
+    }
+    .el-cascader{
+        height: 36px;
+        margin-right: 30px;
+        line-height: 36px;
+    }
+    .el-input__inner{
+        height: 36px;
+        background: rgba(242,242,242,1);
+        color: #333333;
+        // border-radius: 20px;
+    }
+    .el-input__suffix{
+        display: flex;
+        align-items: center;
+    }
+    .el-range-input{
+        background: rgba(242,242,242,1);
+    }
+}
+
+.open {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 12;
+    -webkit-box-orient: vertical;
   }
-  li {
-    list-style: none;
+  .retract {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
-  #app /deep/ .el-popover.el-popper {
-    padding: 0 !important;
+//   学院问题列表标题样式
+.question-title {
+    background: #ffffff;
+    height: 44px;
+    width: 1200px;
+    display: flex;
+    .title {
+      min-width: 100px;
+      height: 44px;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // border-bottom-right-radius: 100px;
+      color: rgba(255, 255, 255, 1);
+      background: rgba(255, 145, 72, 1);
+    }
+    .triangle {
+      height: 0;
+      width: 0;
+      border-top: 44px solid rgba(255, 145, 72, 1);
+      border-right: 32px solid transparent;
+    }
+    &.is-top {
+      position: fixed;
+      top: 50px;
+      box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+    }
   }
-  body {
-    background: #f6f6f8;
-    box-sizing: border-box;
+  .select{
+    /deep/.el-cascader{
+        width: 120px !important;
+        height: 36px;
+        margin-right: 10px;
+        line-height: 36px;
+        .el-input__inner {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            color: #F56C6C;
+            font-size: 14px;
+            border: none;
+            letter-spacing: 1px;
+            text-overflow: ellipsis;
+            &::placeholder {
+                color: #333333;
+                padding-left: 0;
+            }
+        }
+        .el-input__suffix{
+            display: flex;
+            align-items: center;
+            color: #333;
+            font-size: 12px;
+        }
+    }
+    /deep/.el-select{
+        margin-right: 5px;
+        // margin-bottom: 30px;
+        .el-input{
+            width: 120px;
+            height: 36px;
+            .el-input__inner{
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                color: #F56C6C;
+                font-size: 14px;
+                letter-spacing: 1px;
+                border: none;
+                text-overflow: ellipsis;
+                &::placeholder {
+                    color: #333333;
+                    padding-left: 0;
+                }
+            }
+            .el-select__caret {
+                color: #333;
+                font-size: 12px;
+                &.el-icon-circle-close {
+                    color: #F56C6C;
+                }
+            }
+            .el-input__suffix{
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
   }
-// 主题颜色 绿色
-@main: #61caa2;
-// 红色
-@textColor:#f8373a;
-// 黑色
-@black:#333333;
-// 灰色666
-@grey:#666666;
-// 白色
-@white:#fff;
-// 浅绿色
-@lightgreen: #e9f8f3;
-// 边框颜色
-@border:1px solid;
+  .search-modular{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    /deep/.el-input{
+            width: 168px;
+            height: 30px;
+        .el-input__inner{
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            // border-radius: 20px;
+        }
+        .el-input__prefix{
+            display: flex;
+            align-items: center;
+            .el-input__icon{
+                line-height: 30px;
+            }
+        }
+    }
+    .search-button{
+        margin-left: 5px;
+        width: auto;
+        padding: 5px 20px;
+        color: #999999;
+        height: 30px;
+        border: 1px solid #DCDFE6;
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover{
+            border: 1px solid #05D797;
+            color: #05D797;
+        }
+    }
+    .el-input-group__append {
+        padding: 0;
+        width: 70px;
+        .el-button {
+            margin-left: 0;
+            color: #FFF;
+            background: #05D797;
+            border-radius: 0;
+        }
+    }
+}

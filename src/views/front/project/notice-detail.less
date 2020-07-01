@@ -1,0 +1,176 @@
+// 项目详情样式
+@deep: ~'>>>';
+.hk-noticedetail {
+    width: 100%;
+    height: 100%;
+    font-family:Microsoft YaHei;
+    .hk-postdetail-bar {
+        // background: #fff;
+        .search-module {
+            // width: 1200px;
+            margin: 23px 0px 20px 0px;
+            align-items: center;
+            .search-input {
+                width:908px;
+                height: 50px;
+                background:rgba(255,255,255,1);
+                box-shadow:0px 0px 16px 0px rgba(0, 0, 0, 0.08);
+                @{deep} .el-input-group__append, .el-input-group__prepend{
+                    padding: 0 !important;
+                    border-radius: 0px !important;
+                }
+                @{deep} .el-input__inner{
+                    height: 50px !important;
+                }
+            }
+        }
+        .search-tips{
+            float: right;
+            margin-left: auto;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .notice-number{
+            font-size:18px;
+            font-weight:bold;
+            color: #05D797;
+            padding-top: 33px;
+        }
+        .search-rec{
+            font-size:15px;
+            line-height: 15px;
+            margin-bottom: 20px;
+            color:rgba(102,102,102,1);
+            // border: 1px solid #FF853E;
+            .search-rec-title{
+                font-size:15px;
+                line-height: 15px;
+                color:rgba(102,102,102,1);
+            }
+            .search-rec-option{
+                cursor: pointer;
+                font-size: 15px;
+                line-height: 15px;
+                margin-left: 20px;
+                color:#666666
+            }
+        }
+    }
+    // 详细明细
+    .hk-postdetail-content {
+        .hk-postdetail-title {
+            color: #FF7D0A;
+            height: 70px;
+            line-height: 70px;
+        }
+        .hk-postdetail-table {
+            padding: 24px 22px;
+            width: 100%;
+            height: auto;
+            position: relative;
+            border-bottom: 1px solid #e2e2e2;
+            .hk-postdetail-table-tr {
+                line-height: 40px;
+            }
+            .hk-postdetail-titlr-m {
+                letter-spacing: 2px;
+            }
+            .hk-postdetail-right {
+                position: absolute;
+                right: 30px;
+                top: 10px;
+                .hk-report {
+                    font-family:Microsoft YaHei;
+                    font-weight:bold;
+                    color:rgba(255,38,38,1);
+                }
+                .hk-share {
+                    font-family:Microsoft YaHei;
+                    font-weight:bold;
+                    color:rgba(255,128,15,1);
+                }
+                .el-button+.el-button {
+                    margin-left: 16px;
+                }
+                .hk-operation-btn {
+                    @{deep} .el-button {
+                        // color: #0BD094;
+                        height: 33px;
+                        padding: 0 24px;
+                        line-height: 33px;
+                    } 
+                }
+            }
+        }
+        .hk-el-carousel {
+            height: 182px;
+            img {
+                height: 100%;
+            }
+        }
+        .hk-postdetail-text {
+            padding-bottom: 10px;
+            // 详情右边的框
+            .hk-postdetail-right-box {
+                width: 276px;
+                margin-left: 15px;
+                .hk-postdetail-box-top {
+                    width: 100%;
+                    background: #fff;
+                    height: 173px;
+                    padding: 0 21px;
+                    .hk-postdetail-box-border {
+                        border-bottom: 1px solid #F1F1F1;
+                    }
+                    .hk-addres-hyperlink {
+                        color: rgb(33, 97, 214);
+                    }
+                }
+                .recently-browse {
+                    width:277px;
+                    min-height: 233px;
+                    padding: 20px;
+                    background:#ffffff;
+                    margin-bottom: 15px;
+                    .recently-browse-title {
+                        font-size:16px;
+                        font-weight:bold;
+                        color:rgba(51,51,51,1);
+                        margin-bottom:  23px;
+                    }
+                    .browse-history{
+                        display: flex;
+                        height: 20px;
+                        margin-bottom: 15px;
+                        cursor: pointer;
+                        .recently-browse-project-name{
+                            width: 220px;
+                            font-size:14px;
+                            line-height: 14px;
+                            color:rgba(51,51,51,1);
+                        }
+                        .recently-browse-amount-of-money{
+                            font-size:14px;
+                            line-height: 14px;
+                            text-align: right;
+                            width: 87px;
+                            color:rgba(248,55,55,1);
+                            a{
+                                color: #05D797;
+                            }
+                        }
+                    }
+                }
+            }
+            // 详情左边
+            .hk-postdetail-text-bar {
+                width: 908px;
+                min-height: 300px;
+                background: #fff;
+                @{deep} .ql-editor {
+                    padding: 24px 21px;
+                }
+            }
+        }
+    }
+}
