@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title margin-t-10 clearfix">
+  <div class="hk-detail-list-title margin-t-10 clearfix">
      <div class="hk-resume-main">
         <el-button round @click="onAdd">添加</el-button>
       </div>
@@ -13,7 +13,7 @@
             <div>项目描述：</div>
             <div v-html="item.desc"></div>
           </div>
-          <div class="hk-resume-font-stlye">项目职责：{{item.duty}}</div>
+          <div class="hk-resume-font-stlye" v-if="item.duty !=='' ">项目职责：{{item.duty}}</div>
           <div class="hk-resume-school-time fr">
             <span class="hk-resume-school-time-bar">{{item.begin_dt}}</span>
             <div class="hk-resume-shool-btn">
@@ -179,7 +179,7 @@ export default {
       this.$set(this, 'area1_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[0])
       this.$set(this, 'area2_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[1])
       // this.$set(this, 'area3_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[2])
-      console.log('地区', this.area2_name)
+      // console.log('地区', this.area2_name)
     },
     add () {
       let that = this
@@ -194,13 +194,14 @@ export default {
         duty: that.form.duty,
         resume_id: that.resume_id
       }
-      console.log('参数', parameter)
+      // console.log('参数', parameter)
       addUserResumeProject(parameter).then(res => {
         if (res.status === 200) {
           this.$message({
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
           this.dialogFormVisible = false
@@ -210,6 +211,7 @@ export default {
             message: res.msg,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -234,6 +236,7 @@ export default {
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
           this.dialogFormVisible = false
@@ -243,6 +246,7 @@ export default {
             message: res.msg,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }

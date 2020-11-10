@@ -161,10 +161,10 @@ export default {
     onNextStep (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          console.log("验证成功")
+          // console.log("验证成功")
           this.add()
         } else {
-          console.log('error submit!!')
+          // console.log('error submit!!')
           return false;
         }
       })
@@ -179,7 +179,7 @@ export default {
         need_post: that.stepFrome.need_post
       }
       authUserOrgNeedAu(parameter).then(res =>{
-        console.log('新增企业个人信息',JSON.stringify(res))
+        // console.log('新增企业个人信息',JSON.stringify(res))
         if(res.status == 200) {
           // cookie.remove(BACK_URL)
           this.$router.push({ path: "/user/org/index" })
@@ -188,13 +188,13 @@ export default {
     },
     onSelectConversation(val){
       let data = val
-      console.log('话题多选',data.join())
+      // console.log('话题多选',data.join())
       // 数组转换为字符串
       this.$set(this.stepFrome,'college_topic',data.join())
     },
     onSelectProject(val){
       let data = val
-      console.log('话题多选',data.join())
+      // console.log('话题多选',data.join())
       // 数组转换为字符串
       this.$set(this.stepFrome,'project_cate',data.join())
     },
@@ -208,12 +208,12 @@ export default {
       this.personnel.eject = true
     },
     onCancelPersonnelPopup(e){
-      console.log('取消',e)
+      // console.log('取消',e)
       this.personnel.eject = false
     },
     // 
     acceptConversationData(data,e){
-      console.log('获取弹窗数据',JSON.stringify(data),e)
+      // console.log('获取弹窗数据',JSON.stringify(data),e)
       this.$set(this,'conversationData',data)
       let need_topic = []
       // for (let index = 0; index < data.length; index++) {
@@ -227,7 +227,7 @@ export default {
     // 
     acceptProjectData(isframe, id, post_name,data){
       this.$set(this,'projectData',data)
-      console.log('项目选择',data)
+      // console.log('项目选择',data)
       this.$set(this.stepFrome,'need_project',data.join())
       this.$set(this.stepFrome,'project',data)
       this.$set(this.project,'data',data)
@@ -242,11 +242,11 @@ export default {
       this.$set(this,'personnelData',data)
     },
     onCloseConversationPopup(e){
-      console.log('关闭弹窗',e)
+      // console.log('关闭弹窗',e)
       this.conversation.eject = e
     },
     onCloseProjectPopup(e){
-      console.log('关闭弹窗',e)
+      // console.log('关闭弹窗',e)
       this.project.eject = false
     },
     onClosePersonnelPopup(e){
@@ -261,7 +261,7 @@ export default {
       this.conversation.eject = false
     },
     handleClose(e){
-      console.log('删除')
+      // console.log('删除')
       this.conversationData.splice(e, 1);
     },
     projectClose(e) {
@@ -275,7 +275,7 @@ export default {
       await getPostCateTree().then(res => {
         that.$set(that.personnel,'list',res.data)
         // that.personnel.postList = res.data
-        console.log('111111',that.personnel)
+        // console.log('111111',that.personnel)
       })
       // console.log('111111',that.postList)
     },

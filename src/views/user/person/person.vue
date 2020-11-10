@@ -23,105 +23,96 @@
             class="el-menu-vertical-demo"
             @open="handleOpen"
             @close="handleClose"
-          >
-            <el-menu-item index="1">
-              <router-link to="/user/person/index">
-                <div>
-                  <span class="text-person-size" slot="title">首页</span>
-                </div>
-              </router-link>
-            </el-menu-item>
+          ><router-link to="/user/person/index">
+              <el-menu-item index="1">
+                  <div>
+                    <span class="text-person-size" slot="title">首页</span>
+                  </div>
+              </el-menu-item>
+            </router-link>
             <el-submenu index="2">
               <template class="hk-el-submenu_title" slot="title">
                 <span class="text-person-size">简历管理</span>
               </template>
               <el-menu-item-group>
-                <!-- <el-menu-item index="2-1">
-                <router-link class="font-14 text-dark" to="/user/person/my/resume">
-                    <div>
-                      <i class="iconfont icon-dian"></i>
-                      <span>我的简历</span>
-                    </div>
-                  </router-link>
-                </el-menu-item> -->
-                <el-menu-item index="2-2">
-                  <router-link to="/user/person/my/resume-center" tag="div">
-                    <div>
-                      <i class="iconfont icon-dian"></i>
-                      <span>简历中心</span>
-                    </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="2-3">
-                  <router-link to="/user/person/my/collect">
+                <router-link to="/user/person/my/resume-center" >
+                  <el-menu-item index="2-2">
+                      <div>
+                        <i class="iconfont icon-dian"></i>
+                        <span>简历中心</span>
+                      </div>
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/my/collect">
+                  <el-menu-item index="2-3">
                     <div>
                       <i class="iconfont icon-dian"></i>
                       <span>我的收藏</span>
                     </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="2-4">
-                  <router-link to="/user/person/my/applyfor">
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/my/applyfor">
+                  <el-menu-item index="2-4">
                     <div>
                       <i class="iconfont icon-dian"></i>
                       <span>我的申请</span>
                     </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="2-5">
-                  <router-link to="/user/person/resume/shield-company">
-                      <div>
-                        <i class="iconfont icon-dian"></i>
-                        <span>屏蔽公司</span>
-                      </div>
-                  </router-link>
-                </el-menu-item>
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/resume/shield-company">
+                  <el-menu-item index="2-5">
+                    <div>
+                      <i class="iconfont icon-dian"></i>
+                      <span>屏蔽公司</span>
+                    </div>
+                  </el-menu-item>
+                </router-link>
               </el-menu-item-group>
             </el-submenu>
-            <el-menu-item index="3">
-              <router-link class="font-14 text-dark" to="/user/person/my/college">
+            <router-link class="font-14 text-dark" to="/user/person/my/college">
+              <el-menu-item index="3">
                 <div>
                   <span class="text-person-size" slot="title">我的学院</span>
                 </div>
-              </router-link>
-            </el-menu-item>
+              </el-menu-item>
+            </router-link>
             <el-submenu index="4">
               <template slot="title">
                 <span class="text-person-size">更多</span>
               </template>
               <el-menu-item-group>
-                <el-menu-item index="4-1">
-                  <router-link to="/user/person/more/salary-query">
-                      <div>
-                        <i class="iconfont icon-dian"></i>
-                        <span>薪资查询</span>
-                      </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="4-2" >
-                  <router-link to="/user/person/more/subscribe">
-                      <div>
-                        <i class="iconfont icon-dian"></i>
-                        <span>我的订阅</span>
-                      </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="4-3">
-                  <router-link to="/user/person/more/privacy">
-                      <div>
-                        <i class="iconfont icon-dian"></i>
-                        <span>个人隐私</span>
-                      </div>
-                  </router-link>
-                </el-menu-item>
-                <el-menu-item index="4-4">
-                  <router-link to="/user/person/more/account">
+                <router-link to="/user/person/more/salary-query">
+                  <el-menu-item index="4-1">
+                    <div>
+                      <i class="iconfont icon-dian"></i>
+                      <span>薪资查询</span>
+                    </div>
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/more/subscribe">
+                  <el-menu-item index="4-2" >
+                    <div>
+                      <i class="iconfont icon-dian"></i>
+                      <span>我的订阅</span>
+                    </div>
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/more/privacy">
+                  <el-menu-item index="4-3">
+                    <div>
+                      <i class="iconfont icon-dian"></i>
+                      <span>个人隐私</span>
+                    </div>
+                  </el-menu-item>
+                </router-link>
+                <router-link to="/user/person/more/account">
+                  <el-menu-item index="4-4">
                     <div>
                       <i class="iconfont icon-dian"></i>
                       <span>账号设置</span>
                     </div>
-                  </router-link>
-                </el-menu-item>
+                  </el-menu-item>
+                </router-link>
               </el-menu-item-group>
             </el-submenu>
           </el-menu>
@@ -151,12 +142,12 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-      console.log(123)
+      // console.log(key, keyPath)
+      // console.log(123)
     },
     handleClose (key, keyPath) {
-      console.log(key, keyPath)
-      console.log(key)
+      // console.log(key, keyPath)
+      // console.log(key)
     },
     // 搜索框
     onSearch () {

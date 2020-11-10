@@ -84,6 +84,7 @@ export default {
         fixedBox: true // 截图框固定大小
       },
       fileName: "", // 本机文件地址
+      fileType: "",
       downImg: "#",
       imgFile: "",
       uploadImgRelaPath: "", // 上传后的图片的地址（不带服务器域名）
@@ -113,7 +114,9 @@ export default {
       let _this = this;
       let formData = new FormData();
       _this.$refs.cropper.getCropData(data => {
+        // console.log("上传文件",data)
         let file = _this.convertBase64UrlToBlob(data);
+        // console.log('上传图片', file, _this.fileName)
         formData.append("image", file, _this.fileName);
         formData.append("type", "avatar");
         uploadImage(formData).then(res => {
@@ -138,7 +141,8 @@ export default {
       for (var i = 0; i < bytes.length; i++) {
         ia[i] = bytes.charCodeAt(i);
       }
-      return new Blob([ab], { type: "image/jpeg" });
+      // console.log('上传ab',bytes.length)
+      return new Blob([ab], { type: this.fileType });
     },
     // 实时预览函数
     realTime(data) {
@@ -153,6 +157,7 @@ export default {
       if(e.target.files[0]){
         var file = e.target.files[0];
         // console.log('file',file);
+        _this.fileType = file.type
         _this.fileName = file.name;
         const isJPEG = file.type === "image/jpeg";
         const isJPG = file.type === "image/jpg";

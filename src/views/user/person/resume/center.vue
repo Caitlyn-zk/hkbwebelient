@@ -116,7 +116,7 @@ export default {
   },
   methods: {
     onMyResume(val) {
-      console.log(val);
+      // console.log(val);
       this.$router.push({
         path: "/user/my/resume",
         query: {
@@ -125,14 +125,14 @@ export default {
       });
     },
     onOpen(val, name) {
-      console.log(name);
+      // console.log(name);
       this.isOpen = name;
     },
     resumeList() {
       let that = this;
       resumeCenterList().then(res => {
         if (res.status === 200) {
-          console.log("简历列表", JSON.stringify(res.data.resume_list));
+          // console.log("简历列表", JSON.stringify(res.data.resume_list));
           this.resumeLists = res.data.resume_list;
         }
       });
@@ -164,10 +164,10 @@ export default {
         area3_code: this.resumeLists[0].area3_code,
         area3_name: this.resumeLists[0].area3_name
       };
-      console.log(this.myfrom.privacy_status);
+      // console.log(this.myfrom.privacy_status);
       editUserResume(holdList).then(res => {
         if (res.status === 200) {
-          console.log(res.data);
+          // console.log(res.data);
           this.dialogVisible = false;
           this.resumeList();
           this.$message({

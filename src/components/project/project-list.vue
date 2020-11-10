@@ -1,13 +1,13 @@
 <template>
   <div class="fl hk-list-add">
     <div class="hk-right-list shows" v-for="(item, index) in zbxm" :key="index">
-        <div class="hk-title-bar public-title-bar line-46 title-nowrap" @click="onProDetail(item)">{{item.name}}</div>
+        <div class="hk-title-bar public-title-bar title-nowrap" :class="item !== 0 ? '' : 'bg'" @click="onProDetail(item)">{{item.name}}</div>
         <div class="clearfix">
           <div class="fr hk-list-location">
-            <span class="margin-r-10 hk-list-area-name title-nowrap">{{item.area2_name === "市辖区" ? item.area1_name: item.area2_name}}</span>
-            <span>{{item.last_time}}</span>
+            <span class="margin-r-10 hk-list-area-name title-nowrap" :class="item !== 0 ? '' : 'bg'">{{item.area2_name === "市辖区" ? item.area1_name: item.area2_name}}</span>
+            <span class="hk-list-time" :class="item !== 0 ? '' : 'bg'">{{item.last_time}}</span>
           </div>
-          <span class="fl public-post-salary line-46">{{item.fund_rang | onFundRang}}</span>
+          <span class="fl hk-salary public-post-salary" :class="item !== 0 ? '' : 'bg'">{{item.fund_rang | onFundRang}}</span>
         </div>
       <!-- <router-link :to="{path:'/front/project/detail',query:{proid:item.proid}}"></router-link> -->
     </div>
@@ -46,30 +46,30 @@ export default {
     ...mapMutations(["INIT_PRO_RECORD", "ADD_PRO_RECORD"]),
     // 项目 跳转项目详情
     onProDetail (val) {
-      console.log(val)
-      this.ADD_PRO_RECORD({
-        pro_id: val.proid,
-        org_name: val.org_name,
-        pro_name: val.name,
-        fundRangValue: val.fund_rang,
-        area1_name: val.area1_name
-      });
-      // console.log(this.proVistRecord);
-      this.$router.push({ path: "/front/project/detail",query: {proid: val.proid}});
+      if(val !== 0)
+      {
+          // console.log(val)
+          this.ADD_PRO_RECORD({
+            pro_id: val.proid,
+            org_name: val.org_name,
+            pro_name: val.name,
+            fundRangValue: val.fund_rang,
+            area1_name: val.area1_name
+          });
+          this.$router.push({ path: "/front/project/detail",query: {proid: val.proid}});
+      }
+      
     },
   }
 }
 </script>
 
 <style lang="less" scoped>
+
 .hk-list-add {
     width: 1046px;
     height: 327px;
-    // border: 1px solid red;
     overflow: hidden;
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content:space-between;
     .hk-right-list {
         display: inline-block;
         width: 33%;
@@ -85,9 +85,10 @@ export default {
             margin-right: 0;
         }
         .hk-title-bar {
-            width:310px;
-            height: 50px;
-            line-height: 60px;
+            width:302px;
+            height: 20px;
+            margin: 20px 0;
+            // line-height: 60px;
             cursor: pointer;
         }
         .hk-list-location {
@@ -95,15 +96,25 @@ export default {
             font-size:14px;
             font-family:Microsoft YaHei;
             font-weight:400;
-            line-height: 45px;
+            // line-height: 45px;
             color:rgba(102,102,102,1);
-            // line-height:70px;
             .hk-list-area-name {
               display: inline-block;
+              min-width: 100px;
+              height: 18px;
               max-width: 100px;
-              height: 45px;
+              // height: 45px;
             }
+            .hk-list-time {
+              min-width: 60px;
+              height: 18px;
+            }
+        }
+        .hk-salary {
+          min-width: 70px;
+          height: 18px;
         }
     }
 }
+
 </style>

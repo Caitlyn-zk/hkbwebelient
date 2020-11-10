@@ -2,7 +2,6 @@
 <!-- 顶部导航 -->
   <!-- 右边导航 -->
   <div class="hk-top-nav-r fr hk-top-content">
-    <!-- /user/org/project -->
     <!-- 未登录状态 -->
     <span v-if="isLogin == false || isLogin == undefined" class="hk-main-text">
       <el-dropdown :hide-on-click="false" class="hk-myname" style="color: #fff;">
@@ -44,7 +43,7 @@
               </el-badge>
             </span>
             <el-dropdown-menu slot="dropdown" class="hk-person-news" style="width: 200px;">
-              <el-dropdown-item><router-link  style="color: #000;"  :to="{path:'/account/infocenter'}">消息</router-link></el-dropdown-item>
+              <router-link  style="color: #000;" class="infocenter"  :to="{path:'/account/infocenter'}"><el-dropdown-item>消息</el-dropdown-item></router-link>
             </el-dropdown-menu>
           </el-dropdown>
           
@@ -72,7 +71,6 @@
 import store from '@/store'
 import { logout,getUserOrgInfo} from '@/api/user'
 import { mapGetters } from 'vuex'
-import {handlePersonLoginSuccess} from '@/libs/login'
 import router from '@/router'
 
 

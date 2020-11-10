@@ -72,7 +72,7 @@ export default {
           alert('submit!');
           this.onfeedback()
         } else {
-          console.log('error submit!!');
+          // console.log('error submit!!');
           return false;
         }
       });

@@ -3,43 +3,51 @@
     <!-- 内容部分 -->
     <div class="content hk-postdetail-bar">
       <!-- 搜索框 -->
-      <div class="hk-postdetail-title">
+      <!-- <div class="hk-postdetail-title">
         <div class="tiling notice-number">
           <span class="">项目（500+）</span>
           <span class="margin-l-30">公司（80+）</span>
         </div>
         <div class="search-module">
-          <el-input placeholder="请输入想要搜索的项目" v-model="inputValue" class="search-input">
+          <el-input placeholder="请输入想要的内容搜索" v-model="inputValue" class="search-input">
+            <el-cascader
+              slot="prepend"
+              placeholder="项目类型"
+              v-model="typeSelect"
+              :options="proCate"
+              :props="postData"
+              @change="onTypeSelect"
+              clearable >
+            </el-cascader>
             <el-button slot="append" @click="onSearch" class="hk-search-button">搜索</el-button>
           </el-input>
-            <!-- <div class="hk-search-tips search-tips" >项目发布</div> -->
         </div>
         <div class="tiling search-rec">
           <span class="search-rec-title">相关搜索：</span>
           <span class="search-rec-option" v-for="item in 4" :key="item" @click="onRelatedSearch('饮用水工程')">饮用水工程</span>
         </div>
-      </div>
+      </div> -->
       <!-- 图 -->
-      <div class="hk-el-carousel">
+      <!-- <div class="hk-el-carousel">
         <img style="width=100%" :src="'/static/img/project-search.png'"/>
-      </div>
+      </div> -->
       <!-- 详情明细 -->
       <div class="hk-postdetail-content clearfix">
         <div class="hk-postdetail-title font-16">
-          当前项目：{{detailContent.type == 1 ? '环评公示':'验收公示'}}-->公示项目详情
+          项目分类：{{detailContent.type == 1 ? '环评公示':'验收公示'}}
         </div>
         <div>
           <!-- 详情 注：后台自己写的详情 -->
           <div class="hk-postdetail-text clearfix">
             <!-- 推荐相关项目 -->
-            <div class="fr hk-postdetail-right-box">
+            <div class="fr hk-postdetail-right-box" v-if="attach_list.length > 0">
               <div class="recently-browse">
                 <div class="recently-browse-title">附件下载</div>
                 <ul>
                   <li class="browse-history" v-for="(item,index) in attach_list" :key="index">
                     <span class="recently-browse-project-name title-nowrap">{{item.name}} </span>
                     <span class="recently-browse-amount-of-money title-nowrap">
-                      <a :href="'http://cdn.65ph.com/'+item.url" :download="item.name" class="file-download">
+                      <a name="download" @click="downloadfile(item.url,item.name)" class="file-download ">
                         <i class="el-icon-bottom"></i>下载
                       </a>
                     </span>
@@ -47,6 +55,11 @@
                 </ul>
               </div>
               
+            </div>
+            <div class="fr hk-postdetail-right-box" v-else>
+              <div class="recently-browse">
+                <div class="recently-browse-title">推荐项目</div>
+              </div>
             </div>
             <!-- 详情内容 -->
             <div class="hk-postdetail-text-bar fl" v-if="JSON.stringify(detailContent) !=='{}'">
@@ -68,7 +81,15 @@
                   <!-- <el-button class="hk-share line-22 margin-b-20 margin-r-12" type="text">分享</el-button> -->
                   <!-- <el-button class="hk-report line-22 margin-b-20" type="text">举报</el-button> -->
                   <div class="hk-operation-btn margin-t-53">
-                    <el-button type="primary" round @click="onSharePro(true)">分享</el-button>
+                    <el-popover
+                      placement="bottom"
+                      width="125"
+                      trigger="manual"
+                      >
+                      <qrCode :data="qRCode"></qrCode>
+                      <el-button type="primary" slot="reference" round @click="onSharePro(true)">分享</el-button>
+                    </el-popover>
+                    <!-- <el-button type="primary" round @click="onSharePro(true)">分享</el-button> -->
                     <el-button type="danger text-white" class="margin-l-16" round @click="onReport(true)">举报</el-button>
                   </div>
                 </div>
@@ -98,9 +119,11 @@ import 'quill/dist/quill.bubble.css'
 import {getProjectNoticeDetail} from '@/api/project'
 import PopupLogin from "@/components/popup/login"
 import { mapGetters } from 'vuex'
-import {fundRang} from '@/config/constant'
+import { fundRang, proCate } from "@/config/constant";
 import utils from '@/utils/index.js'
 import reportPopup from '@/components/popup/report-popup'
+import qrCode from '@/components/qrcode/qrcode'
+import axios from 'axios'
 export default {
   filters: {
     onFundRang (value, that) {
@@ -137,17 +160,35 @@ export default {
       report:{
         eject:false
       },
+      proCate: proCate,
+      postData: {
+        value: 'id',
+        label: 'cate_name',
+        children: 'children'
+      },
+      noticeName: '项目公示详情',
+      typeSelect: [],
+      qRCode:{
+        text: 'http://www.baidu.com', 
+        width: 100,
+        height: 100,
+        colorDark: '#000000',
+        colorLight: '#ffffff',
+      }
     }
   },
   created () {
     this.noticeId = this.$route.query.id
     this.onnoticeDetail()
+    
   },
   components: {
     quillEditor,
     reportPopup,
-    PopupLogin
+    PopupLogin,
+    qrCode
   },
+ 
   mounted () {
     let that = this
     if (that.isLogin) {
@@ -167,6 +208,9 @@ export default {
     onnoticeDetail () {
       getProjectNoticeDetail(this.noticeId).then(res => {
         this.detailContent = res.data
+        // console.log(res.data)
+        this.noticeName = res.data.name
+        document.title = '环评公示|'+this.noticeName
         var contact = JSON.parse(res.data.attach_list)
         this.attach_list = contact
         // console.log('详情列表' + res.data.good_staff)
@@ -224,6 +268,34 @@ export default {
     onClose(){
       this.login = true
     },
+    onTypeSelect(val){
+      this.$router.push({ path: "/front/project/search", query: { id: val[0],project_id:val[1] } });
+    },
+    downloadfile(url,name){
+      axios({
+        method: 'get',
+        url: 'http://cdn.65ph.com/'+url,
+        responseType: "blob"
+      }).then(res => {
+          if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            let blob = new Blob([res.data])
+            window.navigator.msSaveOrOpenBlob(blob, name)
+          } else {
+            /* 火狐谷歌的文件下载方式 */
+            var blob = new Blob([res.data])
+            var downloadElement = document.createElement('a')
+            var href = window.URL.createObjectURL(blob)//创建下载的链接
+            downloadElement.href = href
+            downloadElement.download = name//下载后文件名
+            document.body.appendChild(downloadElement)
+            downloadElement.click()//点击下载
+            document.body.removeChild(downloadElement)//下载完成移除元素
+            window.URL.revokeObjectURL(href)//释放掉blob对象
+          }
+      }).catch((res)=>{
+        // console.log(res);
+      })
+    }
   },
   watch: {
     isLogin() {

@@ -153,7 +153,7 @@ export default {
     // 选择搜索内容
     handleSelect(item) {
       // console.log('我是方法handleselect')
-      console.log(item.value);
+      // console.log(item.value);
       this.isShow = true;
       // 将选择的标签展示到页面
       this.domains.push({
@@ -162,13 +162,13 @@ export default {
       });
     },
     onSearch(ev) {
-      console.log("我是onSearch");
-      console.log(ev);
+      // console.log("我是onSearch");
+      // console.log(ev);
     },
   },
   mounted() {
     this.restaurants = this.loadAll();
-    console.log(this.restaurants)
+    // console.log(this.restaurants)
   }
 }
 </script>

@@ -194,12 +194,12 @@ export default {
     }
   },
   created () {
-    // console.log('created login begin error submit!!')
+    document.querySelector('body').setAttribute('style', 'background-color:#fff')
   },
   mounted () {
     this.loadAccountInfo()
     this.getCookieTime()
-    document.querySelector('body').setAttribute('style', 'background-color:#fff')
+    
     let that  = this
     if (that.showtime !== null && this.isAvtive === false) {
       let phone = cookie.get('phone')
@@ -207,18 +207,15 @@ export default {
       that.ruleForm.phone = phone
     }
   },
-  beforeDestroy() {
-    document.querySelector('body').removeAttribute('style')
-    // clearInterval(this.wechatPollingLogin());
-    clearInterval(this.pollingLoginTime);
-    clearInterval(this.qrCodeTime);
-  },
+  
   methods: {
     // 微信 轮询登录
     getWechatPollingLogin(){
       wechatPollingLogin(this.uu_str).then(res=>{
         if(res.status==200){
           handlePersonLoginSuccess(res)
+          clearInterval(this.pollingLoginTime);
+          clearInterval(this.qrCodeTime);
         }
       }).catch(res=>{})
     },
@@ -314,7 +311,7 @@ export default {
       this.$set(this,'isQRCode',!this.isQRCode)
       if (!this.isQRCode) {
         this.get_AccountQrcodeUrl()
-        this.qrCodeTime = setInterval(this.get_AccountQrcodeUrl, 300000);
+        this.qrCodeTime = setInterval(this.get_AccountQrcodeUrl, 300000); 
         this.pollingLoginTime = setInterval(this.getWechatPollingLogin, 1000);
       }else{
         clearInterval(this.pollingLoginTime);
@@ -450,7 +447,13 @@ export default {
         this.countDown(this.isCookie)
       }
     },
-  }
+  },
+  beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+    // clearInterval(this.wechatPollingLogin());
+    // clearInterval(this.pollingLoginTime);
+    // clearInterval(this.qrCodeTime);
+  },
 }
 </script>
 

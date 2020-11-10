@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     onSelectHotCity(code, area_name) {
-      console.log(code, area_name);
       this.$emit("onCity", area_name, code);
       this.citySelectPop.selected.area_name = area_name;
     },
@@ -64,7 +63,6 @@ export default {
       this.citySelectPop.eject = false;
     },
     onCityPop(data) {
-      console.log(data);
       this.$emit(
         "onCity",
         this.citySelectPop.selected.area_name,

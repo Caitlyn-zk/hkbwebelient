@@ -2,8 +2,7 @@
   <div class="project-post" v-loading.fullscreen.lock="fullscreenLoading">
     <div class="content">
       <div class="search-module">
-        <!-- <div class="hk-search-tips margin-r-60" >人才注册</div> -->
-        <el-input placeholder="请输入想要搜索的招聘岗位" v-model="inputValue" class="search-input">
+        <el-input placeholder="请输入想要搜索的招聘岗位" v-model="inputValue" @keyup.enter.native="onSearchEnterFun"  class="search-input">
           <el-cascader
             slot="prepend"
             placeholder="职位类型"
@@ -55,7 +54,7 @@
           <el-carousel height="253px" arrow="never" :interval="interval">
             <el-carousel-item v-for="(item,index) in banner" :key="index">
               <div>
-                <img style="width=100%" :src="item.pic" :onerror="defaultImg" />
+                <img style="width=100%" :src="item.pic" :onerror="defaultImg" @click="onAD"/>
               </div>
             </el-carousel-item>
           </el-carousel>
@@ -96,8 +95,7 @@
                           {{i.min_salary | onSalary}}
                           -{{i.max_salary | onSalary}}
                         </span>
-                          <span class="recruit-post-name fl public-title-bar title-nowrap hk-cursor" @click="onPostDetail(i)">{{i.name}}</span>
-                        <!-- </router-link> -->
+                        <span class="recruit-post-name fl public-title-bar title-nowrap hk-cursor" @click="onPostDetail(i)">{{i.name}}</span>
                       </div>
                       <div class="recruit-post-req-muster">
                         <span class="title-nowrap hk-post-item-name">{{i.area2_name }}</span>
@@ -254,6 +252,15 @@ export default {
         query: { key: this.inputValue }
       });
     },
+    onSearchEnterFun(e){
+      var keyCode = window.event? e.keyCode:e.which;
+      if(keyCode == 13){
+        this.$router.push({
+          path: "/front/recruit/post/search",
+          query: { key: this.inputValue }
+        });
+      }
+    },
     onRelevant() {
       this.$router.push({
         path: "/front/recruit/post/search",
@@ -262,7 +269,7 @@ export default {
     },
     // 跳转职位详情
     onPostDetail(val) {
-      console.log(val);
+      // console.log(val);
       let max_salary = null, min_salary = null
       this.RecentBrowsingSalary.forEach(item => {
         if (item.value === val.min_salary) {
@@ -272,7 +279,7 @@ export default {
           return max_salary = item.label
         }
       })
-      console.log(min_salary +'-' + max_salary)
+      // console.log(min_salary +'-' + max_salary)
       this.ADD_POST_RECORD({
         post_id: val.id,
         org_name: val.org_name,
@@ -289,8 +296,12 @@ export default {
       this.$router.push({ path: "/account/org/login" });
     },
     onTypeSelect(val){
-      console.log('职位类型',val)
+      // console.log('职位类型',val)
       this.$router.push({ path: "/front/recruit/post/search",query:{id:val[0],post_id:val[1]}});
+    },
+    // 跳转广告
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   }
 };

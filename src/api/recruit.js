@@ -248,3 +248,8 @@ export function editUserResume(data) {
 export function getPostDeliveryList(data) {
     return request.post('recruit/resume/resumeUserDelivery/getUserPostDeliveryList ',data, {login: true})
 }
+
+// /recruit/cate/tree3
+export function getRecruitCateTree() {
+    return request.get('/recruit/cate/tree3',{}, {login: false})
+}

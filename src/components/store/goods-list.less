@@ -1,0 +1,67 @@
+// 商品列表
+.recommend-goods-list {
+  width: 189px;
+  height: 276px;
+  padding: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  // border: 1px solid #eee;
+  &:hover {
+    box-shadow:0px 0px 2px 1px rgba(0,0,0,0.08);
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:nth-child(5n) {
+    margin: 0;
+  }
+  .list-goods-img {
+    width: 160px;
+    height: 160px;
+    text-align: center;
+    display: -webkit-box;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+    -moz-box-pack: center;
+    -webkit-box-pack: center;
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .goods-name {
+    width: 160px;
+    font-size: 14px;
+    color: rgba(102, 102, 102, 1);
+    line-height: 20px;
+    letter-spacing: 1px;
+  }
+
+  .goods-money-cx {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0;
+
+    .money {
+      display: inline-block;
+      font-size: 16px;
+      color: #f83737;
+      line-height: 18px;
+      width: 75px;
+      text-align: left;
+    }
+
+    .sales-volume {
+      display: inline-block;
+      width: 75px;
+      text-align: right;
+      font-size: 12px;
+
+      .sales-volume-mun {
+        color: #005aa0;
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+@deep: ~'>>>';
+.dialog{
+    .content{
+        width: 100%;
+        // border: 1px solid red;
+        // z-index: 1000;
+        background-color: #ffffff;
+        height: 502px;
+    }
+    .title{
+        margin-top: -45px;
+        span{
+            color: #0BD094;
+        }
+    }
+    @{deep} .el-input{
+        width: 495px;
+        height: 40px;
+        border: none;
+        .el-input__inner{
+            background-color: #F5F5F5;
+            border-radius:20px;
+            border: none;
+        }
+    }
+    .special-search-list ::-webkit-scrollbar {
+        width: 0 !important;height: 0;
+    }
+    .special-search-list{
+        margin-top: 22px;
+        border-top: 1px solid #EEEEEE;
+        height: 355px;
+        // overflow-y: scroll;
+        // position: relative;
+        .special-list{
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #EEEEEE;
+            padding: 22px 0;
+            width: 100%;
+            .block{
+                width: 50%;
+                .special-name{
+                    width: 300px;
+                    // border: 1px solid red;
+                    height: 16px;
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight:bold;
+                    overflow:hidden; /*超出宽度部分的隐藏*/
+                    white-space:nowrap; /*文字不换行*/
+                    text-overflow:ellipsis;
+                }
+                .special-state{
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+            }
+            .el-button{
+                padding:  5px 10px;
+                // height: 26px;
+                margin-left: auto;
+                margin-right: 0;
+                font-size: 14px;
+                border-radius:13px;
+            }
+            .normal{
+                border-color: #0BD094;
+                color: #0BD094;
+            }
+            .withdraw{
+                border-color: #999999;
+                color: #999999;
+            }
+            .del{
+                border-color: #FF553E;
+                color: #FF553E;
+            }
+        }
+    }
+}

@@ -5,14 +5,21 @@
 //     font-weight: normal;
 //     font-style: normal;
 // }
-
+.top-height {
+    height: 50px;
+    background: #fff;
+  }
+.font-nav-content {
+    display: flex;
+    justify-content: space-between;
+}
 .hk-top-main {
     height: 50px;
-    background: #202329;
+    background: #333344;
     color: #fff;
     // position: relative;
     position: fixed;
-    z-index: 900;
+    z-index: 2000;
     top: 0;
     width: 100%;
     .my-resume-nav{
@@ -56,6 +63,8 @@
     .el-menu.el-menu--horizontal {
         border-bottom: none;
         height: 100%;
+        width: 530px;
+        text-align: center;
     }
     .hk-left-title {
         display: inline-block;
@@ -70,6 +79,20 @@
     .el-menu--horizontal>.el-submenu:focus .el-submenu__title, .el-menu--horizontal>.el-submenu:hover .el-submenu__title {
         color: #fff !important;
     }
+    .el-menu--horizontal>.el-submenu.is-active .el-submenu__title {
+        border: none;
+    }
+    .el-menu--horizontal>.el-menu-item.is-active {
+        border: none;
+    }
+    .el-menu--horizontal>.el-menu-item {
+        border: none;
+        float: none;
+        display: inline-block;
+    }
+    .el-menu--horizontal>.el-submenu .el-submenu__title {
+        border: none;
+    }
 }
 .hk-el-menu-right-main {
     .hk-top-nav-r {
@@ -79,14 +102,11 @@
     }
 }
 .el-menu--horizontal {
-    // position: relative;
-    // padding-right: 300px;
     .el-menu-item {
         line-height: 50px;
         height: 50px;
         color: #fff;
-        padding-left: 12px;
-        padding-right: 12px;
+        padding: 0;
         font-family: Microsoft YaHei;
         &.hk-text-green {
             font-size: 14px;
@@ -113,6 +133,8 @@
     .el-submenu {
         padding-left: 12px;
         padding-right: 12px;
+        float: none;
+        display: inline-block;
         .el-submenu__title {
             height: 50px;
             line-height: 50px;
@@ -158,6 +180,8 @@
 }
 .hk-top-nav-r {
     line-height: 50px;
+    height: 50px;
+    outline: none;
 }
 .hkk-nav-mbar {
     font-size:16px;
@@ -166,17 +190,20 @@
     outline: none;
     font-family: 'MFLiHei_Noncommercial-Regular';
     color:#05D797;
-    background: #202329;
-    // line-height:70px;
     &:focus {
-        // border: 2px solid red;
         vertical-align: middle;
     }
 }
+
 .hk-nav-a {
     display: inline-block;
     line-height: 50px;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 .hk-white {
     color:white;
+}
+.fontnav-left-main {
+    max-width: 334px;
 }

@@ -88,7 +88,7 @@ export default {
             })
         },
         onSend (form) {
-            console.log(form)
+            // console.log(form)
             let that = this
             if (form.phone !== '') {
                 var reg = /^1[3456789]\d{9}$/

@@ -29,7 +29,7 @@ export default function wechat () {
           .catch(reject)
       })
       .catch(err => {
-        console.log(err)
+        // console.log(err)
         reject(err)
       })
   })
@@ -117,11 +117,11 @@ export function openAddress () {
   return new Promise((resolve, reject) => {
     wechatEvevt('openAddress', {})
       .then(res => {
-        console.log(res)
+        // console.log(res)
         resolve(res)
       })
       .catch(res => {
-        console.log(res)
+        // console.log(res)
         if (res.is_ready) {
           res.wx.openAddress({
             fail (res) {

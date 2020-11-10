@@ -4,7 +4,7 @@
     <!-- <div class="hk-resume-title font-16">简历完成度( {{complete}}% ) （9年工作经验）</div> -->
     <!-- 小导航 -->
     <!-- 资料内容 -->
-    <div class="hk-details-bar" id="state" ref="myMenu">
+    <div class="hk-detail-bar" id="state" ref="myMenu">
       <div class="nav" id="boxFixed" :class="isFixed ? 'is_fixed':''">
         <div class="top-wrap">
           <div class="nav_top">{{real_name}}的简历</div>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <div id="resumes" class="hk-details-title"  >
+      <div id="resumes" class="hk-detail-title"  >
         <!-- 头像以及基本资料 -->
         <userInfo class="d_jump" ref="d_jump" :userInfo="userInfoLists" @info="infoData"></userInfo>
         <!-- 求职意向 -->
@@ -231,10 +231,10 @@ export default {
     },
     // 请求用户信息
     userInfoList () {
-      console.log(this.resume_id)
+      // console.log(this.resume_id)
       let that = this
       getUserResumeDetail(that.resume_id).then(res => {
-        console.log("用户信息",JSON.stringify(res.data))
+        // console.log("用户信息",JSON.stringify(res.data))
         that.real_name = res.data.user_info.real_name
         that.update_time = res.data.resume_user.update_time
         that.privacy_state = res.data.resume_user.privacy_state

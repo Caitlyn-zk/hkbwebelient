@@ -80,10 +80,12 @@
             <span style="margin-left: 10px">{{ scope.row.area1_name }},{{scope.row.area2_name}}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="name" label="项目名称" align="center" :show-overflow-tooltip="true">
-          <!-- <template slot-scope="scope">
-            <router-link :to="{path:'/front/recruit/post/detail',query:{proid:scope.row.proid}}" target="_blank" class="table-name">{{scope.row.name}}</router-link>
-          </template> -->
+        <el-table-column prop="name" label="项目名称" align="center" :show-overflow-tooltip="true" >
+          <template slot-scope="scope">
+            <!-- <router-link :to="{path:'/front/recruit/post/detail',query:{proid:scope.row.proid}}" target="_blank" class="table-name">{{scope.row.name}}</router-link> -->
+            <span class="table-name"> {{scope.row.name}}</span>
+          </template>
+          
         </el-table-column>
         <el-table-column prop="fund_rang" label="金额" align="center" :formatter="fundRangFormat"></el-table-column>
         <el-table-column  label="状态" align="center" >

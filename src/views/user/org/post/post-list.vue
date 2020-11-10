@@ -185,7 +185,7 @@ export default {
         key: that.input_value
       }).then(res => {
         // console.log(JSON.stringify(res.data), that.start_time, that.end_time);
-        console.log(res.data)
+        // console.log(res.data)
         that.$set(that, "post_data", res.data.data_list);
         that.$set(that, "online_count", res.data.online_count);
         that.$set(that, "offline_count", res.data.offline_count);
@@ -276,7 +276,7 @@ export default {
       this.$router.push({path: "/user/org/talentpool/collection"});
     },
     onPostDetail(post_id){
-      console.log('职位id',post_id)
+      // console.log('职位id',post_id)
       this.$router.push({path: "/front/recruit/post/detail",query:{post_id:post_id}})
     },
     onResumeLisr(state){

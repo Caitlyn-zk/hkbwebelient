@@ -248,7 +248,7 @@ export default {
       return ''
     },
     org_logo(){
-      if (this.$store.state.app.userInfo.org_list) {
+      if (this.$store.state.app.userInfo.org_list && this.$store.state.app.userInfo.org_list[0] !== undefined) {
         return 'http://cdn.65ph.com/' + this.$store.state.app.userInfo.org_list[0].org_logo
       }
       return ''

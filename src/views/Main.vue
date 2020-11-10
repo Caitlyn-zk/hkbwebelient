@@ -3,9 +3,13 @@
     <!-- 用于乘宽导航所占位置 -->
     <div class="top-height"></div>
     <router-view name="Head" ></router-view>
-    <router-view name="body" ></router-view>
-    <!-- 底部 -->
-    <router-view name="Foot"></router-view>
+    <keep-alive include="Testkeepalive,Project">
+      <router-view name="body" v-if="$route.meta.keepAlive"></router-view>
+       
+    </keep-alive>
+    <router-view name="body" v-if="!$route.meta.keepAlive"></router-view>
+   <!-- 底部 -->
+      <router-view name="Foot"></router-view>
   </div>
 </template>
 
@@ -17,6 +21,16 @@ export default {
   components: {
     // Footer,
     // Top
+  },
+  created () {
+    // console.log('这里是首页')
+    // console.log($route.meta.keepAlive)
+  },
+  computed: {
+    cachedViews () {
+      // console.log('car=======>',this.$store.state.tagsView.cachedViews)
+      return this.$store.state.tagsView.cachedViews
+    }
   }
 }
 </script>

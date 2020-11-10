@@ -16,6 +16,7 @@ const UserInfoCenter = () => import('@/views/user/info/center.vue')
 const Orgnav = () => import('@/components/orgbacknav/orgbacknav.vue')
 // 关于我们
 const AboutUs = () => import('@/views/front/aboutus/aboutus.vue')
+const AD = () => import('@/views/front/ad/ad.vue')
 
 // 引入模块
 import College from './model/college'
@@ -38,7 +39,7 @@ const router = new Router({
             name: 'CmpFrontindex',
             meta: {
                 title: '环科宝',
-                keepAlive: false,
+                keepAlive:true,
                 auth: false
             },
             components: {
@@ -145,6 +146,19 @@ const router = new Router({
                 body: AboutUs,
                 Foot: Footer
             }
+        }, {
+            path: '/ad',
+            name: 'AD',
+            meta: {
+                title: '广告',
+                keepAlive: false,
+                auth: false
+            },
+            components: {
+                Head: Frontnav,
+                body: AD,
+                Foot: Footer
+            }
         }
     ]
 })
@@ -162,7 +176,10 @@ router.replace = function(...args) {
 
 router.beforeEach((to, form, next) => {
     const { title, backgroundColor, footer, home, auth,isOptOrg } = to.meta
-  
+    
+    if(to.path!='/account/login'  && to.path!='/account/register' && to.path.indexOf("/account/user") == -1 ){
+        sessionStorage.setItem('referrer',to.path)
+    }
     if (auth === true && !$store.state.app.token) {
         if(isOptOrg){
             if (form.name === 'AccountOrgLogin') return

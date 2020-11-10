@@ -110,7 +110,7 @@ export default {
   methods:{
     onState(val){
       this.requestParameters.page = 1
-      console.log(val.index)
+      // console.log(val.index)
       let index = val.index
       if (index == 1) {
         this.requestParameters.delivery_status = 10
@@ -134,7 +134,7 @@ export default {
     },
     // 职位详情
     onPostDetails(){
-      console.log('跳转职位详情页')
+      // console.log('跳转职位详情页')
     },
     /*
  * 获取用户职位申请列表
@@ -145,11 +145,11 @@ export default {
     // 申请职位列表
     postDeliveryList (data) {
       let that = this
-      console.log(this.requestParameters)
+      // console.log(this.requestParameters)
       getPostDeliveryList(data).then(res => {
         if (res.status == 200) {
           that.post_list = res.data
-          console.log("申请列表",JSON.stringify(res))
+          // console.log("申请列表",JSON.stringify(res))
         }
       }).catch(res => {
         this.$message({

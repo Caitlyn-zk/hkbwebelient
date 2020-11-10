@@ -1,0 +1,99 @@
+@deep: ~'>>>';
+
+.hk-comment {
+    .comment-title {
+        display: flex;
+        justify-content: left;
+
+        .hk-comment-textarea {
+            .button {
+                // display: flex;
+                margin-top: 22px;
+                text-align: right;
+
+                .el-button {
+                    padding: 4px 12px;
+                    border-radius: 50px;
+                    // background-color: red;
+                }
+
+                .comment {
+                    width:100px;
+                    height:40px;
+                    border: 1px solid #0BD094;
+                    color: #FFFFFF;
+                    background-color: #0BD094;
+                }
+
+                .cancel {
+                    // border: 1px solid #0BD094;
+                    color: #999999;
+                    // background-color: #FFFFFF;
+                }
+            }
+        }
+
+        .hk-comment-textarea-inpt {
+            width: 716px;
+            min-height: 90px;
+            background: rgba(246, 246, 248, 1);
+            border: 1px solid rgba(221, 221, 221, 1);
+
+            /deep/.el-textarea__inner {
+                border: none;
+                outline: none;
+                font-size: 16px;
+                color: rgba(153, 153, 153, 1);
+                background: rgba(246, 246, 248, 1);
+            }
+        }
+    }
+}
+
+.hk-left-list-bar {
+
+    &.line {
+        padding-bottom: 22px;
+        margin-bottom: 21px;
+        border-bottom: 1px solid #EEEEEE;
+        //   &:last-child {
+        //     border-bottom: 0;
+        //     margin-bottom: 0;
+        //     padding-bottom: 0;
+        //   }
+    }
+
+    .user-name {
+        font-size: 15px;
+        font-weight: normal;
+        color: #333333;
+    }
+
+    .userfu-time {
+        font-size: 12px;
+        color: #999999;
+    }
+
+    .hk-open {
+        color: #333;
+        max-width: 592px;
+    }
+
+    .hk-querst {
+        display: flex;
+        justify-content: left;
+    }
+
+    // 评论处
+    .hk-button-college {
+        .hk-btn-text {
+            margin-right: 10px;
+            padding: 0;
+            font-size: 14px;
+            color: rgba(153, 153, 153, 1);
+
+            &.zan-button {}
+        }
+
+    }
+}

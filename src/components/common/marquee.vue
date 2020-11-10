@@ -6,7 +6,7 @@
     </div>
     <div class="marquee_box">
       <ul class="marquee_list" :class="{marquee_top:animate}">
-        <li v-for="(item,index) in marqueeList" :key="index">{{item.name}}</li>
+        <li v-for="(item,index) in marqueeList" :key="index" @click="onNotice" class="notice-name">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
           name: '恭喜艾玛入驻环科宝'
         },{
           value: 3,
-          name: '恭喜关注行度人工智能入驻环科宝'
+          name: '恭喜广州行度人工智能入驻环科宝'
         }, {
           value: 4,
           name: '恭喜环能环保入驻环科宝'
@@ -48,6 +48,9 @@ export default {
         this.animate = false;
       }, 500);
     },
+    onNotice(){
+      // this.$router.push({path:'/ad'})
+    }
   }
 }
 </script>
@@ -100,6 +103,9 @@ export default {
           height: 30px;
           line-height: 30px;
           font-size: 14px;
+          cursor: pointer;
+          width: 100%;
+          // border: 1px solid red;
         }
         li span {
           padding: 0 2px;

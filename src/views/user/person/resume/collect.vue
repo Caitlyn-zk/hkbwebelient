@@ -138,7 +138,7 @@ export default {
           page: that.currentPage,
           list_rows: that.list_rows
         }
-        console.log('first')
+        // console.log('first')
         this.getCollectList(requestParameters)
       } else {
         requestParameters = {
@@ -146,20 +146,20 @@ export default {
           page: that.currentPage,
           list_rows: that.list_rows
         }
-        console.log('second')
+        // console.log('second')
         this.getCollectList(requestParameters)
       }
       // console.log(requestParameters)
     },
     getCollectList (requestParameters) {
-      console.log(requestParameters)
+      // console.log(requestParameters)
       let that = this
       postCollectionList(requestParameters).then(res => {
-        console.log(1213412)
+        // console.log(1213412)
         if (res.status == 200) {
           that.postList = res.data
-          console.log('请求成功',JSON.stringify(res.data));
-          console.log(res.data.length)
+          // console.log('请求成功',JSON.stringify(res.data));
+          // console.log(res.data.length)
         }
       }).catch(res => {
         this.$message({
@@ -182,7 +182,7 @@ export default {
       this.isIndeterminate = checkedCount > 0 && checkedCount < this.postList.length
     },
     onDelCollect(index, row) {
-      console.log("列参数",JSON.stringify(row.collection_id))
+      // console.log("列参数",JSON.stringify(row.collection_id))
       var collect_id = row.collection_id+''
       // let that = this
       // if (that.collection_id === "") {

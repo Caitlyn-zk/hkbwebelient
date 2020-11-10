@@ -63,23 +63,28 @@ export default {
             })
         },
         onSelect(id){
-            console.log('onSelect',JSON.stringify(id))
+            // console.log('onSelect',JSON.stringify(id))
         },
         handleChange(val){
+            // console.log('信息中心',JSON.stringify(val))
             if (val !=='') {
-                this.setSystemMessageRead(this.infoList[val].ms_id)
+                if (this.infoList[val].is_read !== 1) {
+                    this.setSystemMessageRead(this.infoList[val].ms_id)
+                }
             }
         },
         // 上一页
         onPreviousPage(){
             if (this.currentPage >1 ) {
                 this.currentPage = this.currentPage -1
+                this.activeNames = null
                 this.getSystemMessageList()
             }
         },
         // 下一页 
         onNextPage() {
             this.currentPage = this.currentPage + 1
+            this.activeNames = null
             this.getSystemMessageList()
         }
     }

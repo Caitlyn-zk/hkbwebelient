@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title margin-t-10 clearfix">
+  <div class="hk-detail-list-title margin-t-10 clearfix">
     <div class="fr hk-resume-main">
       <el-button round @click="onEdit(jwList)">编辑</el-button>
     </div>
@@ -221,13 +221,13 @@ export default {
         privacy_state: that.editData.privacy_state,
         in_time: that.editData.in_time
       }
-      console.log('传递参数',JSON.stringify(that.editData))
+      // console.log('传递参数',JSON.stringify(that.editData))
       editUserResume(data).then(res=>{
         if (res.status==200) {
           this.dialogFormVisible = false
           this.reload()
         }
-        console.log("编辑求职意向",JSON.stringify(res))
+        // console.log("编辑求职意向",JSON.stringify(res))
       })
     },
     onClose () {

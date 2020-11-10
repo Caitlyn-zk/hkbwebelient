@@ -48,15 +48,15 @@
                   v-if="proCate[catalogIndex]"
                 >{{proCate[catalogIndex].cate_name}}</span>
               </div>
-              <div class="post-list">
+              <ul class="post-list">
                 <!-- {{proCate[catalogIndex].children}} -->
-                <span
+                <li
                   class="post-name-list"
                   v-for="(item,index) in proCate[catalogIndex].children"
                   :key="index"
                   @click="onProjectClassSearch([proCate[catalogIndex].id,item.id])"
-                >{{item.cate_name}}</span>
-              </div>
+                >{{item.cate_name}}</li>
+              </ul>
             </el-card>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <el-carousel height="253px" arrow="never" :interval="interval">
             <el-carousel-item v-for="item in banner" :key="item.id">
               <div>
-                <img style="width=100%" :src="item.pic" :onerror="defaultImg" />
+                <img style="width=100%" :src="item.pic" :onerror="defaultImg" @click="onAD" />
               </div>
             </el-carousel-item>
           </el-carousel>
@@ -93,22 +93,6 @@
               </li>
             </ul>
             <ProjectList :zbxm="item.data_list.slice(0, 9)"></ProjectList>
-            <!-- <div class="recruit-post-list">
-                          <el-row :gutter="20">
-                            <el-col :span="8" v-for="(i, index) in item.data_list" :key="index" >
-                              <div class="recruit-post-information shows" @click="onPostJump(i)">
-                                  <div class="recruit-post-name public-title-bar title-nowrap">{{i.name}}</div>
-                                  <div class="recruit-post-details">
-                                      <div class="public-post-salary">{{ i.fund_rang | onfundRang}}</div>
-                                      <div class="recruit-post-address-muster">
-                                        <div class="recruit-post-address">{{i.area2_name === "市辖区" ? i.area1_name: i.area2_name}}</div>
-                                        <div class="recruit-post-release-date">{{i.last_time}}</div>
-                                      </div>
-                                  </div>
-                              </div>
-                            </el-col>
-                          </el-row>
-            </div>-->
           </div>
         </div>
       </div>
@@ -157,7 +141,7 @@ export default {
       typeSelect: [],
       login: {
         type: 1,
-        reception: "公示项目",
+        reception: "登陆",
         backstage: "免费发布项目"
       },
       //   fundRang: fundRang,
@@ -180,7 +164,7 @@ export default {
           pic: "/static/img/post-seek.png"
         }
       ],
-      cateProList: [],
+      cateProList: [{data_list: [0,0,0,0,0,0,0,0,0]}],
       recommendData: [
         "饮用水工程",
         "生态环境工程",
@@ -221,13 +205,13 @@ export default {
       this.fullscreenLoading = true;
       let that = this;
       getProjectData().then(res => {
-        console.log("获取数据");
-        console.log(res.data);
+        // console.log("获取数据");
+        // console.log(res.data);
         if (res.data.banner.length > 0) {
           that.$set(that, "banner", res.data.banner);
         }
         that.$set(that, "proCate", res.data.pro_cate);
-        console.log(JSON.stringify(res.data.pro_cate));
+        // console.log(JSON.stringify(res.data.pro_cate));
         that.$set(that, "cateProList", res.data.cate_pro_list);
         that.fullscreenLoading = false;
       });
@@ -267,6 +251,10 @@ export default {
     // 查看更多
     onViewMore() {
       this.$router.push({ path: "/front/project/search" });
+    },
+    // 跳转广告
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   }
 };

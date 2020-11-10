@@ -19,7 +19,7 @@ export function toLogin(push, backUrl) {
 export function handlePersonLoginSuccess(res) {
     store.commit('LOGIN', {token: res.data.token, expires_time: dayjs(res.data.expires_time)})
     // 完善信息判断,小于100表示为注册完成
-    console.log(res.data.token)
+    // console.log(res.data.token)
     if (res.data.person_reg_state < 100) {
         if (res.data.person_reg_state === 10) {
             router.push({ path: '/account/user/register/basicinfo' })
@@ -29,9 +29,15 @@ export function handlePersonLoginSuccess(res) {
             router.push({ path: '/account/user/register/jw' })
         }
     } else {
-        const backUrl = cookie.get(BACK_URL) || '/user/person/index'
-        cookie.remove(BACK_URL)
-        router.push({ path: backUrl })
+        var referrer = sessionStorage.getItem('referrer');
+        if(referrer){
+            cookie.remove(BACK_URL)
+            router.push({ path: referrer })
+        }else {
+           const backUrl = cookie.get(BACK_URL) || '/user/person/index'
+           cookie.remove(BACK_URL)
+           router.push({ path: backUrl })
+        }
     }
 }
 // 企业登录处理
@@ -50,7 +56,7 @@ export function toOrgLogin(push, backUrl) {
 export function handleOrgLoginSuccess(res) {
     store.commit('LOGIN', {token: res.data.token, expires_time: dayjs(res.data.expires_time)})
     // 完善信息判断,小于100表示为注册完成
-    console.log(res.data.token)
+    // console.log(res.data.token)
     if (res.data.org_reg_state < 100) {
         if (res.data.org_reg_state === 10) {
             router.push({ path: '/account/org/register/personInfo', query: { active: 0 } })

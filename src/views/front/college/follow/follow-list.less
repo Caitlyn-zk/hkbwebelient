@@ -1,0 +1,77 @@
+@deep: ~'>>>';
+.follow-content-list {
+  @{deep} .el-tabs {
+    .el-tabs__header {
+      margin: 0;
+    }
+    .el-tabs__item {
+      font-size:15px;
+      color:#999;
+      &.is-active {
+        font-weight:bold;
+        color:rgba(11,208,148,1);
+      }
+    }
+    .el-tabs__nav-wrap::after {
+      height: 1px !important;
+      background: #eee !important;
+    }
+  }
+  .follow-list {
+    max-height: 620px;
+    overflow: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar { /*滚动条整体样式*/
+      width: 4px; /*高宽分别对应横竖滚动条的尺寸*/
+      height: 1px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb { /*滚动条里面小方块*/
+      border-radius: 2px;
+      border: 2px solid #e6e2e2;
+      box-shadow: 5px 0 0 #e5e2e2 inset;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      box-shadow: 2px 0 0 #ccc9c9 inset;
+    }
+    .infinite-list-item {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .loading span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #409eff;
+    border-left: transparent;
+    animation: zhuan 0.5s linear infinite;
+    border-radius: 50%;
+  }
+  @keyframes zhuan {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+@keyframes loading {
+  0% {
+      width: 50%;
+  }
+
+  20% {
+      width: 60%;
+  }
+
+  50% {
+      width: 85%;
+  }
+
+  100% {
+      width: 100%;
+  }
+}

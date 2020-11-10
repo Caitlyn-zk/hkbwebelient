@@ -118,9 +118,12 @@
         <div class="hk-system-main">
           <h4 class="hk-system-title">系统信息</h4>
           <div class="hk-system-cont-main">
-            <div class="hk-system-list clearfix hk-cursor" v-for="(item,index) in messageList" :key="index">
+            <div class="hk-system-list clearfix hk-cursor" v-show="messageList.length > 0" v-for="(item,index) in messageList" :key="index">
               <span class="fr hk-system-date">{{item.add_time}} </span>
               <span>{{item.ms_title}}</span>
+            </div>
+            <div class="text-center" v-show="messageList.length === 0">
+              <img src="../../../../assets/image/no-info.png" alt="">
             </div>
           </div>
         </div>
@@ -226,8 +229,8 @@ export default {
     ...mapMutations(["INIT_POST_RECORD", "ADD_POST_RECORD"]),
     getUserAdminIndex () {
       userAdminIndex().then(res=>{
-        console.log(res.data)
-        console.log("个人中心信息",JSON.stringify(res))
+        // console.log(res.data)
+        // console.log("个人中心信息",JSON.stringify(res))
         // 邀请数
         this.invitationCount = res.data.invitation_count
         // 申请
@@ -246,7 +249,7 @@ export default {
       getRecommendPostList(data).then(res=>{
         if (res.status==200) {
           this.postList = res.data
-          console.log(res.data)
+          // console.log(res.data)
           this.post_name = res.data[0].post_name
         }
         // console.log("职位列表",JSON.stringify(res))

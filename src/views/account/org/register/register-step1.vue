@@ -95,14 +95,14 @@ export default {
           this.add()
           this.reload()
         } else {
-          console.log('error submit!!')
+          // console.log('error submit!!')
           return false;
         }
       })
     },
     // 加入公司
     addCompany (formName) {
-      console.log('加入公司成功')
+      // console.log('加入公司成功')
     },
     getInfo () {
       var parameter = {
@@ -110,10 +110,10 @@ export default {
       }
       let that = this
       getUserOrgInfo(parameter).then(res => {
-        console.log('基本信息渲染',JSON.stringify(res))
+        // console.log('基本信息渲染',JSON.stringify(res))
         if (res.status == 200) {
           // 成功便将名字传给右侧导航
-          console.log(res.data)
+          // console.log(res.data)
           // 将所得数据渲染到页面上 判断有无数据
           // this.stepFrome = res.data
           if (res.data !== null) {
@@ -129,7 +129,7 @@ export default {
     },
     add(){
       let that = this
-      console.log(that.stepFrome.imageUrl)
+      // console.log(that.stepFrome.imageUrl)
       
       var parameter = {
         org_reg_state: 10 ,
@@ -139,9 +139,9 @@ export default {
         post_name: that.stepFrome.post_name,	 
         org_name: that.stepFrome.org_name	 
       }
-      console.log("传递参数",parameter)
+      // console.log("传递参数",parameter)
       authUserOrgAu(parameter).then(res =>{
-        console.log('新增企业个人信息',JSON.stringify(res))
+        // console.log('新增企业个人信息',JSON.stringify(res))
         if(res.status == 200) {
           this.$router.push({
             path: '/account/org/register/companyinfo',

@@ -1,0 +1,102 @@
+// 拼团优惠
+.group-main {
+    // 秒杀倒计时
+    .group-conetent {
+      display: flex;
+      justify-content: left;
+      background: rgba(255, 255, 255, 1);
+      position: relative;
+    }
+    .group-image {
+      width: 190px;
+      height: 260px;
+    }
+    .group-goods-next {
+      display: inline-block;
+      // width: 40px;
+      height: 260px;
+      line-height: 260px;
+      .next {
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        line-height: 21px;
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+    .rotation-main {
+      display: flex;
+      justify-content: left;
+    }
+    .containt-list {
+      position: relative;
+      width: 925px;
+      // border: 1px solid #ccc;
+      height: 260px;
+      overflow: hidden;
+    }
+    .group-goods-list {
+      display: block;
+      height: 260px;
+      position: absolute;
+      left: 0;
+      // width: 1200px;
+      // margin: 0 auto;
+      // border: 1px solid #f83737;
+      // width: 1000px;
+      .content-right-goods {
+        display: inline-block;
+        padding: 38px 21px 21px;
+        cursor: pointer;
+        .goods-name {
+          color: #333;
+          font-size: 14px;
+          width: 143px;
+          padding: 0 5px;
+          min-height: 16px;
+          line-height: 26px;
+        }
+  
+        .goods-money-cx {
+          font-size: 14px;
+          color: #f83737;
+          line-height: 26px;
+  
+          .be-overdue {
+            color: rgba(216, 216, 216, 1);
+            text-decoration: line-through;
+          }
+        }
+  
+        .goods-img {
+          width: 143px;
+          height: 143px;
+          position: relative;
+          text-align: center;
+          display: -webkit-box;
+          -moz-box-align: center;
+          -webkit-box-align: center;
+          -moz-box-pack: center;
+          -webkit-box-pack: center;
+          // border: 1px solid #ccc;
+          .min-img-icon {
+            width: 57px;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            img {
+              max-width: 57px;
+            }
+          }
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+      }
+    }
+  }

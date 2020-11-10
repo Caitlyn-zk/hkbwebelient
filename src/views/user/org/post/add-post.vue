@@ -488,7 +488,7 @@ export default {
         desc: that.jobFrom.desc,
         address: addressjson
       };
-      console.log(addPostData);
+      // console.log(addPostData);
       this.$refs[jobFrom].validate(valid => {
         if (valid) {
           // alert('submit!');
@@ -520,14 +520,14 @@ export default {
               });
             });
         } else {
-          console.log("error submit!!");
+          // console.log("error submit!!");
           return false;
         }
       });
     },
     // 请求招聘相关职位
     onUserprjectpostData() {
-      console.log(this.id);
+      // console.log(this.id);
       getPostdetail(this.id).then(res => {
         // console.log("职位", JSON.stringify(res.data));
         this.jobFrom = res.data;
@@ -565,11 +565,11 @@ export default {
             key: Date.now()
           });
         });
-        console.log("最后的");
+        // console.log("最后的");
         if (this.jobFrom.address.value !== "") {
           this.myAddressShow = true;
         }
-        console.log(this.jobFrom.address);
+        // console.log(this.jobFrom.address);
       });
     },
     // 删除
@@ -630,8 +630,8 @@ export default {
       });
     },
     onMinSalary(jobFrom, val) {
-      console.log("最小薪资");
-      console.log(val);
+      // console.log("最小薪资");
+      // console.log(val);
       this.$refs.jobFrom.validateField("max_salary", valid => {
         if (valid === "" || valid === undefined || valid === null) {
           // console.log('验证通过')
@@ -642,8 +642,8 @@ export default {
       });
     },
     onMaxSalary(jobFrom, val) {
-      console.log("最高薪资");
-      console.log(val);
+      // console.log("最高薪资");
+      // console.log(val);
       this.$refs.jobFrom.validateField("max_salary", valid => {
         if (valid === "" || valid === undefined || valid === null) {
           // console.log('验证通过')

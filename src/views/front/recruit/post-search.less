@@ -24,18 +24,18 @@
         // height: 50px;
         /deep/ .el-input__inner{
           border-left: 0;
-          border-color:#0BD094
+          border-color:#DCDFE6
         }
         /deep/.el-input-group__prepend{
             border: none;
             .el-input__inner{
-              border: 1px solid #0BD094;
+              border: 1px solid #DCDFE6;
             }
             .el-cascader{
               /deep/ .el-input__inner{
-                border: 1px solid #0BD094;
-                border-color: #05D797;
-                border-right: 1px solid #eee;
+                border: 1px solid #DCDFE6;
+                border-color: #DCDFE6;
+                border-right: 1px solid #DCDFE6;
               }
             }
         }
@@ -270,6 +270,7 @@
     .paging-switch-button{
         width:70px;
         height:27px;
+        padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -424,9 +425,10 @@
         height:91px;
         background:rgba(255,255,255,1);
         cursor: pointer;
-    }
-    .line{
-        border-bottom: 1px solid rgba(238,238,238,1);
+        border-bottom: 1px solid #eeeeee;
+        &:last-child {
+            border-bottom: 0;
+        }
     }
     .recently-browse-post-name{
         line-height: 36px;

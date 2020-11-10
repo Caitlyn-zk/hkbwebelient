@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title clearfix">
+  <div class="hk-detail-list-title clearfix">
     <div class="clearfix">
       <div class="hk-resume-main">
         <el-button round @click="onUserDialog()">添加</el-button>
@@ -19,7 +19,7 @@
         </div>
         <!-- 职位类别 -->
         <div class="hk-resume-skill">
-          <div class="padding-tb-25 hk-el-button-bar">
+          <div class="padding-tb-25 hk-el-button-bar" v-if="prop.skill_tag !==''">
             <el-button round v-for="(item, index)  in prop.skill_tag.split(',')" :key="index">{{item}}</el-button>
           </div>
           <div class="">
@@ -207,10 +207,10 @@ export default {
     // 渲染数据
     onWorkFor () {
       this.workForList = this.workList
-      console.log(this.workForList)
+      // console.log(this.workForList)
       // this.$set(this.arrData,rowIndex,newRowData)
       this.workForList.forEach(item => {
-        console.log(item.skill_tag)
+        // console.log(item.skill_tag)
         item.skill_tag = [item.skill_tag.split(',')]
       })
       // this.postTable = arr
@@ -263,6 +263,7 @@ export default {
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         } else {
@@ -270,6 +271,7 @@ export default {
             message: res.message,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -278,6 +280,7 @@ export default {
           message: res.message,
           type: 'error',
           showClose: true,
+          offset: 60,
           duration: 3000
         })
       })
@@ -307,7 +310,7 @@ export default {
       this.dialogFormVisible = true
       // console.log(this.workList[index])
       this.$set(this, 'wfForm', this.workList[index])
-      console.log("编辑工作经历",JSON.stringify(this.wfForm.skill_tag))
+      // console.log("编辑工作经历",JSON.stringify(this.wfForm.skill_tag))
       this.skillData = this.wfForm.skill_tag.split(',')
       this.skill_tag_list = this.workList[index].skill_tag
     },
@@ -329,6 +332,7 @@ export default {
                 message: res.msg,
                 type: 'success',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             } else {
@@ -336,6 +340,7 @@ export default {
                 message: res.message,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             }
@@ -344,6 +349,7 @@ export default {
               message: res.message,
               type: 'error',
               showClose: true,
+              offset: 60,
               duration: 3000
             })
           })

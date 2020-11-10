@@ -32,7 +32,7 @@ export default {
     }
   },
   created () {
-    console.log(this.elasticFrame)
+    // console.log(this.elasticFrame)
     this.PostCateTree()
   },
   mounted () {
@@ -47,18 +47,18 @@ export default {
     },
     PostCateTree () {
       getPostCateTree().then(res => {
-        console.log(res.data.children)
+        // console.log(res.data.children)
         // this.postList = res.data
         
         for (let item in res.data) {
           res.data[item].children.forEach(item => {
             item.checkbed = false
           })
-          console.log(res.data[item].children)
+          // console.log(res.data[item].children)
         }
-        console.log(res.data)
+        // console.log(res.data)
         this.postList = res.data
-        console.log(res.data)
+        // console.log(res.data)
       })
     },
     // 选择职位

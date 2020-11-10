@@ -317,11 +317,11 @@ export default {
     };
   },
   created() {
-    this.get_ResumeUserPool()
+    this.get_resume_user_pool()
     this.get_PostCateTree()
   },
   methods: {
-    get_ResumeUserPool() {
+    get_resume_user_pool() {
       let that = this
       let parameter = {
         key_value: that.inputValue,
@@ -358,43 +358,43 @@ export default {
     },
     // 城市选择
     onHandleChange(val) {
-      console.log("城市选择",val)
+      // console.log("城市选择",val)
       if (val[2]) {
         this.area3_code = parseInt(val[2]);
       }
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     // 学历要求
     onEdufeSelect(val) {
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     // 工作经验选择
     onWorkLifeSelect(val) {
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     // 性别选择
     onGenderSelect(val) {
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     // 证书
     oncertSelect(val) {
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     onSalary(val) {
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     // 简历上一页
     onResumePreviousPage() {
       if (this.currentPage > 1) {
         this.currentPage = this.currentPage - 1;
-        this.get_ResumeUserPool()
+        this.get_resume_user_pool()
       }
     },
     // 简历下一页
     onResumeNextPage() {
       if (this.resumeList.length == this.list_rows) {
         this.currentPage = this.currentPage + 1;
-        this.get_ResumeUserPool()
+        this.get_resume_user_pool()
       }
     },
     // 查看简历
@@ -418,6 +418,7 @@ export default {
             showClose: true,
             duration: 3000
           })
+          this.get_resume_user_pool()
         } else {
           this.$message({
             message: res.msg,
@@ -438,6 +439,7 @@ export default {
     // 搜索
     onSearch() {
       // console.log('搜索')
+      this.get_resume_user_pool()
     },
     onReleasePost() {
       this.$router.push({
@@ -457,7 +459,7 @@ export default {
       this.citySelect = [] 
       this.genderSelect = null
       this.deliveryTime = null
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     onMaxSalary(){
       if (this.min_salary > this.max_salary) {
@@ -467,14 +469,14 @@ export default {
           type: 'warning'
         });
       } else {
-        this.get_ResumeUserPool()
+        this.get_resume_user_pool()
       }
     },
     onMinSalary(){
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     },
     onTypeSelect(){
-      this.get_ResumeUserPool()
+      this.get_resume_user_pool()
     }
   },
   mounted() {

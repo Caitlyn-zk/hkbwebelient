@@ -69,7 +69,7 @@ export default {
     },
     // 选择职位
     choicePost (id, name) {
-      console.log('职位数据',JSON.stringify(this.activePostName))
+      // console.log('职位数据',JSON.stringify(this.activePostName))
       this.$emit('popup',false, id, name,this.activePostName)
     },
     // 关闭弹框
@@ -88,7 +88,7 @@ export default {
     },
     onOpen(){
       this.list = this.elasticFrame.list
-      console.log('获取参数',this.list)
+      // console.log('获取参数',this.list)
       for (let item in this.list) {
         this.list[item].children.forEach(item => {
           item.checkbed = false

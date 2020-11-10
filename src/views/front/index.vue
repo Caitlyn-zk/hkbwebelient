@@ -10,7 +10,7 @@
         <el-carousel-item >
           <div v-for="(item,index) in dataimage" :key="index">
             <!-- item.pic ||  -->
-            <img style="width=100%;" src="/static/img/banner01.jpg" alt="item.id"/>
+            <img style="width=100%;" src="/static/img/banner01.jpg" alt="item.id" @click="onAD" />
             <!-- <img style="width=100%;" :src="item.pic" alt="item.id"/> -->
           </div>
         </el-carousel-item>
@@ -20,8 +20,8 @@
     <div class="content">
       <!-- 搜索栏 -->
       <div class="hk-content-title">
-        <el-input placeholder="请输入你想要的内容搜索" v-model="searchinput" class="input-with-select">
-          <el-select v-model="select" slot="prepend" placeholder="工程">
+        <el-input placeholder="请输入你想要的内容搜索" v-model="searchinput" @keyup.enter.native="onSearchEnterFun" class="input-with-select">
+          <el-select v-model="select" slot="prepend" placeholder="项目">
             <el-option label="项目" value="1"></el-option>
             <el-option label="公示" value="2"></el-option>
             <el-option label="招聘" value="3"></el-option>
@@ -37,22 +37,20 @@
         <div>
           <!-- 左边更多 -->
           <ul class="fl hk-list-left padding-t-68 padding-lr-20">
-            <li class="hk-list-title">项目公示</li>
+            <li class="hk-list-title">环评公示</li>
             <li class="hk-list-newbar text-white-2 text-center">最新最全</li>
-            <li><el-button type="" class="" @click="onProject">查看更多</el-button></li>
+            <li><el-button type="" class="" @click="onProject(1)">查看更多</el-button></li>
           </ul>
           <!-- 右边项目 -->
           <ul class="fl hk-list-add">
             <li class="hk-right-list shows" v-for="item in gsxm" :key="item.id">
-              <router-link :to="{path:'/front/project/noticedetail',query:{id:item.id}}">
-                <div class="hk-title-bar public-title-bar title-nowrap" >{{item.name}}</div>
-                <div class="clearfix">
-                  <div class="fr line-46 text-line">{{item.area2_name === "市辖区" ? item.area1_name: item.area2_name}}</div>
-                  <div class="fl hk-list-location">
-                    <span class="text-line">{{item.last_time}}</span>
-                  </div>
+              <div class="hk-title-bar public-title-bar title-nowrap" :class="item !== 0 ? '' : 'bg'" @click="onNoticeDetail(item)">{{item.name}}</div>
+              <div class="clearfix">
+                <div class="fr text-line hk-list-area-name" :class="item !== 0 ? '' : 'bg'">{{item.area2_name === "市辖区" ? item.area1_name: item.area2_name}}</div>
+                <div class="fl hk-list-location" :class="item !== 0 ? '' : 'bg'">
+                  <span class="text-line">{{item.last_time}}</span>
                 </div>
-              </router-link>
+              </div>
             </li>
           </ul>
           <!-- 换一批 -->
@@ -87,9 +85,9 @@
           <ul class="fl hk-list-add">
             <li class="hk-right-mall-list shows" v-for="item in 3" :key="item">
               <img src="../../assets/image/group_01.png"/>
-              <div class="padding-lr-20 line-70 clearfix">
-                <span class="fl hk-mall-completed public-title-bar title-nowrap">竣工设计图</span>
-                <span class="fr public-post-salary">￥14w-15w</span>
+              <div class="padding-lr-20 clearfix">
+                <span class="fl hk-mall-completed margin-tb-25 public-title-bar title-nowrap">竣工设计图</span>
+                <span class="fr public-post-salary line-70">￥14w-15w</span>
               </div>
             </li>
           </ul>
@@ -120,39 +118,36 @@
           <div class="post-muster clearfix">
             <ul class="fl hk-list-left margin-t-10 padding-t-30 padding-lr-20">
               <li class="hk-list-title">环保职位</li>
-              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost(6016)"><span>环评工程师</span></li>
-              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost(6016)"><span>水环境工程师</span></li>
-              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost(6016)"><span>土壤工程师</span></li>
-              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost(6016)"><span>环境监测技术员</span></li>
+              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost('环评工程师')"><span>环评工程师</span></li>
+              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost('水环境工程师')"><span>水环境工程师</span></li>
+              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost('土壤工程师')"><span>土壤工程师</span></li>
+              <li class="hk-list-newbar text-white-2 text-center" @click="onRecommendPost('环境监测技术员')"><span>环境监测技术员</span></li>
               <li><el-button type="" class="" @click="onPost">查看更多</el-button></li>
             </ul>
-            <!-- <ul class="fl hk-list-add margin-t-10 clearfix"> -->
             <div class=" post-list" >
-              <el-row :gutter="15" class="clearfix">
+              <ul  class="clearfix">
                 <div class="hk-list-recruit-bar fl" v-for="(item, index) in post" :key="index">
                   <div class="post-list-content shows">
-                    <div class="line-60 clearfix">
-                      <!-- <router-link :to="{path:'/front/recruit/post/detail',query:{post_id:item.id}}"> -->
-                        <span class="fl hk-mall-completed public-title-bar title-nowrap hk-cursor" @click="onPostDetail(item)">{{item.name}}</span>
-                      <!-- </router-link> -->
-                      <div class="fr title-nowrap">
-                        <span class="public-post-salary line-60">{{item.min_salary | onSalary}}</span>
-                        <span class="public-post-salary line-60">-{{item.max_salary | onSalary}}</span>
+                    <div class=" clearfix">
+                      <div class="fr title-nowrap hk-post-salary" :class="item !== 0 ? '' : 'bg'">
+                        <span class="public-post-salary ">{{item.min_salary | onSalary}}{{item.min_salary !== undefined ? '-' : ''}}</span>
+                        <span class="public-post-salary">{{item.max_salary | onSalary}}</span>
                       </div>
+                      <span class="fl hk-mall-completed margin-tb-20 public-title-bar title-nowrap hk-cursor" :class="item !== 0 ? '' : 'bg'" @click="onPostDetail(item)">{{item.name}}</span>
                     </div>
-                    <div class="hk-requirement">
+                    <div class="hk-requirement margin-b-20" :class="item !== 0 ? '' : 'bg'">
                       <!-- {{item.area2_name === "市辖区" ? item.area1_name: item.area2_name}} -->
-                      <span class="margin-r-15">{{item.area2_name}}</span>
+                      <span class="margin-r-15" >{{item.area2_name}}</span>
                       <span class="margin-r-15">{{item.work_life | onWorkLife}}</span>
-                      <span class="margin-r-15">本科</span>
-                      <span class="margin-r-15">{{item.work_type | onWorkType}}</span>
+                      <span class="margin-r-15">{{item.min_edu | onMinEdu}}</span>
+                      <span class="margin-r-15" >{{item.work_type | onWorkType}}</span>
                     </div>
                     <div class="hk-company">
-                      <p>{{item.org_name}}</p>
+                      <p :class="item !== 0 ? '' : 'bg'">{{item.org_name}}</p>
                     </div>
                   </div>
                 </div>
-              </el-row>
+              </ul>
             </div>
           </div>
           <div class="hk-more post-buton">
@@ -167,14 +162,14 @@
 
 <script>
 import {getHomeData, getGSData, getZbData, getPostData} from '@/api/public'
-import {fundRang, mainSalary, workType, workLife} from '@/config/constant'
+import {fundRang, mainSalary, workType, workLife,minEdu} from '@/config/constant'
 import utils from '@/utils/index.js'
 import { mapMutations, mapGetters } from "vuex";
 // import cookie from '@/utils/store/cookie'
 import ProjectList from "@/components/project/project-list"
 export default {
-  name: 'banner',
-  name: 'test-keep-alive',
+  // name: 'banner',
+  name: 'Testkeepalive',
   filters: {
     onFundRang (value) {
       var obj = utils.findObj(fundRang, value)
@@ -191,7 +186,11 @@ export default {
     onWorkType (value) {
       var obj = utils.findObj(workType, value)
       return obj.label
-    }
+    },
+    onMinEdu(value) {
+      var obj = utils.findObj(minEdu, value);
+      return obj.label;
+    },
   },
   data () {
     return {
@@ -217,9 +216,9 @@ export default {
         name: 'banner',
         pic: '/static/img/banner01.jpg'
       }],
-      zbxm: [],
-      post: [],
-      gsxm: [],
+      zbxm: [0,0,0,0,0,0,0,0,0],
+      post: [0,0,0,0,0,0],
+      gsxm: [0,0,0,0,0,0,0,0,0],
       RecentBrowsingSalary: mainSalary,
     }
   },
@@ -305,30 +304,59 @@ export default {
           that.postPage = 1
           // that.clickPost()
         } else {
-          that.$set(that, 'post', res.data)
+          that.$set(that, 'post', res.data.slice(0, 6))
         }
       })
     },
     // 点击项目公示换一批事件
     clickGS () {
-      this.gSPage = this.gSPage + 1
-      this.getGSMoreData()
+      if (this.gsxm.length / 9 === this.gSPage) {
+        this.gSPage = this.gSPage + 1
+        this.getGSMoreData()
+      } else {
+        this.gSPage = 1
+        this.getGSMoreData()
+      }
+      
     },
     // 点击招标换一批事件
     clickZB () {
-      this.zBPage = this.zBPage + 1
-      this.getZBMoreData()
+      if (this.zbxm.length / 9 === this.zBPage) {
+        this.zBPage = this.zBPage + 1
+        this.getZBMoreData()
+      } else {
+        this.zBPage = 1
+        this.getZBMoreData()
+      }
+      
+    },
+    // 跳转公示项目详情
+    onNoticeDetail (val) {
+      // console.log(val.id)
+      if(val !== 0)
+      {
+        this.$router.push({ path: "/front/project/noticedetail",query: {id: val.id}});
+      }
     },
     // 点击职位换一批事件
     clickPost () {
-      this.postPage = this.postPage + 1
-      this.getPostMoreData()
+      if (this.post.length / 6 === this.postPage) {
+        this.postPage = this.postPage + 1
+        this.getPostMoreData()
+      } else {
+        this.postPage = 1
+        this.getPostMoreData()
+      }
     },
     /**
      * 跳转到项目搜索列表
      */
-    onProject () {
-      this.$router.push({path: '/front/project/search'})
+    onProject (e) {
+      if (e) {
+        this.$router.push({ path: "/front/project/search", query: { type: e} });
+      } else{
+        this.$router.push({path: '/front/project/search'})
+      }
     },
     /**
      * 跳转传参到项目搜索列表
@@ -339,8 +367,8 @@ export default {
     /**
      * 跳转传参到职位搜索列表
      */
-    onRecommendPost (val) {
-      this.$router.push({path: '/front/recruit/post/search', query: {cate_id: val}})
+    onRecommendPost (name) {
+      this.$router.push({path: '/front/recruit/post/search', query: {key: name}})
     },
     /**
      * 跳转到职位搜索列表
@@ -350,7 +378,7 @@ export default {
     },
     // 跳转职位详情
     onPostDetail(val) {
-      console.log(val);
+      // console.log(val);
       let max_salary = null, min_salary = null
       this.RecentBrowsingSalary.forEach(item => {
         if (item.value === val.min_salary) {
@@ -360,7 +388,7 @@ export default {
           return max_salary = item.label
         }
       })
-      console.log(min_salary +'-' + max_salary)
+      // console.log(min_salary +'-' + max_salary)
       this.ADD_POST_RECORD({
         post_id: val.id,
         org_name: "贵州活性炭有限公司",
@@ -376,22 +404,50 @@ export default {
       this.$router.push({path:'/user/org/project/add',query:{proid:0}})
     },
     onSeatch(){
+      this.onJump()
+    },
+    onJump(){
       if(this.select == 1 || this.select == ""){
         // 项目中心
-        this.$router.push({path:'/front/project',query:{key:this.searchinput}})
+        this.$router.push({path:'/front/project/search',query:{key:this.searchinput}})
       } else if(this.select == 2){
         // 公示
-        this.$router.push({path:'/front/project',query:{key:this.searchinput}})
+        this.$router.push({path:'front/project/search',query:{key:this.searchinput}})
       } else if(this.select == 3){
         // 招聘
-        this.$router.push({path:'/front/recruit',query:{key:this.searchinput}})
+        this.$router.push({path:'/front/recruit/post/search',query:{key:this.searchinput}})
       } else if(this.select == 4){
         // 商城
         this.$router.push({path:'/front/store',query:{key:this.searchinput}})
       } else if(this.select == 5){
         // 学院
         this.$router.push({path:'/front/college/home/recommend',query:{key:this.searchinput}})
+      }if(this.select == 1 || this.select == ""){
+        // 项目中心
+        this.$router.push({path:'/front/project/search',query:{key:this.searchinput}})
+      } else if(this.select == 2){
+        // 公示
+        this.$router.push({path:'front/project/search',query:{key:this.searchinput}})
+      } else if(this.select == 3){
+        // 招聘
+        this.$router.push({path:'/front/recruit/post/search',query:{key:this.searchinput}})
+      } else if(this.select == 4){
+        // 商城
+        this.$router.push({path:'/front/store',query:{key:this.searchinput}})
+      } else if(this.select == 5){
+        // 学院
+        this.$router.push({path:'/front/college/recommend',query:{key:this.searchinput}})
       }
+    },
+    onSearchEnterFun(e){
+      var keyCode = window.event? e.keyCode:e.which;
+      if(keyCode == 13){
+        this.onJump()
+      }
+    },
+    // 跳转广告
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   }
 }

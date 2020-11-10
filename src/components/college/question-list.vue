@@ -8,13 +8,13 @@
             <div class="question-name" @click="onDetails">{{item.title}}</div>
           </div>
           <div class="tiling">
-            <div class="question-details">
+            <div class="question-detail">
               <span class="margin-r-20">{{item.update_time}}天前更新</span>
               <span>{{item.views}}浏览数</span>
             </div>
           </div>
           <div class="select-button clearfix">
-            <div class="question-answer-details fr">
+            <div class="question-answer-detail fr">
               <span class="margin-r-20">{{item.answer}}个回答</span>
               <span>{{item.answer_views}}浏览数</span>
             </div>
@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     onDetails() {
-      // console.log('跳转详情')
       this.$router.push({ path: "/front/college/question/details" });
     }
   }
@@ -76,12 +75,12 @@ export default {
       font-weight: 400;
       color: rgba(34, 34, 34, 1);
     }
-    .question-details {
+    .question-detail {
       font-size: 16px;
       line-height: 16px;
       color: rgba(153, 153, 153, 1);
     }
-    .question-answer-details {
+    .question-answer-detail {
       font-size: 16px;
       line-height: 16px;
       color: rgba(153, 153, 153, 1);

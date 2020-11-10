@@ -201,11 +201,11 @@ export default {
 
             desc: that.form.desc
           };
-          console.log("传递参数", parameter);
+          // console.log("传递参数", parameter);
           authUserOrgPerfect(parameter).then(res => {
-            console.log("新增企业个人信息", JSON.stringify(res));
+            // console.log("新增企业个人信息", JSON.stringify(res));
             if (res.status == 200) {
-                console.log('修改成功')
+                // console.log('修改成功')
               this.$message({
                 message: res.msg,
                 type: "success",
@@ -239,7 +239,7 @@ export default {
     getUserInfoData () {
         getOrgInfoData().then(res => {
             if (res.status === 200) {
-                console.log(res.data)
+                // console.log(res.data)
                 this.$set(this,'area1',res.data.area1)
                 this.$set(this,'area2',res.data.area2)
                 this.$set(this,'area3',res.data.area3)
@@ -259,7 +259,7 @@ export default {
     // 获取省份
     getCityData() {
       let that = this;
-      console.log(this.form.address)
+      // console.log(this.form.address)
       this.$set(that, "area1", this.form.address[0]);
       this.$set(that, "area2", this.form.address[1]);
       this.$set(that, "area3", this.form.address[2]);

@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title margin-t-10 clearfix">
+  <div class="hk-detail-list-title margin-t-10 clearfix">
     <div class="clearfix">
       <div class="fr hk-resume-main">
         <el-button round @click="onUserDialog()">添加</el-button>
@@ -25,7 +25,7 @@
         <div class="hk-resume-cont-jw">
           <!-- 学历以及统招 -->
           <span>{{item.edu | onEdu}}</span>
-          <span>-{{item.is_tz | isTz}}</span>
+          <span>- {{item.is_tz | isTz}}</span>
           <span class="padding-l-10">{{item.major}}</span>
         </div>
       </div>
@@ -313,8 +313,8 @@ export default {
         is_tz: this.eduForm.is_tz,
         resume_id: this.resume_id
       };
-      console.log(edu)
-      console.log("教育信息数据", JSON.stringify(edu));
+      // console.log(edu)
+      // console.log("教育信息数据", JSON.stringify(edu));
       addUserResumeEdu(edu)
         .then(res => {
           if (res.status === 200) {
@@ -322,6 +322,7 @@ export default {
               message: res.msg,
               type: "success",
               showClose: true,
+              offset: 60,
               duration: 3000
             });
             this.getUserEduList();
@@ -331,6 +332,7 @@ export default {
               message: res.message,
               type: "error",
               showClose: true,
+              offset: 60,
               duration: 3000
             });
             this.dialogFormVisible = false;
@@ -341,6 +343,7 @@ export default {
             message: res.message,
             type: "error",
             showClose: true,
+            offset: 60,
             duration: 3000
           });
           this.dialogFormVisible = false;
@@ -377,6 +380,7 @@ export default {
               message: res.msg,
               type: "success",
               showClose: true,
+              offset: 60,
               duration: 3000
             });
           } else {
@@ -384,6 +388,7 @@ export default {
               message: res.message,
               type: "error",
               showClose: true,
+              offset: 60,
               duration: 3000
             });
           }
@@ -394,6 +399,7 @@ export default {
             message: res.message,
             type: "error",
             showClose: true,
+            offset: 60,
             duration: 3000
           });
         });
@@ -413,6 +419,7 @@ export default {
       } else {
         this.$message({
           message: "最后一条了，不能删,只能编辑",
+          offset: 60,
           type: "warning"
         });
         this.isDel = false;
@@ -427,7 +434,7 @@ export default {
           this.schollList = [];
         }
       }).catch(res => {
-          console.log("when status code other")
+          // console.log("when status code other")
           this.schollList = [];
         });
     },

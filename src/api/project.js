@@ -59,9 +59,9 @@ export function getUserProjectListData (data) {
 export function addReleaseProjectData (data) {
   return request.post('project/user/pro/public', data, {login: true})
 }
-// 后台项目分类
+// 项目分类
 export function getProjectCateTree () {
-  return request.get('project/cate/tree', {}, { login: true })
+  return request.get('project/cate/tree', {}, { login: false })
 }
 // 后台环评公示列表
 export function getProjectUserNoticeList (data) {

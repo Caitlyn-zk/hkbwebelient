@@ -41,7 +41,7 @@ export function bindingPhone (data) {
 }
 // 学校名字解锁
 export function getSchoolNameList (school_name) {
-  return request.post('user/getSchoolNameList', {school_name: school_name}, {login: true})
+  return request.post('sys/getSchoolNameList', {school_name: school_name}, {login: true})
 }
 /**
  * 职位管理的接口

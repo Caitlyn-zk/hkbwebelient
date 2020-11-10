@@ -25,18 +25,18 @@
             // height: 50px;
             /deep/ .el-input__inner{
               border-left: 0;
-              border-color:#0BD094
+              border-color:#DCDFE6
             }
             /deep/.el-input-group__prepend{
                 border: none;
                 .el-input__inner{
-                  border: 1px solid #0BD094;
+                  border: 1px solid #DCDFE6;
                 }
                 .el-cascader{
                   /deep/ .el-input__inner{
-                    border: 1px solid #0BD094;
-                    border-color: #05D797;
-                    border-right: 1px solid #eee;
+                    border: 1px solid #DCDFE6;
+                    border-color: #DCDFE6;
+                    border-right: 1px solid #DCDFE6;
                   }
                 }
             }
@@ -230,8 +230,6 @@
         width: 12%;
         min-height: 57px;
         background: #F5F5F5;
-        // margin-left: 0;
-        // margin-right: auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -253,25 +251,20 @@
     }
     .hk-option {
         width: 100%;
-        height: 115px;
-        padding-left: 20px;
-        padding-right: 10px;
+        height: 182px;
     }
     
     
     
     .content-right{
         width: 277px;
-        // height: 200px;
-        // margin-top: 60px;
         margin-left: auto;
         margin-right: 0;
-        // border: 1px solid red;
     }
     //最近浏览
     .recently-browse{
         width:277px;
-        min-height: 233px;
+        // min-height: 233px;
         background:#ffffff;
         margin-bottom: 15px;
     }
@@ -288,10 +281,11 @@
         font-family:Microsoft YaHei;
         padding: 0 20px;
         .browse-history{
-            // margin-bottom: 15px;
-            // line-height: 46px;
             cursor: pointer;
             border-bottom: 1px solid #eee;
+            &:last-child {
+                border-bottom: 0;
+            }
             .recently-browse-project-name {
                 line-height: 40px;
                 font-size:14px;
@@ -363,5 +357,10 @@
     }
     .pagination{
         margin-left: 20px;
+    }
+    .border-left{
+        /deep/ .el-input__inner{
+            border-left: 1px solid #DCDFE6; 
+          }
     }
 }

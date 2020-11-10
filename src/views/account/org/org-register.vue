@@ -207,6 +207,7 @@ export default {
                 message: res.msg,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             }
@@ -215,6 +216,7 @@ export default {
                 message: res.msg,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             // }
@@ -234,6 +236,7 @@ export default {
             message: res.msg,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -242,6 +245,7 @@ export default {
           message: res.msg,
           type: 'error',
           showClose: true,
+          offset: 60,
           duration: 3000
         })
       })
@@ -343,6 +347,7 @@ export default {
                   message: res.msg,
                   type: 'success',
                   showClose: true,
+                  offset: 60,
                   duration: 3000
                 })
               } else {
@@ -351,6 +356,7 @@ export default {
                   message: res.msg,
                   type: 'error',
                   showClose: true,
+                  offset: 60,
                   duration: 3000
                 })
               }
@@ -359,6 +365,7 @@ export default {
                 message: res.msg,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             })

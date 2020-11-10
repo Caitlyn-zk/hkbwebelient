@@ -210,7 +210,7 @@ export default {
   created() {
     this.stepFrome.name = this.$route.query.org_name
     this.stepFrome.license = this.certImageUrl
-    console.log('打印值'+ this.certImageUrl)
+    // console.log('打印值'+ this.certImageUrl)
   },
   components: {
     quillEditor,
@@ -218,11 +218,11 @@ export default {
   },
   mounted () {
     this.stepFrome.license = this.certImageUrl
-    console.log('打印值'+ this.certImageUrl)
+    // console.log('打印值'+ this.certImageUrl)
   },
   methods: {
     httpRequest(file){
-      console.log("上传图片1111",file.file)
+      // console.log("上传图片1111",file.file)
       let formData = new FormData();
       formData.append("image",file.file);
       formData.append("type", 'license');
@@ -281,7 +281,7 @@ export default {
           this.add()
           this.reload()
         } else {
-          console.log('error submit!!')
+          // console.log('error submit!!')
           return false;
         }
       })
@@ -305,9 +305,9 @@ export default {
         area3_name: that.area3_name,
         desc: that.stepFrome.desc
       }
-      console.log("传递参数",parameter)
+      // console.log("传递参数",parameter)
       authUserOrgPerfect(parameter).then(res =>{
-        console.log('新增企业个人信息',JSON.stringify(res))
+        // console.log('新增企业个人信息',JSON.stringify(res))
         if(res.status == 200) {
           this.$router.push({
             path: '/account/org/register/completeinfo',
@@ -342,7 +342,7 @@ export default {
       that.stepFrome.desc = res.data.desc
     },
     handlePictureCardPreview(file) {
-      console.log('上传图片11',JSON.stringify(file.url))
+      // console.log('上传图片11',JSON.stringify(file.url))
       this.dialogImageUrl = file.url
       this.dialogVisible = true
     },

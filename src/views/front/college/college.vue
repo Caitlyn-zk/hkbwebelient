@@ -1,98 +1,302 @@
 <template>
-  <div>
-    <div class="content hk-mycllege">
-      <div class="hk-collega-main clearfix">
-        <div class="hk-collega-input margin-l-20">
-          <el-input placeholder="请输入想要搜索学院内容" v-model="inputcoll" class="search-input">
-            <el-button slot="append" class="hk-search-button" @click="onSearch">搜索</el-button>
-          </el-input>
+  <div class>
+    <div class="content college">
+      <!-- 导航部分 -->
+      <navigation></navigation>
+      <div class="college-content margin-t-30">
+        <div class="content-list">
+          <ul class="hk-my-answer">
+            <li
+              class="hk-my-answer-list padding-b-15 margin-b-20"
+              v-for="(item,index) in answerList"
+              :key="index"
+            >
+              <articleItem :item="item" @details="onArticleDetails"></articleItem>
+            </li>
+            <li
+              class="hk-my-answer-list padding-b-15 margin-b-20"
+              style="margin-bottom: 20px;"
+              v-show="loading"
+            >
+              <Loading :id="1"></Loading>
+            </li>
+          </ul>
+          <div
+            class="loading-tips line-40 text-line text-center"
+            v-show="answerListLength / 10 !== page && loading === false"
+          >已全部加载</div>
         </div>
-        <!-- 按钮 -->
-        <el-button
-          round
-          class="hk-collega-round fr margin-t-20"
-          @click="onQuizzed"
-        >提问</el-button>
-        <el-tabs v-model="activeName" @tab-click="handleClick" class="hk-college-tab-main">
-          <el-tab-pane label="首页" name="index">
-            <router-view name="FrontCollegeTitle"></router-view>
-          </el-tab-pane>
-          <el-tab-pane label="发现" name="find"></el-tab-pane>
-          <el-tab-pane label="等你来答" name="waitAnswer"></el-tab-pane>
-        </el-tabs>
-        <div class="hk-college-index text-center">
-          <router-view></router-view>
+        <div class="right-recommended">
+          <div class="recommended-follow">
+            <h3 class="margin-b-20 padding-l-5 recommended-main">作者推荐</h3>
+            <div class="recommended-list">
+              <div class="block clearfix margin-b-20" v-for="(item,index) in userList" :key="index">
+                <el-button
+                  type="text"
+                  class="fr font-16 follow-but"
+                  @click="onUserDetail(item.uid)"
+                >
+                  查看
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+                <el-avatar class="fl" :size="40" :src="item.avatar | onImag"></el-avatar>
+                <div class="fl margin-l-10">
+                  <h3 class="recommended-name title-nowrap">{{item.real_name}}</h3>
+                  <span
+                    class="text-line recommended-name-title title-nowrap"
+                  >写了{{item.article_count}}篇文章 · {{item.like_count}}喜欢</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center recommended-button" v-show="userList.length > 0">
+              <el-button @click="onRecommendAuthor">查看更多</el-button>
+            </div>
+          </div>
+          <div class="recommended-topics">
+            <h3 class="margin-b-20 padding-l-5 recommended-main">推荐专题</h3>
+            <div class="recommended-list">
+              <div
+                class="block clearfix margin-b-20"
+                v-for="(pops,index) in specialList"
+                :key="index"
+              >
+                <el-button
+                  type="text"
+                  class="fr font-16 follow-but"
+                  @click="onSpecialDetails(pops.id)"
+                >
+                  查看
+                  <i class="el-icon-d-arrow-right"></i>
+                </el-button>
+                <el-avatar class="fl" shape="square" :size="40" :src="pops.cover_image | onImag"></el-avatar>
+                <div class="fl margin-l-10">
+                  <h3 class="recommended-name title-nowrap">{{pops.name}}</h3>
+                  <span
+                    class="text-line recommended-name-title title-nowrap"
+                  >收录了{{pops.article_count}}篇文章 · {{pops.follow_count}}人关注</span>
+                </div>
+              </div>
+            </div>
+            <div class="text-center recommended-button" v-show="specialList.length > 0">
+              <el-button @click="onRecommendSpecial">查看更多</el-button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <quizzedPopup :quizzed="quizzed" @close="onCloseQuizzedPopup"></quizzedPopup>
+    <!-- <div class="loading flashing" v-if="loading">
+      <div class="dot-collision"></div>
+    </div>-->
+    <!-- <div class="loading" v-show="loading">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>-->
+    <fontFooter v-show="answerListLength / 10 !== page && loading === false"></fontFooter>
   </div>
 </template>
 
 <script>
-import Question from "./question/question";
-import quizzedPopup from '@/components/popup/quizzed-popup'
+import {
+  getCollegeRecomentList,
+  geHomeRecomndColumnList,
+  recommentUserList,
+} from "@/api/college";
+import navigation from "./common/navigation";
+import articleItem from "@/components/college/article-item";
+import utils from "@/utils/index.js";
+import fontFooter from "@/components/fontfooter/fontfooter.vue";
+import Loading from "@/components/loading/loading";
 export default {
+  filters: {
+    // timestampToTime(timestamp) {
+    //   var date = new Date(timestamp * 1000); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    //   let y = date.getFullYear();
+    //   let MM = date.getMonth() + 1;
+    //   MM = MM < 10 ? "0" + MM : MM;
+    //   let d = date.getDate();
+    //   d = d < 10 ? "0" + d : d;
+    //   let h = date.getHours();
+    //   h = h < 10 ? "0" + h : h;
+    //   let m = date.getMinutes();
+    //   m = m < 10 ? "0" + m : m;
+    //   let s = date.getSeconds();
+    //   s = s < 10 ? "0" + s : s;
+    //   return y + "-" + MM + "-" + d;
+    // }
+    onImag(value) {
+      let circleUrl = require("../../../assets/image/loading.png");
+      if (value !== undefined && value !== "" && value !== null) {
+        let imgUrl = "http://cdn.65ph.com/" + value;
+        return imgUrl;
+      } else {
+        return circleUrl;
+      }
+      return circleUrl;
+    },
+  },
   data() {
     return {
-      activeName: "index",
-      inputcoll: "",
-      quizzed: {
-        eject:false
-      },
+      imgUrl: "http://cdn.65ph.com/",
+      answerList: [],
+      answerListLength: 1,
+      page: 1,
+      specialList: [],
+      page_size: 5,
+      userList: [],
+      userPage: 1,
+      user_page_size: 5,
+      onFetching: false,
+      loading: true,
     };
   },
-  components: {
-    Question,
-    quizzedPopup
+  created() {
+    this.getComentList();
+    this.getRecommentUserList();
+    this.get_CollegeHomeColumnList();
   },
-  created () {
-    this.onRouterPathChanged()
+  components: {
+    fontFooter,
+    navigation,
+    articleItem,
+    Loading,
+  },
+  mounted() {
+    document.addEventListener("scroll", this.scrollLoad);
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.scrollLoad);
   },
   methods: {
-    handleClick(tab, event) {
-      // console.log(tab.name);
-      if (tab.name === "index") {
-        this.$router.push({ path: "/front/college/home/recommend" });
-      } else if (tab.name === "waitAnswer") {
-        this.$router.push({ path: "/front/college/question/question" });
-      } else if (tab.name === "find") {
-        this.$router.push({ path: "/front/college/find/find" });
-      }
-    },
-    onRouterPathChanged(val, oldval) {
+    getComentList() {
       let that = this;
-      let pathrouter = this.$router.currentRoute.path
-      if (pathrouter.indexOf("/front/college/home") !== -1) {
-        this.activeName = "index";
-      } else if (pathrouter.indexOf("/front/college/find") !== -1) {
-        this.activeName = "find";
-      } else if (pathrouter.indexOf("/front/college/question") !== -1) {
-        this.activeName = "waitAnswer";
+      getCollegeRecomentList(this.page)
+        .then((res) => {
+          // console.log(res.data);
+          if (res.status === 200) {
+            if (this.page > 1) {
+              this.$set(this, "answerList", this.answerList.concat(res.data));
+              that.answerListLength = that.answerList.length;
+            } else {
+              that.answerList = res.data;
+              that.answerListLength = that.answerList.length;
+            }
+          }
+          that.loading = false;
+        })
+        .catch((res) => {
+          that.loading = false;
+          this.$message({
+            message: res.msg,
+            type: "error",
+            showClose: true,
+            duration: 3000,
+          });
+        });
+    },
+    get_CollegeHomeColumnList() {
+      let parameter = {
+        page: this.page,
+        page_size: this.page_size,
+      };
+      geHomeRecomndColumnList(parameter).then((res) => {
+        if (res.status == 200) {
+          // console.log(res.data);
+          this.$set(this, "specialList", res.data);
+        }
+      });
+    },
+    getRecommentUserList() {
+      let parameter = {
+        page: this.userPage,
+        page_size: this.user_page_size,
+      };
+      recommentUserList(parameter)
+        .then((res) => {
+          if (res.status === 200) {
+            // console.log(res.data);
+            // console.log("推荐用户");
+            this.$set(this, "userList", res.data);
+          }
+        })
+        .catch((res) => {
+          this.$message({
+            message: res.msg,
+            type: "error",
+            duration: 1000,
+            offset: 60,
+          });
+        });
+      this.loadingUser = false;
+    },
+
+    // 跳转文章详情
+    onArticleDetails(id) {
+      this.$router.push({
+        path: "/front/college/articledetails",
+        query: { id: id },
+      });
+    },
+    onRecommendAuthor() {
+      this.$router.push({ path: "/front/college/recommend/author" });
+    },
+    onRecommendSpecial() {
+      this.$router.push({ path: "/front/college/recommend/special" });
+    },
+    // 跳转专题详情
+    onSpecialDetails(id) {
+      this.$router.push({
+        path: "/front/college/specialdetails",
+        query: { id: id },
+      });
+    },
+    // 跳转用户详情
+    onUserDetail(uid) {
+      this.$router.push({ path: "/front/college/user", query: { uid: uid } });
+    },
+    scrollLoad() {
+      this.loading = true;
+      let scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight; //document的滚动高度
+      let nowScotop =
+        document.documentElement.clientHeight || document.body.clientHeight; //可视区高度
+      let wheight =
+        document.documentElement.scrollTop || document.body.scrollTop; //已滚动高度
+      if (
+        nowScotop >= scrollHeight - wheight &&
+        this.answerListLength / 10 === this.page
+      ) {
+        this.onFetching = true;
+        this.$set(this, "page", this.page + 1);
+        this.getComentList();
+        this.onFetching = false;
+      } else if (this.answerListLength / 10 !== this.page) {
+        this.loading = false;
       }
     },
-    
-    // 提问弹框的一些操作
-    onQuizzed (e) {
-      this.quizzed.eject = true
-    },
-    onCloseQuizzedPopup (e) {
-      this.quizzed.eject = false
-    },
-    onSearch () {
-      this.$router.push({path: '/front/college/home/search'})
+    // 离开本页面销毁scrollLoad
+    clear(path) {
+      if (path != "/front/college/recommend") {
+        document.removeEventListener("scroll", this.scrollLoad);
+      } else {
+        document.addEventListener("scroll", this.scrollLoad);
+      }
     },
   },
   watch: {
-    // 当路由变化时执行
-    $route(to,from){
-      // this.pathrouter = to.path
-      this.onRouterPathChanged();
-    }
-  }
+    $route(to, from) {
+      // console.log( to.path, from.path );
+      this.clear(to.path);
+      if (from.path==='/front/college/article/editor') {
+        this.getComentList()
+      }
+    },
+  },
 };
 </script>
 
-<style lang='less'>
+<style lang="less" scoped>
 @import "./college.less";
 </style>

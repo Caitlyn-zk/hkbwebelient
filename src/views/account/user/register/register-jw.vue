@@ -204,6 +204,7 @@ export default {
     };
   },
   created() {
+    document.querySelector('body').setAttribute('style', 'background-color:#fff')
     this.getPostClassData();
     this.getJwList();
   },
@@ -262,7 +263,7 @@ export default {
     },
     // 拉取工作经历
     getJwList() {
-      console.log(12143);
+      // console.log(12143);
       let person_reg_state = 30;
       let that = this;
       getUserResumeList(person_reg_state)
@@ -271,9 +272,9 @@ export default {
             that.resume_id = res.data.resume_list[0].resume_id
             that.resume_name = res.data.resume_list[0].resume_name
             that.privacy_state = res.data.resume_list[0].privacy_state
-            console.log(res.data.resume_list[0].resume_id)
-            console.log("数据渲染");
-            console.log([res.data].length);
+            // console.log(res.data.resume_list[0].resume_id)
+            // console.log("数据渲染");
+            // console.log([res.data].length);
             if ([res.data].length > 0) {
               // console.log(res.data);
               // that.jW_id = res.data.id;
@@ -300,7 +301,7 @@ export default {
           }
         })
         .catch(res => {
-          console.log(res);
+          // console.log(res);
           this.$message({
             message: res.message,
             type: "error",
@@ -319,7 +320,7 @@ export default {
     },
     // 选择职位
     onPostSelect(val) {
-      console.log("职位", JSON.stringify(val));
+      // console.log("职位", JSON.stringify(val));
       this.$set(this.form, "post_cate", val[1]);
       this.$set(
         this.form,
@@ -346,9 +347,12 @@ export default {
         "area3_name",
         this.$refs.myCascader.getCheckedNodes()[0].pathLabels[2]
       );
-      console.log("地区", this.area1_name, this.area2_name,this.area3_name);
+      // console.log("地区", this.area1_name, this.area2_name,this.area3_name);
     }
-  }
+  },
+  beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+  },
 };
 </script>
 <style lang="less" scoped>

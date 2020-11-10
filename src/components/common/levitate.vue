@@ -20,8 +20,6 @@
       <el-popover placement="left" trigger="hover">
         <div class="contact-way">
           <div class="qq" @click="onQQ">
-            <!-- <img src="/static/img/qq.png" alt /> -->
-            <!-- <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2655816316&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:2655816316:52" alt="点击这里给我发消息" title="点击这里给我发消息"/></a> -->
            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=471182971&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:471182971:51" alt="环科宝客服" title="环科宝客服"/></a>
             <!-- <div>{{qq}}</div> -->
           </div>
@@ -34,12 +32,12 @@
         </div>
         <div slot="reference" class="option-name">联系我们</div>
       </el-popover>
-      <!-- <div slot="reference" class="option-name">联系我们</div> -->
     </div>
     <div class="option">
       <div class="option-name" @click="onReport">意见反馈</div>
     </div>
     <feedbackPopup :feedback="feedback" @close="onCloseReportPopup"></feedbackPopup>
+    
   </div>
 </template>
 <script>
@@ -67,11 +65,11 @@ export default {
     },
     onQQ () {
       // alert('点击了qq')
-      console.log('点击了qq')
+      // console.log('点击了qq')
     },
     onWinXin () {
       // alert('点击了qq')
-      console.log('点击了qq')
+      // console.log('点击了qq')
     }
   }
 };
@@ -84,6 +82,9 @@ export default {
   width: 40px;
   /* border: 1px solid red; */
 }
+.el-backtop {
+    bottom: 100px !important;
+  }
 .levitate .el-button {
   background: #f5f5f5 !important;
   width: 40px !important;

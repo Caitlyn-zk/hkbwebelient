@@ -399,7 +399,7 @@ export default {
               res.data.resume_count["status_" + index * 10];
           }
           this.$set(this,'resumeList',res.data.resume_list)
-          console.log(this.resumeList);
+          // console.log(this.resumeList);
         }
       });
     },
@@ -439,7 +439,7 @@ export default {
     },
     // 城市选择
     onHandleChange(val) {
-      console.log('城市选择',JSON.stringify(val[2]))
+      // console.log('城市选择',JSON.stringify(val[2]))
       if (val[2]) {
         this.area3_code = parseInt(val[2]);
       } else {
@@ -468,7 +468,7 @@ export default {
       this.getorgPostReceiveList();
     },
     onDeliveryStatus(e, item) {
-      console.log('状态修改22222222222')
+      // console.log('状态修改22222222222')
       let state = {
         post_id: item.post_id,
         delivery_id: item.delivery_id,

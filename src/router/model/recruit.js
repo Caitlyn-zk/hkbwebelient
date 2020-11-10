@@ -9,7 +9,7 @@ const FrontPostDetail = () => import('@/views/front/recruit/post-detail.vue')
 const UserOrgTalentPool = () => import('@/views/user/org/talentpool/talentpool.vue')
 const UserOrgPostList = () => import('@/views/user/org/post/post-list.vue')
 const UserOrgPost = () => import('@/views/user/org/post/add-post.vue')
-const UserOrgResumeDetails = () => import('@/views/user/org/talentpool/resume-details.vue')
+const UserOrgResumeDetails = () => import('@/views/user/org/talentpool/resume-detail.vue')
 const UserOrgCollection = () => import('@/views/user/org/talentpool/collection.vue')
 const UserOrgResumeInbox = () => import('@/views/user/org/talentpool/resume.vue')
 const UserOrgPostResumeList = () => import('@/views/user/org/talentpool/post-resume-list.vue')
@@ -22,7 +22,7 @@ export default [
     name: 'CFrontRecruit',
     meta: {
       title: '环科宝招聘|水与环境招聘专家',
-      keepAlive: false,
+      keepAlive: true,
       auth: false
     },
     components: {
@@ -169,7 +169,7 @@ export default [
     name: 'CFrontNewRecruit',
     meta: {
       title: '环科宝招聘|水与环境招聘专家',
-      keepAlive: false,
+      keepAlive: true,
       auth: false
     },
     components: {

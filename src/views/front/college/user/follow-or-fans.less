@@ -1,0 +1,52 @@
+// 导航
+@deep: ~'>>>';
+.hk-menu {
+  padding-top: 30px;
+  @{deep} .el-tabs {
+    .el-tabs__header {
+      margin: 0;
+    }
+    .el-tabs__item {
+      font-size:15px;
+      
+      color:rgba(102,102,102,1);
+      &.is-active {
+        font-weight:bold;
+        color:rgba(11,208,148,1);
+      }
+    }
+    .el-tabs__nav-wrap::after {
+      height: 1px !important;
+      background: #eee !important;
+    }
+  }
+  .recommended-follow {
+    border-radius: 4px;
+    padding: 21px;
+    background-color: #fff;
+  }
+
+  .recommended-main {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(51, 51, 51, 1);
+    border-left: 4px solid #0BD094;
+
+  }
+
+  .recommended-topics {
+    border-radius: 4px;
+    padding: 22px;
+    margin-bottom: 20px;
+    background-color: #fff;
+  }
+}
+.special-list {
+  border-bottom: 1px solid #EEEEEE;
+  // border: 1px solid red;
+  margin-top: 22px;
+  padding-bottom: 22px;
+  position: relative;
+  background-color: #fff;
+  border-radius: 4px;
+}

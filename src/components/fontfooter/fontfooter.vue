@@ -13,9 +13,9 @@
           <li class="hk-nav-bar">
             <h4 class="line-48 hk-foooter-title hk-cursor">关于我们</h4>
             <ul class="hk-footer-content text-gray">
-              <li class="line-36 hk-cursor">联系我们</li>
-              <li class="line-36 hk-cursor">关于我们</li>
-              <li class="line-36 hk-cursor">隐私政策</li>
+              <li class="line-36 hk-cursor" @click="onAboutus">联系我们</li>
+              <li class="line-36 hk-cursor" @click="onAboutus">关于我们</li>
+              <li class="line-36 hk-cursor" @click="onAboutus">隐私政策</li>
             </ul>
           </li>
           <li class="hk-nav-bar">
@@ -37,7 +37,7 @@
           <li class="hk-nav-bar">
             <h4 class="line-48 hk-foooter-title hk-cursor">商务合作</h4>
             <ul class="hk-footer-content text-gray">
-              <li class="line-36 hk-cursor">广告中心</li>
+              <li class="line-36 hk-cursor" @click="onAD">广告中心</li>
               <li class="line-36 hk-cursor">商业中心</li>
             </ul>
           </li>
@@ -67,6 +67,14 @@
 export default {
   data () {
     return {
+    }
+  },
+  methods:{
+    onAboutus(){
+      this.$router.push({path:'/aboutus'})
+    },
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   }
 }

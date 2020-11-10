@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title margin-t-10 clearfix">
+  <div class="hk-detail-list-title margin-t-10 clearfix">
     <!-- <div class="fl" v-for="item in certList" :key="item"> -->
     <div class="hk-resume-main">
       <el-button round @click="onAdd">添加</el-button>
@@ -126,7 +126,7 @@ export default {
   },
   methods: {
     httpRequest(file){
-      console.log("上传图片1111",file.file)
+      // console.log("上传图片1111",file.file)
       let formData = new FormData();
       formData.append("image",file.file);
       formData.append("type", 'cert');
@@ -134,16 +134,18 @@ export default {
         if (res.status == 200) {
           this.form.cert_image = 'http://cdn.65ph.com/'+res.data.image_name
           this.imageData.push(res.data.image_name)
-           console.log('上传图片',JSON.stringify(res.data.image_name))
+          //  console.log('上传图片',JSON.stringify(res.data.image_name))
            this.dialogVisible = true;
           this.$message({
             message: res.msg,
+            offset: 60,
             type: "success"
           })
         }
       }).catch(res=>{
         this.$message({
           message: res.msg,
+          offset: 60,
           type: "error"
         })
       })
@@ -162,12 +164,12 @@ export default {
       return [isJPG || isJPEG|| isPNG] && isLt10M
     },
     onRemove(file, fileList){
-      console.log('删除图片',file,fileList,this.fileList)
+      // console.log('删除图片',file,fileList,this.fileList)
       var index = this.fileList.findIndex(item => item.uid == file.uid);
-      console.log('删除图片index',index)
+      // console.log('删除图片index',index)
       this.fileList.splice(index,1)
       this.imageData.splice(index,1)
-      console.log('删除图片',file,fileList,this.fileList)
+      // console.log('删除图片',file,fileList,this.fileList)
     },
     add () {
       let that = this
@@ -185,6 +187,7 @@ export default {
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
           this.reload()
@@ -194,6 +197,7 @@ export default {
             message: res.msg,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -212,6 +216,7 @@ export default {
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
           this.dialogFormVisible = false
@@ -221,6 +226,7 @@ export default {
             message: res.msg,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -274,17 +280,21 @@ export default {
   watch: {
     certList(newV,oldV) {
       if (newV[0]) {
-        console.log('图片000',JSON.stringify(newV[0].cert_image))
+        // console.log('图片000',JSON.stringify(newV[0].cert_image))
         var img = newV[0].cert_image
-        var cert_image = img.split(',')
-        console.log('图片11',JSON.stringify(cert_image))
-        this.imageData = cert_image
-        cert_image.forEach(element => {
+        if (img == '') {
+          this.imageData = []
+        } else {
+          var cert_image = img.split(',')
+          // console.log('图片11',JSON.stringify(cert_image))
+          this.imageData = cert_image
+          cert_image.forEach(element => {
           let obj = new Object();
           obj.url = 'http://cdn.65ph.com/'+ element
           this.srcList.push('http://cdn.65ph.com/'+ element)
           this.fileList.push(obj)
         });
+        }
       }
     } 
   }

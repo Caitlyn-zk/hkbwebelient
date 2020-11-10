@@ -96,7 +96,7 @@ export default {
     },
     methods:{
         onSubscribe(val,index){
-            console.log('订阅单选',val,index)
+            // console.log('订阅单选',val,index)
         },
         beforeClose(){
             this.emailPopup  = false

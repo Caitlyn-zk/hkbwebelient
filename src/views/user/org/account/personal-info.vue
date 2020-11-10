@@ -117,7 +117,7 @@ export default {
   computed: {
     org_logo() {
       if (this.$store.state.app.userInfo.org_list) {
-          console.log(this.$store.state.app.userInfo.org_list)
+          // console.log(this.$store.state.app.userInfo.org_list)
         return (
           "http://cdn.65ph.com/" +
           this.$store.state.app.userInfo.org_list[0].org_logo
@@ -157,8 +157,8 @@ export default {
             email: that.form.email,
             post_name: that.form.post_name
           };
-          console.log("信息提交");
-          console.log(parameter);
+          // console.log("信息提交");
+          // console.log(parameter);
           authUserOrgEdit(parameter).then(res => {
             //   console.log("新增企业个人信息", JSON.stringify(res));
             if (res.status == 200) {
@@ -199,16 +199,16 @@ export default {
       });
     },
     onPostList() {
-      console.log();
+      // console.log();
     },
     // 获取数据
     getInfo() {
       getUserOrgData().then(res => {
-        console.log("基本信息渲染", JSON.stringify(res));
+        // console.log("基本信息渲染", JSON.stringify(res));
         if (res.status == 200) {
           // 成功便将名字传给右侧导航
-          console.log("打印数据");
-          console.log(res.data);
+          // console.log("打印数据");
+          // console.log(res.data);
           this.form.name = res.data.name;
           this.$set(this.form, "id", res.data.id);
           this.$set(this.form, "mobile", res.data.mobile);

@@ -161,6 +161,7 @@ export default {
     };
   },
   created() {
+    document.querySelector('body').setAttribute('style', 'background-color:#fff')
     this.getMajorList();
     this.getEduList();
   },
@@ -169,7 +170,7 @@ export default {
       this.$router.push({ path: "/account/user/register/basicinfo" });
     },
     userEduAu() {
-      console.log(this.resume_id)
+      // console.log(this.resume_id)
       let that = this;
       var parameter = {
         id: that.form.id,
@@ -183,9 +184,9 @@ export default {
         major: that.majorName,
         is_tz: that.form.radio
       };
-      console.log("参数", parameter);
+      // console.log("参数", parameter);
       recruitUserEduAu(parameter).then(res => {
-        console.log("保存信息", res);
+        // console.log("保存信息", res);
         if (res.status === 200) {
           this.$router.push({ name: "PATH_ACCOUNT_USER_REGISTER_SETP_3" });
           this.$message({
@@ -235,7 +236,7 @@ export default {
       getUserregisterEduList(person_reg_state)
         .then(res => {
           if (res.status == 200) {
-            console.log(res.data.resume_id)
+            // console.log(res.data.resume_id)
             if(res.data.data_list.length>0){
               let data = res.data.data_list[0];
               that.form.id = data.id;
@@ -276,7 +277,7 @@ export default {
           this.schollList = [];
         }
       }).catch(res => {
-        console.log("when status code other")
+        // console.log("when status code other")
         this.schollList = [];
       });
     },
@@ -315,7 +316,10 @@ export default {
       this.restaurants = this.schollList
       // console.log(this.restaurants)
     }
-  }
+  },
+   beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+  },
 };
 </script>
 <style lang="less" scoped>

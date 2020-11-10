@@ -1,265 +1,308 @@
 
 const Frontnav = () => import('@/components/fontnav/fontnav.vue')
 const Footer = () => import('@/components/fontfooter/fontfooter.vue')
-const FrontCollege = () => import('@/views/front/college/college.vue')
-const FrontRecommend = () => import('@/views/front/college/home/recommend.vue')
-const FrontCollegeFollow = () => import('@/views/front/college/home/follow.vue')
-const FrontCollegeHotlist = () => import('@/views/front/college/home/hot-list.vue')
-const FrontCollegeMyDrafts = () => import('@/views/front/college/home/drafts.vue')
-const FrontCollegeWriteAnArticle = () => import('@/views/front/college/home/write-article.vue')
-// 搜索
-const FrontCollegeSearch = () => import('@/views/front/college/home/search.vue')
-const FrontCollegeSearchIndex = () => import('@/views/front/college/search/search.vue')
-const FrontCollegeSearchUser = () => import('@/views/front/college/search/user.vue')
-const FrontCollegeSearchSpecial = () => import('@/views/front/college/search/special.vue')
-const FrontCollegeSearchSpecialColumn = () => import('@/views/front/college/search/special-column.vue')
-// 问题
-const FrontCollegeAnswer = () => import('@/views/front/college/question/answer.vue')
-const FrontCollegeQuestion = () => import('@/views/front/college/question/question')
-const FrontCollegeMyInvitation = () => import('@/views/front/college/question/invitation.vue')
-const FrontCollegeMyConcerns = () => import('@/views/front/college/question/concerns.vue')
-const FrontCollegeQuestionDetails = () => import('@/views/front/college/question/question-details')
-const FrontCollegeAnswerLater = () => import('@/views/front/college/question/answer-later')
-// 发现
-const FrontCollegeFind = () => import('@/views/front/college/find/find')
-const FrontCollegeSpecial = () => import('@/views/front/college/find/special')
-const FrontCollegeSpecialdetails = () => import('@/views/front/college/find/special-details')
-const FrontCollegeSpecialColumn = () => import('@/views/front/college/find/special-column.vue')
-const FrontCollegeCollect = () => import('@/views/front/college/collect/collect')
+const FrontCollegeRecommend = () => import('@/views/front/college/college.vue')
+const FrontCollegeSpecial = () => import('@/views/front/college/special.vue')
+const FrontCollegeCreateSpecial = () => import('@/views/front/college/create-special.vue')
 
+const FrontCollegeArticleDetails = () => import('@/views/front/college/article-detail.vue')
+const FrontCollegeRecommendAuthor = () => import('@/views/front/college/recommend-author')
+
+const FrontCollegeRecommendSpecial = () => import('@/views/front/college/recommend-special')
+const FrontCollegeSpecialDetails = () => import('@/views/front/college/special-detail.vue')
+
+// 用户
+const FrontCollegeUser = () => import('@/views/front/college/user/user.vue')
+const FrontCollegeUserNewest = () => import('@/views/front/college/user/newest.vue')
+const FrontCollegeUserFollowOrFans = () => import('@/views/front/college/user/follow-or-fans.vue')
+
+// 关注
+const FrontCollegeFollow = () => import('@/views/front/college/follow/follow.vue')
+const FrontCollegeFollowList = () => import('@/views/front/college/follow/follow-list.vue')
+const FrontCollegeFollowUser = () => import('@/views/front/college/follow/follow-user.vue')
+const FrontCollegeFollowRecommend = () => import('@/views/front/college/follow/follow-recommend.vue')
+
+// 消息
+
+const FrontCollegeInfo = () => import('@/views/front/college/info/info.vue')
+const FrontCollegeInfolList = () => import('@/views/front/college/info/info-list.vue')
+const FrontCollegeInfoComment = () => import('@/views/front/college/info/comment.vue')
+const FrontCollegeInfoSubmitRequest = () => import('@/views/front/college/info/submit-request.vue')
+const FrontCollegeInfoManuscriptManage = () => import('@/views/front/college/info/manuscript-manage.vue')
+
+// 文章编辑
+const FrontCollegeArticleEditor = () => import('@/views/front/college/article/editor')
 export default [
-/**  -------- 学院-----------  */
+  /**  -------- 学院-----------  */
   {
-    path: '/front/college',
-    name: 'CmpFrontCollege',
-    redirect: '/front/college/home/recommend',
+    path: '/front/college/recommend',
+    name: 'CmpFrontCollegeRecommend',
+    // redirect: '/front/college/home/recommend',
     meta: {
       title: '水学院环境',
+      keepAlive: true,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeRecommend,
+      // Foot: Footer
+    },
+  },
+  {
+    path: '/front/college/special',
+    name: 'CmpFrontCollegeSpecial',
+    // redirect: '/front/college/home/recommend',
+    meta: {
+      title: '水学院环境|专题列表',
+      keepAlive: true,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeSpecial,
+      Foot: Footer
+    },
+  },
+  {
+    path: '/front/college/createspecial',
+    name: 'CmpFrontCollegeCreateSpecial',
+    // redirect: '/front/college/home/recommend',
+    meta: {
+      title: '水学院环境|创建专题',
       keepAlive: false,
       auth: false
     },
     components: {
       Head: Frontnav,
-      body: FrontCollege,
+      body: FrontCollegeCreateSpecial,
+      Foot: Footer
+    },
+  },
+  {
+    path: '/front/college/articledetails',
+    name: 'CmpFrontCollegeArticleDetails',
+    // redirect: '/front/college/home/recommend',
+    meta: {
+      title: '水学院环境|文章详情',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeArticleDetails,
+      Foot: Footer
+    },
+  },
+  {
+    path: '/front/college/article/editor',
+    name: 'CmpFrontCollegeArticleEditor',
+    meta: {
+      title: '文章编辑',
+      keepAlive: false,
+      auth: true
+    },
+    components: {
+      body: FrontCollegeArticleEditor
+    }
+  },
+  {
+    path: '/front/college/recommend/author',
+    name: 'CmpFrontCollegeRecommendAuthor',
+    meta: {
+      title: '推荐作者',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeRecommendAuthor,
+      Foot: Footer
+    }
+  },
+  {
+    path: '/front/college/recommend/special',
+    name: 'CmpFrontCollegeRecommendSpecial',
+    meta: {
+      title: '推荐专题',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeRecommendSpecial,
+      Foot: Footer
+    }
+  },
+  {
+    path: '/front/college/specialdetails',
+    name: 'CmpFrontCollegeSpecialDetails',
+    meta: {
+      title: '专题详情',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeSpecialDetails,
+      Foot: Footer
+    }
+  },
+  /**
+   * 用户
+  */
+  {
+    path: '/front/college/user',
+    name: 'CmpFrontCollegeUser',
+    redirect: '/front/college/user/newest',
+    meta: {
+      title: '用户主页',
+      keepAlive: true,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeUser,
       Foot: Footer
     },
     children: [{
-      path: '/front/college/home/recommend',
-      name: 'CmpFRecommend',
+      path: '/front/college/user/newest',
+      name: 'CmpFrontCollegeUserNewest',
       meta: {
-        title: '水学院环境',
+        title: '用户主页',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontRecommend,
+        default: FrontCollegeUserNewest,
       }
     }, {
-      path: '/front/college/home/follow',
-      name: 'CmpFrontCollegeFollow',
+      path: '/front/college/user/followOrfans',
+      name: 'CmpFrontCollegeUserFollowOrFans',
       meta: {
-        title: '水学院环境',
+        title: '用户主页|关注',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeFollow,
+        default: FrontCollegeUserFollowOrFans,
+      }
+    },]
+  },
+  /**
+   * 关注
+  */
+  {
+    path: '/front/college/follow',
+    name: 'CmpFrontCollegeFollow',
+    redirect: '/front/college/follow/list',
+    meta: {
+      title: '用户关注',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeFollow,
+      Foot: Footer
+    },
+    children: [{
+      path: '/front/college/follow/list',
+      name: 'CmpFrontCollegeFollowList',
+      meta: {
+        title: '用户关注',
+        keepAlive: false,
+        auth: false
+      },
+      components: {
+        default: FrontCollegeFollowList,
       }
     }, {
-      path: '/front/college/home/hotlist',
-      name: 'CmpFrontCollegeHotlist',
+      path: '/front/college/follow/user',
+      name: 'CmpFrontCollegeFollowUser',
       meta: {
-        title: '水学院环境',
+        title: '用户关注',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeHotlist,
+        default: FrontCollegeFollowUser,
       }
     }, {
-      path: '/front/college/home/writeanarticle',
-      name: 'CmpFrontCollegeWriteAnArticle',
+      path: '/front/college/follow/recommend',
+      name: 'CmpFrontCollegeFollowRecommend',
       meta: {
-        title: '水学院环境|写文章',
+        title: '用户关注',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeWriteAnArticle,
+        default: FrontCollegeFollowRecommend,
       }
-    }, {
-      path: '/front/college/home/drafts',
-      name: 'CmpFrontCollegeMyDrafts',
+    }]
+  },
+  /**
+   * 消息
+  */
+  {
+    path: '/front/college/info',
+    name: 'CmpFrontCollegeInfo',
+    redirect: '/front/college/info/list',
+    meta: {
+      title: '用户消息',
+      keepAlive: false,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontCollegeInfo,
+      Foot: Footer
+    },
+    children: [{
+      path: '/front/college/info/list',
+      name: 'CmpFrontCollegeInfolList',
       meta: {
-        title: '水学院环境|我的草稿',
+        title: '用户消息',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeMyDrafts,
+        default: FrontCollegeInfolList,
       }
     },
-    // ----------- 搜索 -------------
-    {
-      path: '/front/college/home/search',
-      name: 'CmpFrontCollegeSearch',
-      redirect: '/front/college/home/search/index',
+     {
+      path: '/front/college/info/comment',
+      name: 'CmpFrontCollegeInfoComment',
       meta: {
-        title: '水学院环境|搜索',
+        title: '用户消息|评论',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeSearch,
-      },
-      children: [{
-        path: '/front/college/home/search/index',
-        name: 'CmpSeacrchIndex',
-        meta: {
-          title: '水学院环境|搜索',
-          keepAlive: false,
-          auth: false
-        },
-        component: FrontCollegeSearchIndex
-      }, {
-        path: '/front/college/home/search/user',
-        name: 'CmpFrontCollegeSearchUser',
-        meta: {
-          title: '水学院环境|搜索',
-          keepAlive: false,
-          auth: false
-        },
-        component: FrontCollegeSearchUser
-      }, {
-        path: '/front/college/home/search/special',
-        name: 'CmpFrontCollegeSearchSpecial',
-        meta: {
-          title: '水学院环境|搜索',
-          keepAlive: false,
-          auth: false
-        },
-        component: FrontCollegeSearchSpecial
-      }, {
-        path: '/front/college/home/search/specialdolumn',
-        name: 'CmpFrontCollegeSearchSpecialColumn',
-        meta: {
-          title: '水学院环境|搜索',
-          keepAlive: false,
-          auth: false
-        },
-        component: FrontCollegeSearchSpecialColumn
-      }]
-    },
-    // --------------- 等你来答 ----------------
-    {
-      path: '/front/college/question/answer',
-      name: 'CmpFrontCollegeAnswer',
-      meta: {
-        title: '水学院环境文章详情',
-        keepAlive: false,
-        auth: false
-      },
-      components: {
-        default: FrontCollegeAnswer,
+        default: FrontCollegeInfoComment,
       }
     }, {
-      path: '/front/college/question/concerns',
-      name: 'CmpFrontCollegeMyConcerns',
+      path: '/front/college/info/submitrequest',
+      name: 'CmpFrontCollegeInfoSubmitRequest',
       meta: {
-        title: '水学院环境|我关注的问题',
+        title: '用户消息|投稿请求',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeMyConcerns,
+        default: FrontCollegeInfoSubmitRequest,
       }
     }, {
-      path: '/front/college/question/invitation',
-      name: 'CmpFrontCollegeMyInvitation',
+      path: '/front/college/info/submitrequest/manage',
+      name: 'CmpFrontCollegeInfoManuscriptManage',
       meta: {
-        title: '水学院环境|我的邀请',
+        title: '用户消息|全部投稿',
         keepAlive: false,
         auth: false
       },
       components: {
-        default: FrontCollegeMyInvitation,
+        default: FrontCollegeInfoManuscriptManage,
       }
-    }, {
-      path: '/front/college/question/question',
-      name: 'CmpFrontCollegeQuestion',
-      meta: {
-        title: '水学院环境|等你来答',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeQuestion
-    }, {
-      path: '/front/college/question/details',
-      name: 'CmpFrontCollegeQuestionDetails',
-      meta: {
-        title: '水学院环境|等你来答',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeQuestionDetails
-    }, {
-      path: '/front/college/question/answerLater',
-      name: 'CmpFrontCollegeAnswerLater',
-      meta: {
-        title: '水学院环境|稍后答',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeAnswerLater
-    },
-    // ------------ 发现 -----------
-    {
-      path: '/front/college/find/find',
-      name: 'CmpFrontCollegeFind',
-      meta: {
-        title: '水学院环境|发现',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeFind
-    }, {
-      path: '/front/college/find/special',
-      name: 'CmpFrontCollegeSpecial',
-      meta: {
-        title: '水学院环境|专题列表',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeSpecial
-    }, {
-      path: '/front/college/find/specialdetails',
-      name: 'CmpFrontCollegeSpecialdetails',
-      meta: {
-        title: '水学院环境|专题详情',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeSpecialdetails
-    }, {
-      path: '/front/college/find/specialcolumn',
-      name: 'CmpFrontCollegeSpecialColumn',
-      meta: {
-        title: '水学院环境|专栏列表',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeSpecialColumn
-    },
-    // 收藏，草稿箱
-    {
-      path: '/front/college/home/collect',
-      name: 'CmpFrontCollegeCollect',
-      meta: {
-        title: '水学院环境|我的收藏',
-        keepAlive: false,
-        auth: false
-      },
-      component: FrontCollegeCollect
     }]
   }
 ]

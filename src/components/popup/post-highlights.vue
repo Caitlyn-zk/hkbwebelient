@@ -128,7 +128,7 @@ export default {
       // this.$emit("onPostStaff", '');
     },
     onStaff (index, val) {
-      console.log('点击')
+      // console.log('点击')
       this.Index = index
       this.formStaff.postStaffName = val
     },

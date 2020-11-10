@@ -120,7 +120,16 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    // 设置打包时过滤console.log
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_debugger: true,
+        drop_console: true
+      },
+      sourceMap: true
+    }),
   ]
 })
 

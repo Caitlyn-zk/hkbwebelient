@@ -3,7 +3,7 @@
     <i class="el-icon-location-outline text-green font-16"></i>
     <span class="text-white hk-top-adds clearfix">
         <ul class="hk-province-bar fr" @mouseenter="enter" @mouseleave="leave">
-            <li><span class="text-green" :data-id="provinceCode">{{provinceName}}<span class="text-white">[切换]</span><i class="el-icon-arrow-down"></i></span></li>
+            <li><span class="text-green" :data-id="selectedProvinces.provinceCode">{{selectedProvinces.provinceName}}<span class="text-white">[切换]</span><i class="el-icon-arrow-down"></i></span></li>
             <li class="hk-province-muie" v-if="display">
                 <span class="hk-province-list"
                  v-for="item in provincedata"
@@ -21,28 +21,38 @@ import { province } from '@/config/province'
 export default {
   data () {
     return {
-      provinceCode: '1',
-      provinceName: '北京',
+      
       provincedata: province.data,
-      display: false
+      display: false,
+      selectedProvinces: {
+        provinceCode: '1',
+        provinceName: '全国',
+      }
       // provinceas: regionData
     }
   },
   created () {
-    // 打印省份
-    // this.provinceas.forEach(function (value) {
-    //   console.log(value.label + value.value)
-    // })
+      let LocalStorageProvince = localStorage.getItem('locationProvince')
+      // console.log(LocalStorageProvince)
+      if (LocalStorageProvince !== null) {
+        this.selectedProvinces = JSON.parse(LocalStorageProvince)
+      }
   },
 
   methods: {
     Province (code, name) {
-    //   console.log(index)
-      this.provinceCode = code
-      localStorage.setItem('cache_area_1_name', name)
-      this.provinceName = localStorage.getItem('cache_area_1_name')
+      // console.log('选中城市')
+      // console.log(code,name)
+    
+      this.selectedProvinces.provinceCode = code
+      this.selectedProvinces.provinceName = name
+      // console.log(JSON.stringify(this.selectedProvinces))
+      // 存入localStorage
+      localStorage.setItem('locationProvince', JSON.stringify(this.selectedProvinces))
+      // 取出
+      let LocalStorageProvince = localStorage.getItem('locationProvince')
+      this.selectedProvinces = JSON.parse(LocalStorageProvince)
       this.display = false
-      //   var aa = document.querySelector('')
     },
     enter(){
       this.display = true
@@ -57,8 +67,7 @@ export default {
 <style lang="less" spend>
 .hk-province {
     font-family:Microsoft YaHei;
-    padding-right: 20px;
-    // line-height: 35px;
+    // padding-right: 25px;
     height: 50px;
     color: #fff;
     position: relative;
@@ -67,13 +76,7 @@ export default {
       line-height: 50px;
       margin-top: auto;
       margin-bottom: auto;
-      // border: 1px solid red;
     }
-    // &:hover {
-    //     .hk-province-muie {
-    //         display: block;
-    //     }
-    // }
     .el-icon-location-outline {
         vertical-align: -1px;
     }
@@ -83,7 +86,6 @@ export default {
     .hk-province-muie {
         text-align: left;
         padding-left: 4px;
-        // display: none;
         position: absolute;
         top: 50px;
         left: 20px;
@@ -93,7 +95,6 @@ export default {
         background:rgba(255,255,255,1);
         box-shadow:0px 1px 18px 0px rgba(45,152,119,0.34);
         border-radius:8px;
-        // height: 330px;
         .hk-province-list {
             height:14px;
             font-size:14px;
@@ -105,7 +106,6 @@ export default {
             padding: 0 10px;
             cursor: pointer;
             &:hover {
-                // background: #EAF8F4;
                 color: #08B681;
             }
             &:focus {

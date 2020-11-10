@@ -4,6 +4,7 @@ const Frontnav = () => import('@/components/fontnav/fontnav.vue')
 const Footer = () => import('@/components/fontfooter/fontfooter.vue')
 const Orgnav = () => import('@/components/orgbacknav/orgbacknav.vue')
 const FrontProject = () => import('@/views/front/project/project.vue')
+const FrontNewProject = () => import('@/views/front/project/new-project.vue')
 const FrontProjectSearch = () => import('@/views/front/project/project-search.vue')
 const FrontProjectDetail = () => import('@/views/front/project/project-detail.vue')
 const FrontProjectNoticeDetail = () => import('@/views/front/project/notice-detail.vue')
@@ -35,7 +36,7 @@ export default [
     name: 'CmpFrontProject',
     meta: {
       title: '企业项目管理',
-      keepAlive: false,
+      keepAlive: true,
       auth: false
     },
     components: {
@@ -44,6 +45,19 @@ export default [
       Foot: Footer
     }
   }, {
+    path: '/front/project/new',
+    name: 'CmpFrontNewProject',
+    meta: {
+      title: '企业项目管理',
+      keepAlive: true,
+      auth: false
+    },
+    components: {
+      Head: Frontnav,
+      body: FrontNewProject,
+      Foot: Footer
+    }
+  },{
     path: '/front/project/detail',
     name: 'CmpFrontProjectDetail',
     meta: {

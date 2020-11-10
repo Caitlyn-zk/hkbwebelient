@@ -41,7 +41,7 @@ export default {
   methods: {
     // 弹框传值
     toggleContent (event) {
-        this.$emit('popup', event);
+      this.$emit('popup', event);
     },
     onReport (e) {
       this.report.eject = false

@@ -3,29 +3,38 @@
     <!-- 内容部分 -->
     <div class="content hk-postdetail-bar">
       <!-- 搜索框 -->
-      <div class="hk-postdetail-title">
+      <!-- <div class="hk-postdetail-title">
         <div class="tiling project-number">
           <span class="">项目（500+）</span>
           <span class="margin-l-30">公司（80+）</span>
         </div>
         <div class="search-module">
-          <el-input placeholder="请输入想要搜索的项目" v-model="inputValue" class="search-input">
-            <el-button slot="append" @click="onSearch" class="hk-search-button">搜索</el-button>
-          </el-input>
+          <el-input placeholder="请输入想要搜索的招聘岗位" v-model="inputValue" class="search-input">
+            <el-cascader
+              slot="prepend"
+              placeholder="职位类型"
+              v-model="typeSelect"
+              :options="postCateList"
+              :props="postData"
+              @change="onTypeSelect"
+              clearable >
+            </el-cascader>
+          <el-button slot="append" class="hk-search-button" @click="onSearch">搜索</el-button>
+        </el-input>
         </div>
         <div class="tiling search-rec">
           <span class="search-rec-title">相关搜索：</span>
           <span class="search-rec-option" v-for="item in 4" :key="item" @click="onRelatedSearch('饮用水工程')">饮用水工程</span>
         </div>
-      </div>
+      </div> -->
       <!-- 图 -->
-      <div class="hk-el-carousel">
+      <!-- <div class="hk-el-carousel">
         <img style="width=100%" :src="'/static/img/project-search.png'"/>
-      </div>
+      </div> -->
       <!-- 详情明细 -->
       <div class="hk-postdetail-content clearfix">
         <div class="hk-postdetail-title font-16">
-          当前职位：人才需求职位列表-职位详情
+          职位详情：{{detaillist.post_name}}
         </div>
         <div >
           <!-- 详情 注：后台自己写的详情 -->
@@ -46,7 +55,7 @@
               </div>
               <div class="hk-recruitment-information">
                 <div class="hk-recruit-ad">
-                  <img src="@/assets/image/hk-recruit.png"/>
+                  <img src="@/assets/image/hk-recruit.png" @click="onAD" />
                 </div>
                 <div class="hk-recruit-apply">
                   <div class="hk-recruit-title">
@@ -59,7 +68,6 @@
                    :class="selectArr === true ? 'is-active' : ''">
                     <li>
                       <span class="font-14 text-blacks post_name" @click="onPostDetaol(item.post_id)">{{item.post_name}}{{item.id}}</span>
-                      <!-- <span class="font-14 padding-l-10 text-blacks">({{item.goodstaff}})</span> -->
                     </li>
                     <li class="padding-t-9 padding-b-11">
                       <span class="text-red font-12">{{item.min_salary | onSalary}}-{{item.max_salary | onSalary}}</span>
@@ -69,7 +77,6 @@
                       <div class="padding-l-20 font-12 text-blacks address">{{item.area2_name}}-{{item.area3_name}}</div>
                     </li>
                     <li class="hk-checked-btn">
-                      <!-- <Checkbox v-model="selectArrCloth" label="adfs">dsacsd</Checkbox> -->
                       <el-checkbox-button 
                         v-model="selectArrCloth" :label="item.post_id"
                         @change="item.checked = item.checked">
@@ -89,16 +96,11 @@
                     <span class="public-post-salary padding-r-20">{{detaillist.min_salary | onSalary }}-{{detaillist.max_salary | onSalary}}</span>
                     <span class="text-blacks">{{detaillist.work_type | onWorkType}}</span>
                     <span class="padding-lr-10 text-blacks">{{address}}</span>
-                    <!-- <span class="padding-l-20 padding-r-10 text-blacks">{{detaillist.address.length == 0 ? '' : detaillist.address[0].area1_name}}</span> -->
                     <span class="padding-lr-10 text-blacks">{{detaillist.work_life | onWorkLife}}</span>
                     <span>{{detaillist.min_edu | onMinEdu}} </span>
                   </li>
                   <li class="text-line">
                     <span class="padding-r-20" v-for="(porp, index) in good_staff" :key="index">{{good_staff[index]}}</span>
-                    <!-- <span>五险一金</span> -->
-                    <!-- <span class="padding-lr-10">五险一金</span> -->
-                    <!-- <span class="padding-lr-10">绩效奖励</span> -->
-                    <!-- <span class="">绩效奖励</span> -->
                   </li>
                 </ul>
                 <div class="hk-postdetail-right text-r">
@@ -162,7 +164,7 @@ import { quillEditor } from 'vue-quill-editor'
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-import {getUserPostDetail, applyForPost, collectPost,resumeCenterList} from '@/api/recruit'
+import {getUserPostDetail, applyForPost, collectPost,resumeCenterList,getPostCateTree} from '@/api/recruit'
 import PopupLogin from "@/components/popup/login"
 import {mapMutations, mapGetters } from 'vuex'
 import {workLife, minEdu, mainSalary, workType,compayScale} from '@/config/constant'
@@ -240,6 +242,13 @@ export default {
       delivery_status: null,
       org_scale:null,
       address:'',
+      typeSelect:'',
+      postData: {
+        value: 'id',
+        label: 'cate_name',
+        children: 'children'
+      },
+      postCateList:[]
     }
   },
   created () {
@@ -247,7 +256,7 @@ export default {
       this.post_id = parseInt(this.$route.query.post_id)
     }
     this.getPostDetail()
-    // this.getTuijian()
+    this.postList()
   },
   components: {
     quillEditor,
@@ -264,7 +273,12 @@ export default {
     }
   },
   methods: {
-      ...mapMutations(['INIT_POST_RECORD','ADD_POST_RECORD']),
+    ...mapMutations(['INIT_POST_RECORD','ADD_POST_RECORD']),
+    postList(addressFrame) {
+      getPostCateTree().then(res => {
+        this.$set(this, "postCateList", res.data);
+      });
+    },
     onSearch () {
       this.$router.push({path: '/front/recruit/post/search', query: {key: this.inputValue}})
     },
@@ -278,7 +292,8 @@ export default {
     getPostDetail () {
       getUserPostDetail(this.post_id).then(res => {
         this.detaillist = res.data
-        // console.log('详情列表',JSON.stringify())
+
+        document.title = '职位详情|'+ res.data.post_name
         this.good_staff = res.data.good_staff.split(',')
         // console.log(this.good_staff)
         this.org_name = res.data.org_name
@@ -289,31 +304,7 @@ export default {
         this.similarPost = res.data.resemble_post
         this.address = this.detaillist.post_address[0].area1_name+'-'+this.detaillist.post_address[0].area2_name+'-'+this.detaillist.post_address[0].area3_name
         
-        //添加浏览记录
-        // this.ADD_POST_RECORD({post_id: this.detaillist[0].id,org_name: this.detaillist[0].org_id, post_name:  this.detaillist[0].name, salary: this.detaillist[0].min_salary+"K-"+ this.detaillist[0].max_salary+"K"})
       })
-    },
-    // 请求推荐职位数据
-    getTuijian () {
-      var arr = [{
-        id: 1,
-        name: '贵州活性炭有限公司',
-        postname: '销售-白云',
-        goodstaff: '朝九晚五',
-        salarys: '4k-5k',
-        address: '广州-番禺'
-      }, {
-        id: 2,
-        name: '贵州活性炭有限公司',
-        postname: '销售-白云',
-        goodstaff: '朝九晚五',
-        salarys: '4k-5k',
-        address: '广州-番禺'
-      }]
-      arr.forEach(item => {
-        item.checkbed = false
-      })
-      this.similarPost = arr
     },
     // 多选框
     onCheckboxChange (val) {
@@ -447,6 +438,14 @@ export default {
       this.post_id = id
       this.$router.push({path:"/front/recruit/post/detail",query:{post_id:id}})
       this.reload()
+    },
+    onTypeSelect(val){
+      // console.log('职位类型',val)
+      this.$router.push({ path: "/front/recruit/post/search",query:{id:val[0],post_id:val[1]}});
+    },
+    // 跳转广告
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   },
   watch: {

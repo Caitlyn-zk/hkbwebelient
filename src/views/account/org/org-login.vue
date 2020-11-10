@@ -206,6 +206,8 @@ export default {
       wechatPollingLogin(this.uu_str).then(res=>{
         if(res.status == 200){
           handleOrgLoginSuccess(res)
+          clearInterval(this.pollingLoginTime);
+          clearInterval(this.qrCodeTime);
         }
       }).catch(res=>{})
     },
@@ -218,9 +220,10 @@ export default {
           this.getWechatPollingLogin()
         }
       }).catch(res=>{
-        console.log('获取二维码 报错',JSON.stringify(res))
+        // console.log('获取二维码 报错',JSON.stringify(res))
         this.$message({
           message: res.msg,
+          offset: 60,
           type: "error"
         })
       })
@@ -252,6 +255,7 @@ export default {
                 message: res.msg,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             }
@@ -269,6 +273,7 @@ export default {
             message: '未填写信息，请填写',
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
           // return false
@@ -364,6 +369,7 @@ export default {
                   message: res.msg,
                   type: 'success',
                   showClose: true,
+                  offset: 60,
                   duration: 3000
                 })
               } else {
@@ -371,6 +377,7 @@ export default {
                   message: res.msg,
                   type: 'error',
                   showClose: true,
+                  offset: 60,
                   duration: 3000
                 })
               }
@@ -379,6 +386,7 @@ export default {
                 message: res.msg,
                 type: 'error',
                 showClose: true,
+                offset: 60,
                 duration: 3000
               })
             })

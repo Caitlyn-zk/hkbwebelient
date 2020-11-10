@@ -81,7 +81,8 @@
             width="300"
             >
             <template slot-scope="scope">
-              <a href="#" target="_blank" class="table-name">{{scope.row.name}}</a>
+              <!-- <a href="#" target="_blank" class="table-name">{{scope.row.name}}</a> -->
+              <span class="table-name"> {{scope.row.name}}</span>
             </template>
             </el-table-column>
             <el-table-column

@@ -70,12 +70,12 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath)
-      console.log(123)
+      // console.log(key, keyPath)
+      // console.log(123)
     },
     handleClose (key, keyPath) {
-      console.log(key, keyPath)
-      console.log(key)
+      // console.log(key, keyPath)
+      // console.log(key)
     },
     onRouterPathChanged (val, oldval) {
       let that = this

@@ -267,6 +267,7 @@ export default {
           this.image_name = res.data.image_name
           this.$message({
             message: res.msg,
+            offset: 60,
             type: "success"
           })
         }
@@ -367,6 +368,7 @@ export default {
             message: res.msg,
             type: 'success',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         } else {
@@ -374,6 +376,7 @@ export default {
             message: res.message,
             type: 'error',
             showClose: true,
+            offset: 60,
             duration: 3000
           })
         }
@@ -382,6 +385,7 @@ export default {
           message: res.message,
           type: 'error',
           showClose: true,
+          offset: 60,
           duration: 3000
         })
       })
@@ -407,8 +411,10 @@ export default {
     userInfo(newV,oldV) {
       this.userData = newV
       this.user_name = newV.user_info.real_name
-      this.school = newV.edu[0].school
-      this.major = newV.edu[0].major
+      if (newV.edu.length !== 0) {
+        this.school = newV.edu[0].school
+        this.major = newV.edu[0].major
+      }
       // if (newV.work.length > 0) {
       //   this.post_name = newV.work[0].post_name
       // }

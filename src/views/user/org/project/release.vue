@@ -22,7 +22,7 @@
                 ref="myprojeccader"
                 :options="from_code_tree"
                 :props="from_code_tree_data"
-                v-model="ruleForm.project_cate" placeholder="咨询" @change="onGetCateData">
+                v-model="ruleForm.project_cate" placeholder="咨询" @change="onGetCateData" >
               </el-cascader>
             </el-form-item>
             <el-form-item label="项目名称" prop="name">
@@ -31,7 +31,7 @@
             <el-form-item class="hk-content-towitem">
               <el-col :span="8">
                 <el-form-item label="资金来源" prop="fund_from">
-                  <el-select v-model="ruleForm.fund_from" placeholder="请选择资金来源">
+                  <el-select v-model="ruleForm.fund_from" placeholder="请选择资金来源" clearable>
                     <el-option
                         v-for="item in fund_froms"
                         :key="item.value"
@@ -43,7 +43,7 @@
               </el-col>
               <el-col :span="8">
                 <el-form-item label="资金规模" prop="fund_rang">
-                <el-select v-model="ruleForm.fund_rang" placeholder="请选择资金规模">
+                <el-select v-model="ruleForm.fund_rang" placeholder="请选择资金规模" clearable>
                   <el-option
                       v-for="item in fund_rang"
                       :key="item.value"
@@ -55,7 +55,7 @@
               </el-col>
             </el-form-item>
             <el-form-item label="参与方式" prop="in_way">
-              <el-select v-model="ruleForm.in_way" placeholder="请选择参与方式">
+              <el-select v-model="ruleForm.in_way" placeholder="请选择参与方式" clearable >
                 <el-option
                     v-for="item in in_way"
                     :key="item.value"
@@ -112,6 +112,7 @@
                 v-model="ruleForm.selectedOptions"
                 @change="onGetCityData"
                 :separator="' '"
+                clearable
                 >
               </el-cascader>
             </el-form-item>
@@ -377,15 +378,16 @@ export default {
     },
     // 获取省份
     onGetCityData (val) {
+      // console.log('城市选择',val)
       // console.log('选择' + val, this.$refs.myCascader.getCheckedNodes()[0].pathLabels[0])
       // console.log(this.ruleForm.selectedOptions)
       // console.log(this.ruleForm.selectedOptions[0], this.ruleForm.selectedOptions[1], this.ruleForm.selectedOptions[2])
-      this.$set(this, 'area1_code', this.ruleForm.selectedOptions[0])
-      this.$set(this, 'area2_code', this.ruleForm.selectedOptions[1])
-      this.$set(this, 'area3_code', this.ruleForm.selectedOptions[2])
-      this.$set(this, 'area1_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[0])
-      this.$set(this, 'area2_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[1])
-      this.$set(this, 'area3_name', this.$refs.myCascader.getCheckedNodes()[0].pathLabels[2])
+      this.$set(this, 'area1_code',val ? this.ruleForm.selectedOptions[0] : nill)
+      this.$set(this, 'area2_code',val ? this.ruleForm.selectedOptions[1] : nill)
+      this.$set(this, 'area3_code',val ? this.ruleForm.selectedOptions[2] : nill)
+      this.$set(this, 'area1_name',val ? this.$refs.myCascader.getCheckedNodes()[0].pathLabels[0] : '')
+      this.$set(this, 'area2_name',val ? this.$refs.myCascader.getCheckedNodes()[0].pathLabels[1] : '')
+      this.$set(this, 'area3_name',val ? this.$refs.myCascader.getCheckedNodes()[0].pathLabels[2] : '')
     },
     // 发布项目请求
     onReleaseProject (ruleForm) {
@@ -398,10 +400,10 @@ export default {
               org_id: this.org_id,
               cate_id: this.ruleForm.cate_id,
               name: this.ruleForm.name,
-              fund_rang: this.ruleForm.fund_rang,
-              fund_from: this.ruleForm.fund_from,
-              in_way: this.ruleForm.in_way,
-              is_online: this.ruleForm.is_online,
+              fund_rang: this.ruleForm.fund_rang  == '' ? null : this.ruleForm.fund_rang,
+              fund_from: this.ruleForm.fund_from  == '' ? null : this.ruleForm.fund_from,
+              in_way: this.ruleForm.in_way == '' ? null : this.ruleForm.in_way,
+              is_online: this.ruleForm.is_online == '' ? null : this.ruleForm.is_online,
               online_time: this.ruleForm.online_time,
               offline_time: this.ruleForm.offline_time,
               link_man: this.ruleForm.link_man,

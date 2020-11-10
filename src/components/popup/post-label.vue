@@ -85,7 +85,7 @@ export default {
       this.postLabel.eject = false;
     },
     onSelctPostLabel (index, val) {
-      console.log('点击')
+      // console.log('点击')
       this.Index = index
       this.formpostLabel.postLabels = val
     },

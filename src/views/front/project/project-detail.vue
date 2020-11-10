@@ -3,16 +3,24 @@
     <!-- 内容部分 -->
     <div class="content hk-postdetail-bar">
       <!-- 搜索框 -->
-      <div class="hk-postdetail-title">
+      <!-- <div class="hk-postdetail-title">
         <div class="tiling project-number">
           <span class>项目（500+）</span>
           <span class="margin-l-30">公司（80+）</span>
         </div>
         <div class="search-module">
-          <el-input placeholder="请输入想要搜索的项目" v-model="inputValue" class="search-input">
+          <el-input placeholder="请输入想要的内容搜索" v-model="inputValue" class="search-input">
+            <el-cascader
+              slot="prepend"
+              placeholder="项目类型"
+              v-model="typeSelect"
+              :options="proCate"
+              :props="postData"
+              @change="onTypeSelect"
+              clearable >
+            </el-cascader>
             <el-button slot="append" @click="onSearch" class="hk-search-button">搜索</el-button>
           </el-input>
-          <!-- <div class="hk-search-tips search-tips" >项目发布</div> -->
         </div>
         <div class="tiling search-rec">
           <span class="search-rec-title">相关搜索：</span>
@@ -23,23 +31,23 @@
             @click="RelatedSearch(item)"
           >{{item}}</span>
         </div>
-      </div>
+      </div> -->
       <!-- 图 -->
-      <div class="hk-el-carousel">
+      <!-- <div class="hk-el-carousel">
         <img style="width=100%" :src="'/static/img/project-search.png'" />
-      </div>
+      </div> -->
       <!-- 详情明细 -->
       <div class="hk-postdetail-content clearfix">
         <div
           class="hk-postdetail-title font-16"
-        >当前项目：{{proCateName}}类项目-->项目详情</div>
+        >项目分类：{{proCateName}}类项目</div>
         <div>
           <!-- 详情 注：后台自己写的详情 -->
           <div class="hk-postdetail-text clearfix">
             <!-- 推荐相关项目 -->
             <div class="fr hk-postdetail-right-box">
               <div class="recently-browse">
-                <img src="../../../assets/image/source-of-water.png"/>
+                <img src="../../../assets/image/source-of-water.png" @click="onAD"/>
               </div>
             </div>
             <!-- 详情内容 -->
@@ -151,12 +159,20 @@ export default {
         "项目环评",
         "项目竣工验收",
         "环境监测"
-      ]
+      ],
+      postData: {
+        value: 'id',
+        label: 'cate_name',
+        children: 'children'
+      },
+      typeSelect: [],
+      projectName: '招商项目详情'
     };
   },
   created() {
     this.proid = this.$route.query.proid;
     this.onProjectDetail();
+    // this.projectCateTree()
   },
   components: {
     quillEditor,
@@ -189,7 +205,9 @@ export default {
         this.detailContent = res.data;
         // console.log('详情列表' + res.data.good_staff)
         // this.good_staff = res.data.good_staff.split(',')
-        // console.log(res.data.cate_id)
+        // console.log(res.data)
+        this.projectName = res.data.name
+        document.title = '招商项目|'+this.projectName
         var value = String(res.data.cate_id).substring(0, 2);
         var id = parseInt(value);
         proCate.forEach(item => {
@@ -206,7 +224,7 @@ export default {
     },
     // 分享项目
     onSharePro(val) {
-      console.log('分享项目')
+      // console.log('分享项目')
       if (this.isLogin) {
         let collectData = {
           type: 1,
@@ -252,6 +270,13 @@ export default {
     },
     onClose() {
       this.login = true;
+    },
+    onTypeSelect(val){
+      this.$router.push({ path: "/front/project/search", query: { id: val[0],project_id:val[1] } });
+    },
+    // 跳转广告
+    onAD(){
+      this.$router.push({path:'/ad'})
     }
   },
   watch: {

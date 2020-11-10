@@ -166,13 +166,13 @@ export default {
     Cropper
   },
   created() {
-    console.log("获取 页面高度", this.height);
+    document.querySelector('body').setAttribute('style', 'background-color:#fff')
+    // console.log("获取 页面高度", this.height);
     this.getInfo();
-
   },
   methods: {
     onHandleChange(val) {
-      console.log("地区11", JSON.stringify(val));
+      // console.log("地区11", JSON.stringify(val));
       if (val.length !== 0) {
         this.$set(this, "area1_code", this.form.region[0]);
         this.$set(this, "area2_code", this.form.region[1]);
@@ -204,17 +204,17 @@ export default {
     },
     getUpToken(){
       getUpToken().then(res=>{
-        console.log("获取图片",JSON.stringify(res))
+        // console.log("获取图片",JSON.stringify(res))
       })
     },
     onWorkLife(val) {
-      console.log("选择工作时间", val);
+      // console.log("选择工作时间", val);
       if (val !== "") {
         this.checked = false;
       }
     },
     onChecked(val) {
-      console.log("选择是否有经验", val);
+      // console.log("选择是否有经验", val);
       if (val) {
         this.form.work_life = "";
       }
@@ -238,10 +238,10 @@ export default {
         live_in_area2_name: that.area2_name,
         live_in_area3_name: that.area3_name
       };
-      console.log("参数", parameter);
+      // console.log("参数", parameter);
       authUserInfoAu(parameter)
         .then(res => {
-          console.log("保存信息", res);
+          // console.log("保存信息", res);
           if (res.status === 200) {
             that.$router.push({ name: "PATH_ACCOUNT_USER_REGISTER_SETP_2" });
             this.$message({
@@ -279,7 +279,7 @@ export default {
       let person_reg_state = 10;
       let that = this;
       getUserInfo(person_reg_state).then(res => {
-        console.log("基本信息渲染", JSON.stringify(res.data));
+        // console.log("基本信息渲染", JSON.stringify(res.data));
         if (res.status == 200) {
           // 成功便将名字传给右侧导航
           // Bus.$emit('name',res.data.real_name)
@@ -304,7 +304,7 @@ export default {
             String(res.data.live_in_area3)
           ];
         }
-        console.log("地区 渲染", JSON.stringify(that.form.region));
+        // console.log("地区 渲染", JSON.stringify(that.form.region));
       });
     },
     consoleFL () {
@@ -323,7 +323,9 @@ export default {
       this.image_name = image_name
     }
   },
-  
+   beforeDestroy() {
+    document.querySelector('body').removeAttribute('style')
+  },
 };
 </script>
 <style lang="less" scoped>

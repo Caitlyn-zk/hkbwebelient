@@ -75,7 +75,7 @@ export default {
       let renderCity = [];
 
       if (val === '2') {
-        console.log(this.cityGroup.A)
+        // console.log(this.cityGroup.A)
         this.rewriteCity = []
         this.rewriteCity.push(
           this.cityGroup.A,this.cityGroup.B,this.cityGroup.C,this.cityGroup.D, this.cityGroup.E
@@ -110,7 +110,7 @@ export default {
     onselect(e) {
     },
     onCity(code, area_name) {
-      console.log(code, area_name);
+      // console.log(code, area_name);
       this.citySelect.selected = {area_name,code};
       this.citySelect.eject = false;
       this.$emit("citySelect", this.citySelect);

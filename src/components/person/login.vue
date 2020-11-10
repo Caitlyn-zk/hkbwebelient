@@ -45,13 +45,13 @@
 <script>
 import { login, registerVerify} from '@/api/user'
 import { mapGetters } from 'vuex'
-import {handlePersonLoginSuccess} from '@/libs/login'
 let Base64 = require('js-base64').Base64
 import utils from '@/utils/index.js'
 import cookie from '@/utils/store/cookie'
 import store from '@/store'
 import dayjs from 'dayjs'
 export default {
+    inject: ['reload'],
     data(){
         var validateMobilePhone = (rule, value, callback) => {
             if (value === '') {
@@ -161,14 +161,15 @@ export default {
                     // alert('submit!')
                     login({ phone, password }).then(res => {
                         if (res.status === 200) {
-                            // handlePersonLoginSuccess(res)
                             store.commit('LOGIN', {token: res.data.token, expires_time: dayjs(res.data.expires_time)})
+                            this.reload()
                         } else {
                             this.$message({
                                 message: res.msg,
                                 type: 'error',
                                 showClose: true,
-                                duration: 3000
+                                duration: 3000,
+                                offset: 60,
                             })
                         }
                     }).catch(res => {
@@ -176,16 +177,18 @@ export default {
                             message: res.msg,
                             type: 'error',
                             showClose: true,
-                            duration: 3000
+                            duration: 3000,
+                            offset: 60,
                         })
                     })
                     } else {
-                        console.log('error submit!!')
+                        // console.log('error submit!!')
                         this.$message({
                             message: '未填写信息，请填写',
                             type: 'error',
                             showClose: true,
-                            duration: 3000
+                            duration: 3000,
+                            offset: 60,
                         })
                     }
                 })
@@ -234,7 +237,7 @@ export default {
         let userName = ''
         let passWord = ''
         let index = accountInfo.indexOf('&')
-        console.log(accountInfo)
+        // console.log(accountInfo)
         userName = accountInfo.substring(0,index)
         passWord = accountInfo.substring(index+1)// 拿到加密后的密码
         // 解密

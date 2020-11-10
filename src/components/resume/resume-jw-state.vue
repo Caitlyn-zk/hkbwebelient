@@ -1,5 +1,5 @@
 <template>
-  <div class="hk-details-list-title margin-t-10 clearfix">
+  <div class="hk-detail-list-title margin-t-10 clearfix">
     <div class="clearfix">
       <div class="fr hk-resume-main">
         <el-button round @click="onEdit(jobWantState)">编辑</el-button>
@@ -124,7 +124,7 @@ export default {
     // },
     editUserResume(){
       let that = this
-       console.log('上传参数',JSON.stringify(that.editData))
+      //  console.log('上传参数',JSON.stringify(that.editData))
       var data = {
         resume_id: that.editData.resume_id,
         resume_name: that.editData.resume_name,
@@ -164,7 +164,7 @@ export default {
       })
     },
     onEdit (e) {
-      console.log("求职状态",JSON.stringify(e))
+      // console.log("求职状态",JSON.stringify(e))
       // console.log(this.jobWantState)
       this.$set(this, 'dialogFormVisible', true)
       this.form.state_bar = e.jobwant_state
