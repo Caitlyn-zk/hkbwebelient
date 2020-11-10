@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Main from "./views/Main";
+// import Main from "./views/Main";
 import backtop from '@/components/common/backtop'
 export default {
   name: "App",
@@ -39,7 +39,7 @@ export default {
   },
   matched() {},
   components: {
-    Main,
+    // Main,
     backtop
   },
   methods: {
