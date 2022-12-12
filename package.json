@@ -18,7 +18,7 @@
     "element-china-area-data": "^4.1.2",
     "element-ui": "^2.13.0",
     "expess": "^0.0.1-security",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "js-base64": "^2.5.2",
     "mavon-editor": "^2.7.7",
     "moment": "^2.24.0",
